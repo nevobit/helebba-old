@@ -13,3 +13,7 @@
     border: none;
     cursor: pointer;
 }
+
+.large{
+    width: 100%;
+}

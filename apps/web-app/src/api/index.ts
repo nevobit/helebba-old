@@ -9,7 +9,7 @@ const generateSignature = (url: string, body: string, timestamp: number) => {
     return crypto.HmacSHA256(dataToSign, API_SECRET).toString();
 };
 
-export const apiInstance: AxiosInstance = axios.create({
+export const helebbaApi: AxiosInstance = axios.create({
     baseURL: BASE_URL,
     timeout: 10000,
     headers: {
@@ -17,7 +17,7 @@ export const apiInstance: AxiosInstance = axios.create({
     },
 });
 
-apiInstance.interceptors.request.use((config) => {
+helebbaApi.interceptors.request.use((config) => {
     const token = JSON.parse(localStorage.getItem('token') || '{}');
     if (token) {
         config.headers.Authorization = `Bearer ${token}`;
@@ -36,7 +36,7 @@ apiInstance.interceptors.request.use((config) => {
     return Promise.reject(error);
 });
 
-apiInstance.interceptors.response.use(
+helebbaApi.interceptors.response.use(
     response => response,
     error => {
         if (error.response) {
