@@ -1,11 +1,9 @@
 import React, { useState } from 'react'
 import styles from './Signup.module.css'
 import { Link } from 'react-router-dom'
-import Field from '@/components/Shared/Field'
-import Input from '@/components/Shared/Input'
-import Button from '@/components/Shared/Button'
 import { CredentialResponse, GoogleLogin } from '@react-oauth/google'
-import { useLoginGoogle, useRegister } from '@/hooks'
+import { useLoginGoogle, useRegister } from '../../hooks'
+import { Button, Field, Input } from '@helebba/design-system/web'
 
 const Signup = () => {
     const { isRegistering, register } = useRegister();
