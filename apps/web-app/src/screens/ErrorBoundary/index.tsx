@@ -1,4 +1,3 @@
-import { Button } from '@helebba/design-system/web';
 import styles from './ErrorBoundary.module.css';
 
 const ErrorBoundary = () => {
@@ -9,7 +8,6 @@ const ErrorBoundary = () => {
       <p>
         Uf you need innmediate helm please <a href="/">let us know</a>
       </p>
-      <Button>Try again</Button>
     </div>
   );
 };
