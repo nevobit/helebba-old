@@ -12,7 +12,7 @@ const Steps = () => {
     <section className={styles.section}>
       <div className={styles.container}>
         <Image
-          src={images[actualImage]}
+          src={images[actualImage]!}
           width={600}
           height={350}
           alt="Punto de Venta Helebba"
