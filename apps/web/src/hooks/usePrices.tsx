@@ -20,17 +20,17 @@ const pricesCOP = {
 
 const getPrices = (country: string) => {
   const rates: { [key: string]: { rate: number, currency: string, format: string } } = {
-    "AR": { rate: conversionRates.ARS, currency: "COP", format: 'es-AR' },
-    "MX": { rate: conversionRates.MXN, currency: "MXN", format: 'es-MX' },
-    "PY": { rate: conversionRates.PYG, currency: "COP", format: 'es-PY' },
-    "UY": { rate: conversionRates.UYU, currency: "COP", format: 'es-UY' },
-    "VE": { rate: conversionRates.VES, currency: "USD", format: 'en-US' },
-    "BO": { rate: conversionRates.BOB, currency: "COP", format: 'es-BO' },
+    "AR": { rate: conversionRates.ARS!, currency: "COP", format: 'es-AR' },
+    "MX": { rate: conversionRates.MXN!, currency: "MXN", format: 'es-MX' },
+    "PY": { rate: conversionRates.PYG!, currency: "COP", format: 'es-PY' },
+    "UY": { rate: conversionRates.UYU!, currency: "COP", format: 'es-UY' },
+    "VE": { rate: conversionRates.VES!, currency: "USD", format: 'en-US' },
+    "BO": { rate: conversionRates.BOB!, currency: "COP", format: 'es-BO' },
     "CO": { rate: 1, format: 'es-CO', currency: "COP" },
   };
 
-  const { rate, format } = rates[country] || rates.COP;
-  const currency = rates[country].currency;
+  const { rate, format } = rates[country]! || rates.COP!;
+  const currency = rates[country]!.currency;
 
   const convertedPrices = {
     plus: divisaFormater({ value: pricesCOP.plus * rate, currency, format }),
