@@ -1,0 +1,12 @@
+.top{
+    background-image: linear-gradient(to right, #a043c1, #1a0d69);
+    text-align: center;
+    padding-block: 1.5rem;
+    font-size: 1.6rem;
+    font-weight: 600;
+}
+
+.top a{
+    color: #fff;
+    text-decoration: underline;
+}

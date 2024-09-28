@@ -9,19 +9,21 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@helebba/design-system": "workspace:*",
     "@helebba/ui": "workspace:*",
-    "react": "19.0.0-rc-f994737d14-20240522",
-    "react-dom": "19.0.0-rc-f994737d14-20240522",
-    "next": "15.0.0-rc.0"
+    "next": "^14.2.13",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-feather": "^2.0.10"
   },
   "devDependencies": {
     "@helebba/eslint-config": "workspace:*",
     "@helebba/typescript-config": "workspace:*",
-    "typescript": "^5",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "eslint": "^8",
-    "eslint-config-next": "15.0.0-rc.0"
+    "eslint-config-next": "15.0.0-rc.0",
+    "typescript": "^5"
   }
 }

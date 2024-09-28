@@ -1,0 +1,27 @@
+.card{
+    background-color: #fff;
+    border-radius: 1rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, .1);
+    width: 30rem;
+    height: 30rem;
+    padding: 4rem;
+    display: grid;
+    grid-template-rows: 1fr 2fr 1fr 1fr;
+}
+
+.card ul{
+    display: flex;
+    justify-content: flex-start;
+    gap: 1rem;
+}
+
+.card h2{
+    font-weight: 600;
+    font-size: 2rem;
+    margin-bottom: 4rem;
+}
+
+.card p{
+    color: rgba(0, 0, 0, .7);
+    font-size: 1.4rem;
+}

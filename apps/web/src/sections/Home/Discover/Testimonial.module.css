@@ -1,0 +1,47 @@
+.section{
+    background-color: #0E224C;
+    /* height: 20rem; */
+    position: relative;
+    margin-block: 8rem;
+    padding-block: 8rem;
+}
+
+.content{
+    width: min(90%, 120rem);
+    margin-inline: auto;
+    gap: 4rem;
+}
+
+.text{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+}
+
+.text h3{
+    color: #90C1F9;
+}
+
+.subtitle{
+    color: #1971ea;
+    font-weight: 500;
+    margin-bottom: 1rem;
+}
+
+.title{
+    font-size: 3.5rem;
+    font-weight: 600;
+    line-height: 4rem;
+    letter-spacing: -.1rem;
+    color: #fff;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.copy{
+    color: rgb(107 114 128);
+    font-size: 1.8rem;
+    line-height: 2.5rem;
+}

@@ -1,0 +1,132 @@
+.section{
+    padding-block: 10rem;
+
+}
+
+.content{
+    width: min(90%, 120rem);
+    margin-inline: auto;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 6rem;
+    
+}
+
+.picture {
+    width: min(100%, 120rem);
+    margin-inline: auto;
+    border-radius: 1rem;
+    overflow: hidden;
+    padding-top: 8rem;
+}
+
+.content ul{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 4rem;
+}
+
+.content img{
+    border-radius: .7rem;
+    object-fit: cover;
+    margin-bottom: 2rem;
+}
+
+.text{
+    color: rgb(107 114 128);
+    font-size: 1.4rem;
+    line-height: 2rem;
+    margin-top: .5rem;
+}
+
+.subtitle{
+    color: #1971ea;
+    font-weight: 500;
+    margin-bottom: 1rem;
+}
+
+.title{
+    font-size: 3rem;
+    font-weight: 800;
+    line-height: 4rem;
+    letter-spacing: -.1rem;
+    color: rgb(17 24 39);
+    margin-bottom: 1rem;
+}
+
+.copy{
+    color: rgb(107 114 128);
+    font-size: 1.7rem;
+    line-height: 2.5rem;
+    max-width: 40rem;
+}
+
+.information{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin-top: 8rem;
+    align-items: center;
+    gap: 4rem;
+}
+
+.information img{
+    width: 100%;
+}
+
+.information h3{
+    color: rgb(17 24 39);
+    font-size: 2.8rem;
+    font-weight: 800;
+}
+
+.information a{
+    background-color: #1971ea;
+    color: #fff;
+    border-radius: .5rem;
+    padding: 1rem 2rem;
+    display: inline-block;
+}
+
+.information ul{
+    display: grid;
+    gap: 2rem;
+    margin-block: 6rem;
+}
+.information ul h4{
+    color: rgb(17 24 39);
+}
+
+.information ul p{
+    color: rgb(107 114 128);
+    margin-top: .5rem;
+    font-size: 1.5rem;
+}
+
+.content ul li h3{
+    display: flex;
+    gap: .5rem;
+}
+
+.content ul li p{
+    padding-left: 2.5rem;
+}
+
+@media screen and (max-width: 768px) {
+
+    .content {
+        grid-template-columns: 1fr;
+    }
+    .content ul{
+        grid-template-columns: 1fr;
+    }
+
+    .picture{
+        height: 30rem;
+     
+    }
+
+    .picture img{
+        height: 40rem;
+        object-fit: contain;
+    }
+}

@@ -1,0 +1,48 @@
+.header{
+    padding-block: 1.5rem;
+    border-bottom: 1px solid rgba(0, 0, 0, .05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, .05);
+}
+
+.nav{
+    width: min(90%, 1350px);
+    margin-inline: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 1.5rem;
+}
+
+.nav a{
+    font-size: 1.5rem;
+}
+
+.nav > div{
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+}
+
+.nav img{
+    margin-right: 1rem;
+}
+
+.btn{
+    font-weight: 500;
+    background-color: #1971ea;
+    color: #fff;
+    padding: 1.25rem 2rem;
+    border-radius: .5rem;
+}
+
+.nav .login_btn{
+    color: #1971ea;
+    font-weight: 500;
+    font-size: 1.6rem;
+}
+
+@media screen and (max-width: 768px) {
+    .nav a{
+        display: none;
+    }
+}

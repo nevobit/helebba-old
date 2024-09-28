@@ -1,0 +1,10 @@
+export { default as CTA } from './CTA';
+export { default as Discover } from './Discover';
+export { default as More } from './More';
+export { default as OneClic } from './OneClic';
+export { default as Speak } from './Speak';
+export { default as Stats } from './Stats';
+export { default as Testimonial } from './Testimonial';
+export { default as Testimonials } from './Testimonials';
+export { default as Time } from './Time';
+export { default as Tools } from './Tools';
