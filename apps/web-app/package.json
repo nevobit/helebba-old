@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@helebba/design-system": "workspace:^",
+    "@react-oauth/google": "^0.12.1",
     "@tanstack/react-query": "^5.51.21",
     "axios": "^1.7.3",
     "crypto-js": "^4.2.0",
