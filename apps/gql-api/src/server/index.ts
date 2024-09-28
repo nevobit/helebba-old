@@ -15,9 +15,9 @@ import {
   Logger,
   LoggerTransportName,
   MonoContext,
-} from '@repo/core-modules';
-import { getLogger, setLogger } from '@repo/constant-definitions';
-import { initDataSources } from '@repo/data-sources';
+} from '@helebba/core-modules';
+import { getLogger, setLogger } from '@helebba/constant-definitions';
+import { initDataSources } from '@helebba/data-sources';
 import { version, name } from '../../package.json';
 import { typeDefs } from '../typedefs';
 import resolvers from '../resolvers';

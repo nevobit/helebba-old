@@ -1,5 +1,5 @@
 {
-  "extends": "@repo/typescript-config/base.json",
+  "extends": "@helebba/typescript-config/base.json",
   "compilerOptions": {
     "outDir": "dist",
     "typeRoots": ["@types", "./node_modules/@types"]

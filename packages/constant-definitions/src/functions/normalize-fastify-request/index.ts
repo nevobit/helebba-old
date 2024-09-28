@@ -1,6 +1,6 @@
 import { NormalizedRequest, RequestInterface } from '../../types/normalized-request';
 import { alertOverrideConflict } from '../alert-override-conflict';
-import { Logger, MonoContext } from '@repo/core-modules';
+import { Logger, MonoContext } from '@helebba/core-modules';
 import { FastifyRequest } from 'fastify';
 type Headers = Record<string, string | string[] | undefined>;
 

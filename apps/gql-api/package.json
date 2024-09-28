@@ -18,9 +18,9 @@
     "@as-integrations/fastify": "^2.1.1",
     "@fastify/cors": "^9.0.1",
     "@graphql-tools/schema": "^10.0.4",
-    "@repo/constant-definitions": "workspace:^",
-    "@repo/core-modules": "workspace:^",
-    "@repo/data-sources": "workspace:^",
+    "@helebba/constant-definitions": "workspace:^",
+    "@helebba/core-modules": "workspace:^",
+    "@helebba/data-sources": "workspace:^",
     "dotenv": "^16.4.5",
     "fastify": "^4.28.1",
     "graphql": "^16.9.0",
@@ -30,7 +30,7 @@
     "ws": "^8.18.0"
   },
   "devDependencies": {
-    "@repo/typescript-config": "workspace:^",
+    "@helebba/typescript-config": "workspace:^",
     "@types/ws": "^8.5.12",
     "ts-node-dev": "^2.0.0"
   }

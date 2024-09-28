@@ -1,4 +1,4 @@
-import { Logger, MonoContext } from "@repo/core-modules";
+import { Logger, MonoContext } from "@helebba/core-modules";
 import { createRedisConnection } from "./connection";
 
 const { REDIS_URL, REDIS_WRITE_URL } = process.env;

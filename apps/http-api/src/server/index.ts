@@ -10,13 +10,13 @@ import {
   Logger,
   LoggerTransportName,
   MonoContext,
-} from "@repo/core-modules";
+} from "@helebba/core-modules";
 import { version, name } from "../../package.json";
 import { registerRoutes } from "../routes";
-import { initDataSources } from '@repo/data-sources';
-import { setLogger } from "@repo/constant-definitions";
+import { initDataSources } from '@helebba/data-sources';
+import { setLogger } from "@helebba/constant-definitions";
 import { swaggerOptions, swaggerUiOptions } from "../docs";
-import { verify } from "@repo/business-logic";
+import { verify } from "@helebba/business-logic";
 
 const { PORT, HOST, REGION, CORS_ORIGIN, ENVIRONMENT, DATABASE_URL, MONGO_URL, REDIS_URL } = process.env;
 

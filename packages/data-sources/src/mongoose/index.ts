@@ -1,5 +1,5 @@
-import { configureMongoose } from "@repo/constant-definitions";
-import { Logger, MonoContext } from "@repo/core-modules";
+import { configureMongoose } from "@helebba/constant-definitions";
+import { Logger, MonoContext } from "@helebba/core-modules";
 import mongoose from "mongoose";
 
 export interface InitMongooseOptions {

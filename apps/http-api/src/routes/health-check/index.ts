@@ -1,5 +1,5 @@
 import { RouteOptions } from 'fastify';
-import { MonoContext } from '@repo/core-modules';
+import { MonoContext } from '@helebba/core-modules';
 
 export const healthCheckRoute: RouteOptions = {
   method: 'GET',

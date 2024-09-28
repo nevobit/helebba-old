@@ -1,4 +1,4 @@
-import { Button, Modal, useModal } from '@repo/design-system/web';
+import { Button, Modal, useModal } from '@helebba/design-system/web';
 
 function App() {
   const { openModal, closeModal } = useModal();

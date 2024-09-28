@@ -23,7 +23,7 @@ yamlFiles.forEach(file => {
 export const swaggerOptions: FastifyDynamicSwaggerOptions = {
   openapi: {
     info: {
-      title: '@repo OpenAPI',
+      title: '@helebba OpenAPI',
       description: 'API Documentation with OpenAPI',
       version: '1.0.0'
     },

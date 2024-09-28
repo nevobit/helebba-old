@@ -1,6 +1,6 @@
 import { RouteOptions } from 'fastify';
-import { MonoContext } from '@repo/core-modules';
-import { RouteMethod } from '@repo/constant-definitions';
+import { MonoContext } from '@helebba/core-modules';
+import { RouteMethod } from '@helebba/constant-definitions';
 
 export const loginRoute: RouteOptions = {
     method: RouteMethod.POST,

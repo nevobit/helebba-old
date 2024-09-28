@@ -1,4 +1,4 @@
-import { Logger, MonoContext, MonoContextState } from '@repo/core-modules';
+import { Logger, MonoContext, MonoContextState } from '@helebba/core-modules';
 import { initDataSources, GenericApi  } from '.';
 import { Mongoose } from 'mongoose';
 

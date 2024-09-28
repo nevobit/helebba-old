@@ -1,5 +1,5 @@
 {
-  "name": "@repo/data-sources",
+  "name": "@helebba/data-sources",
   "version": "1.0.0",
   "description": "",
   "main": "./src/index.ts",
@@ -10,9 +10,9 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@repo/constant-definitions": "workspace:^",
-    "@repo/core-modules": "workspace:^",
-    "@repo/typescript-config": "workspace:^",
+    "@helebba/constant-definitions": "workspace:^",
+    "@helebba/core-modules": "workspace:^",
+    "@helebba/typescript-config": "workspace:^",
     "@simplyhexagonal/function-queue": "^2.0.0",
     "axios": "^1.7.3",
     "drizzle-orm": "^0.32.1",

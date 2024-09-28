@@ -1,4 +1,4 @@
-import { NormalizedRequest } from "@repo/constant-definitions";
+import { NormalizedRequest } from "@helebba/constant-definitions";
 import crypto from 'crypto';
 import jwt from "jsonwebtoken";
 

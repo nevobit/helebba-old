@@ -1,4 +1,4 @@
-import { Button } from '@repo/design-system/web';
+import { Button } from '@helebba/design-system/web';
 import styles from './ErrorBoundary.module.css';
 
 const ErrorBoundary = () => {

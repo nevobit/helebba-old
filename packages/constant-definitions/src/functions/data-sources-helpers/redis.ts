@@ -1,5 +1,5 @@
 import Redis from 'ioredis';
-import { MonoContext } from '@repo/core-modules';
+import { MonoContext } from '@helebba/core-modules';
 import { DATA_SOURCES_KEY } from './constants';
 
 export const getRedisReadClient = () => {

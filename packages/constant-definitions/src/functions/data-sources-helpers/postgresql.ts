@@ -1,4 +1,4 @@
-import { MonoContext } from "@repo/core-modules"
+import { MonoContext } from "@helebba/core-modules"
 import { DATA_SOURCES_KEY } from "./constants"
 import { NodePgDatabase } from "drizzle-orm/node-postgres";
 import { sql } from "drizzle-orm";

@@ -1,4 +1,4 @@
-import { getRedisReadClient, getRedisWriteClient } from '@repo/constant-definitions';
+import { getRedisReadClient, getRedisWriteClient } from '@helebba/constant-definitions';
 
 export const getFromCache = async <R>(key: string) => {
     const cache = getRedisReadClient();

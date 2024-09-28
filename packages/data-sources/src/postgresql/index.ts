@@ -1,7 +1,7 @@
 import { URL } from "url";
 import { Pool } from "pg";
 import { drizzle } from "drizzle-orm/node-postgres";
-import { Logger, MonoContext } from "@repo/core-modules";
+import { Logger, MonoContext } from "@helebba/core-modules";
 
 export interface InitPostgresOptions {
   postgresUrl?: string;

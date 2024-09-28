@@ -7,7 +7,7 @@ import FunctionQueue, {
   FunctionQueueResult,
   QueueableFunction,
 } from "@simplyhexagonal/function-queue";
-import { MonoContext } from "@repo/core-modules";
+import { MonoContext } from "@helebba/core-modules";
 
 export interface InitApiOptions {
   apiBaseUrl: string;
