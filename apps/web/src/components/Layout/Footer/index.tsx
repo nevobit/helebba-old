@@ -67,10 +67,10 @@ const Footer = () => {
             reservados.
           </p>
           <div className={styles.socials}>
-            <Link href="/">
+            <Link href="ttps://facebook.com/helebba">
               <Facebook />
             </Link>
-            <Link href="/">
+            <Link href="https://instagram.com/helebbasoftware">
               <Instagram />
             </Link>
 
