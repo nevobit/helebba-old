@@ -1,0 +1,273 @@
+.banner{
+ width: 100%;
+ background-color: #1F2937;
+ /* border-top: 1px solid #3b434f; */
+ height: 34rem;
+}
+
+.home_body{
+ margin-top: -31rem;
+ width: min(99rem, 90%);
+ margin-inline: auto;
+}
+
+.home_header{
+ padding: 5rem 0 1rem 0;
+}
+
+.home_header h2{
+ color: #fff;
+ font-weight: 600;
+ font-size: 2.2rem;
+ margin-bottom: 1rem;
+}
+
+.home_header p{
+ color: #fff;
+ font-size: 1.3rem;
+}
+
+.panel_home{
+ background-color: #fff;
+ border-radius: .8rem;
+ min-height: 12rem;
+ box-shadow: 0px 1px 3px 0px #1118271A, 0px 1px 2px 0px #1118270F;
+ overflow: hidden;
+ margin-bottom: 2rem;
+}
+
+.panel_home h3{
+ font-weight: 500;
+ font-size: 1.6rem;
+ color: #1F2937;
+ margin-bottom: .5rem;
+}
+
+
+.panel_home p{
+ font-size: 1.3rem;
+ color: #1f293793;
+}
+
+.panel_header{
+ padding: 2rem;
+ border-bottom: 1px solid rgba(0, 0, 0, .1);
+}
+
+.panel_details{
+ display: grid;
+ grid-template-columns: 25rem 1fr;
+}
+
+.steps{
+ display: flex;
+ flex-direction: column;
+ justify-content: flex-start;
+ background-color: #F9FAFB;
+ 
+}
+
+.step{
+ padding: 2rem;
+ min-height: 3.5rem;
+ max-height: 10rem;
+ border-bottom: 1px solid rgba(0, 0, 0, .1);
+ background-color: #F9FAFB;
+ font-size: 1.4rem;
+ font-weight: 500;
+ color: #6B7280;
+ border-right: 1px solid rgba(0, 0, 0, .1);
+}
+
+.step h4{
+ display: flex;
+ align-items: center;
+ gap: .8rem;
+}
+
+.step.activeStep{
+background-color: #fff;
+ color: #244470;
+ border-right: 1px solid transparent;
+}
+
+.home_footer{
+ width: min(99rem, 90%);
+ margin-inline: auto;
+}
+
+.home_footer h2{
+ font-size: 2.2rem;
+ font-weight: 600;
+ color: #1F2937;
+ margin-top: 6rem;
+ margin-bottom: .5rem;
+}
+
+.home_footer > p{
+ font-size: 1.4rem;
+ margin-bottom: 2rem;
+ color: #6B7280;
+}
+
+.content{
+ padding: 2rem;
+}
+
+.content .first{
+ display: flex;
+ gap: 2rem;
+}
+
+.content .first > div{
+ width: 100%;
+}
+
+.content select{
+ border: 1px solid rgba(0,0,0,0.1);
+ height: 4rem;
+}
+
+.btn{
+ margin-top: 2rem;
+}
+
+.panel_content{
+ padding: 2rem;
+ display: flex;
+ align-items: center;
+ gap: 2rem;
+}
+
+.panel_content p{
+ font-size: 1.4rem;
+}
+
+.panel_content a{
+ border: 1px solid rgba(0,0,0,0.1);
+ font-size: 1.3rem;
+ padding: 1rem;
+ border-radius: .5rem;
+ font-weight: 400;
+}
+
+.panel_content .blue_p{
+ color: #1971ea;
+}
+
+.panel_buttons a{
+ padding: 2rem;
+ width: 96%;
+ display: flex;
+ justify-content: space-between;
+ align-items: center;
+ border:  1px solid rgba(0, 0, 0, .05);
+ transition: .2s;
+}
+
+.panel_buttons a:hover{
+ background-color: #6b72800e;
+}
+
+.panel_buttons a > div{
+ display: flex;
+ align-items: center;
+ gap: 2rem;
+}
+
+.panel_buttons a span{
+ font-size: 1.3rem;
+ display: flex;
+ align-items: center;
+ gap: .5rem;
+ color: #6B7280;
+}
+
+.panel_buttons a h3{
+ font-size: 1.4rem;
+}
+
+.trial_panel{
+    background: url(/border-blue.png);
+    background-size: 10px 100%;
+    background-repeat: no-repeat;
+    background-color: #fff;
+    padding: 3rem;
+    padding-left: 4rem;
+}
+
+.trial_panel > span{
+    border-radius: 10px;
+    background: #D9E7FF;
+    padding: 2px 8px 2px 6px;
+    display: inline-block;
+    color: var(--blue-blue-800, #0F4299);
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 16px;
+    letter-spacing: 0.25px;
+}
+
+.trial_panel h3{
+    color: var(--gray-800, #1F2937);
+    font-size: 2.2rem;
+    max-width: 40rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 32px;
+    letter-spacing: 0.15px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.trial_panel p{
+    margin-bottom: 2rem;
+    max-width: 40rem;
+    font-size: 1.4rem;
+}
+
+.tags{
+    max-width: 48rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem 1.5rem;
+    margin-bottom: 2.5rem;
+}
+
+.tags span{
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+    color: rgba(0,0,0,0.7);
+    font-size: 1.3rem;
+    background: var(--gray-100, #F3F4F6);
+    border-radius: .5rem;
+    padding: 2px 8px 2px 4px;
+}
+
+.metrics{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(29rem, 1fr));
+    gap: 1rem;
+    margin-bottom: 2rem;
+    margin-top: 1rem;
+}
+
+.metrics > div{
+    background-color: #2C3643;
+    border-radius: .5rem;
+    border: 1px solid rgba(255, 255, 255, .1);
+    padding: 1.5rem;
+}
+
+.metrics > div h4{
+    font-size: 1.4rem;
+    font-weight: 400;
+    color: #9CA3AF;
+}
+.metrics > div h2{
+    color: #fff;
+    font-size: 2.8rem;
+    font-weight: 500;
+}

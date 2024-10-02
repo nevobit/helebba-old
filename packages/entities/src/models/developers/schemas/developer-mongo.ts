@@ -11,9 +11,3 @@ export const DeveloperSchemaMongo = new Schema<Developer>({
     versionKey: false,
     timestamps: true
 });
-
-DeveloperSchemaMongo.methods.toJSON = function () {
-    const { _id, ...developer } = this.toObject();
-    developer.id = _id;
-    return developer;
-};

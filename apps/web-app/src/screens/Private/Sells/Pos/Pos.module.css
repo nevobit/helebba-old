@@ -1,0 +1,137 @@
+.container{
+    display: grid;
+    grid-template-columns: 1fr 55rem;
+    gap: 2rem;
+    padding: 0 4rem;
+}
+
+.container_empty{
+    background-color: #fff;
+    min-height: 50rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.panel, .store_card, .more{
+    background-color: #fff;
+    padding: 2rem;
+    border-radius: .5rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, .1);
+}
+
+.btn{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 2.5rem;
+    vertical-align: middle;
+    line-height: 1;
+    white-space: nowrap;
+    border-radius: .5rem;
+    appearance: none;
+    padding: .5rem 1rem;
+    /* width: 15rem; */
+    font-size: 1.3rem;
+    font-weight: 500;
+    transition: .3s;
+    color: #333;
+    border: 1px solid rgba(0, 0, 0, .1);
+    background-color: #fff;
+   }
+   
+   
+   .btn:hover{
+    background-color: rgba(0, 0, 0, .05);
+   }
+   
+   
+.panel{
+    display: grid;
+    grid-template-columns: 1fr 13rem;
+    gap: 2rem;
+}
+
+.panel h3{
+    color: rgba(0, 0, 0, 0.87);
+}
+
+.panel p{
+    margin: 0px;
+    font-weight: 400;
+    font-size: 1.3rem;
+    letter-spacing: 0.15px;
+    color: rgb(107, 114, 128);
+    margin-top: 1rem;
+}
+
+.left{
+    display: grid;
+    gap: 2rem;
+}
+
+.info{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.info > div{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.info > div span{
+    background-color: rgb(235, 242, 255);
+    min-width: 48px;
+    min-height: 48px;
+    -webkit-box-align: center;
+    align-items: center;
+    display: flex;
+    -webkit-box-pack: center;
+    justify-content: center;
+    border-radius: 8px;
+    margin-top: 4px;
+}
+
+.info > div h4{
+    font-weight: 500;
+    font-size: 1.8rem;
+}
+
+.info > div p{
+    font-weight: 300;
+    font-size: 1.4rem;
+    letter-spacing: 0.15px;
+    color: rgb(107, 114, 128);
+}
+
+.registers {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    border-top: 1px solid rgba(0, 0, 0, .1);
+    margin-top: 2.5rem;
+    padding-top: 1.5rem;
+}
+
+.registers h4{
+    font-weight: 500;
+    font-size: 1.4rem;
+}
+
+.registers p{
+    font-size: 1.3rem;
+}
+
+.header_more{
+    font-weight: 500;
+    border-bottom: 1px solid rgba(0, 0, 0, .1);
+    padding-bottom: 1.5rem;
+}
+
+.stores{
+    display: grid;
+    gap: 2rem;
+}

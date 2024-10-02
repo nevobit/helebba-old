@@ -1,13 +1,8 @@
 import { helebbaApi } from "@/api";
 import { CreateUserDto } from "@helebba/entities";
 
-interface Props {
-    email: string;
-    password: string;
-}
-
-export const loginApi = async ({ email, password }: Props) => {
-    const { data } = await helebbaApi.post(`/login`, { email, password });
+export const loginApi = async (email: string) => {
+    const { data } = await helebbaApi.post(`/auth/login`, { email });
     const { token } = data;
     localStorage.setItem('token', JSON.stringify(token));
     return data;

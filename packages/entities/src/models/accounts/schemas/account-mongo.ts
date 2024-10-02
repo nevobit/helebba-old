@@ -27,9 +27,3 @@ export const AccountSchemaMongo = new Schema<Account>(
     timestamps: true
   }
 );
-
-AccountSchemaMongo.methods.toJSON = function () {
-  const { _id, ...account } = this.toObject();
-  account.id = _id;
-  return account;
-};

@@ -1,0 +1,14 @@
+.item{
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+    gap: 1rem;
+    font-size: 1.4rem;
+}
+
+.title{
+    display: inline-flex;
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+    font-weight: 500;
+}

@@ -1,0 +1,10 @@
+.container {
+  min-height: max-content;
+  border-radius: .5rem;
+  margin-inline: 4rem;
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  gap: 1.5rem;
+  font-size: 1.4rem;
+  margin-bottom: 10px;
+}

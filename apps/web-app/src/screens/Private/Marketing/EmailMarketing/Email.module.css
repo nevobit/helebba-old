@@ -1,0 +1,96 @@
+.container{
+    padding: 4rem;
+}
+
+.container > button{
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    min-height: 10rem;
+    max-width: 10rem;
+    padding: 2rem;
+    background-color: #fff;
+}
+
+.modal{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, .2);
+    backdrop-filter: blur(1px);
+    z-index: 999999;
+    display: flex;
+    justify-content: center;
+    padding-top: 15rem;
+}
+
+.content{
+    background-color: #fff;
+    width: 50rem;
+    height: 20rem;
+    padding: 4rem;
+    border-radius: 1rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, .05);
+}
+
+.content h3{
+    margin-bottom: 1rem;
+    font-size: 1.6rem;
+}
+
+.content button{
+    margin-top: 2rem;
+   background-color: var(--main-color);
+   max-width: 10rem;
+}
+
+.btn_new{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 2rem;
+    vertical-align: middle;
+    line-height: 1;
+    white-space: nowrap;
+    border-radius: .5rem;
+    appearance: none;
+    padding:  1.5rem;
+    font-size: 1.3rem;
+    font-weight: 500;
+    transition: .3s;
+    background-color: #1971ea;
+    color: #fff;
+   }
+   
+   .btn_new:hover{
+    background-color: #1661c9;
+   }
+   
+   .emails{
+    padding: 0 4rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(25rem, 1fr));
+   }
+
+   .email_card{
+    border: 1px solid rgba(0, 0, 0, .05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, .05);
+    background-color: #fff;
+    border-radius:.5rem;
+    padding: 1rem;
+    cursor: pointer;
+    height: fit-content;
+    overflow: hidden;
+   }
+
+   .email_card .email_preview{
+    max-width: 20rem;
+    height: 20rem;
+   }
+
+   .email_card h3{
+    font-weight: 600;
+    font-size: 1.4rem;
+   }

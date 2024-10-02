@@ -5,8 +5,8 @@ interface Props {
     listenCapturing?: boolean
 }
 
-export const useOutsideClick = ({ handler, listenCapturing = true }: Props) => {
-    const ref = useRef<HTMLElement | null>(null);
+export const useOutsideClick = <T extends HTMLElement>({ handler, listenCapturing = true }: Props) => {
+    const ref = useRef<T | null>(null);
 
     useEffect(() => {
         const handleClick = (event: MouseEvent) => {

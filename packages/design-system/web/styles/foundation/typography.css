@@ -1,6 +1,6 @@
 :root {
     /* Body font family */
-    --dse-body-font-family: var(--playfair, "Playfair Display", serif);
+    --dse-body-font-family: "Poppins", sans-serif;
 
     /* Body font sizes */
     --dse-body-font-size: var(--fs-sm, 0.875rem);

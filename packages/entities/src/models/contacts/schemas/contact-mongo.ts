@@ -84,9 +84,3 @@ export const ContactSchemaMongo = new Schema<Contact>({
     versionKey: false,
     timestamps: true
 });
-
-ContactSchemaMongo.methods.toJSON = function () {
-    const { _id, ...account } = this.toObject();
-    account.id = _id;
-    return account;
-};

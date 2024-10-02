@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
 import styles from './Signup.module.css'
 import { Link } from 'react-router-dom'
-import { CredentialResponse, GoogleLogin } from '@react-oauth/google'
 import { useLoginGoogle, useRegister } from '../../hooks'
 import { Button, Field, Input } from '@helebba/design-system/web'
+import { useGoogleLogin } from '@react-oauth/google';
 
 const Signup = () => {
     const { isRegistering, register } = useRegister();
@@ -28,21 +28,19 @@ const Signup = () => {
   }
   
   const handleGoogleSuccess = async (
-    credentialsResponse: CredentialResponse,
+    token_id: string,
   ) => {
-    if (credentialsResponse.credential) {
-      const token_id = credentialsResponse.credential;
       loginGoogle(token_id)
-    }
   };
   
-  const handleGoogleError = () => {};
-    
+      const loginGoogleFn = useGoogleLogin({
+  onSuccess: (token) => handleGoogleSuccess(token.access_token)
+});
   return (
     <>
      <div className={styles.header}>
        <img src="/images/logos/logo.svg" alt="Logo Helebba" title='Logo Helebba' />
-       <p><span className={styles.new} > ¿Ya tienes una cuenta? </span> <Link to='/signin'>Acceder</Link></p>
+       <p><span className={styles.new} > ¿Ya tienes una cuenta? </span> <Link to='/login'>Acceder</Link></p>
      </div>
      
      <form className={styles.form} onSubmit={onSubmit}>
@@ -65,9 +63,6 @@ const Signup = () => {
       <Field label='Email'>
        <Input type="text" name="email" id="" placeholder='Introduce tu correo electronico' onChange={handleChange} />
       </Field>
-      <Field  label='Contraseña' tip='Mínimo 8 caracteres. Debe incluir una mayúscula, una minúscula y un número.'>
-       <Input type="password" name="password" id="password" placeholder='Escribe tu contraseña' onChange={handleChange} />
-      </Field>
        <label htmlFor="newsletter" className={styles.remember}>
         <input type="checkbox" name="newsletter" id="remember"  />        
         Consentir newsletters y ofertas.
@@ -80,22 +75,22 @@ const Signup = () => {
       </div>
       </div>
       <div className={styles.social}>
-        <GoogleLogin size="large" useOneTap onError={handleGoogleError} onSuccess={handleGoogleSuccess} />
+         <Button size="large" onClick={() => loginGoogleFn()} ><img  src='/images/logo.png' /> Continuar con Google</Button>
 
         {/* <button> <img src="/images/logos/google.svg" alt="" /> </button>
         <button> <img src="/images/logos/facebook.svg" alt="" />  </button>
         <button><img src="/images/logos/apple.svg" alt="" /></button>         */}
       </div>
       <p className={styles.copy_footer}>
-      Al continuar confirmas que aceptas nuestros <Link to='/'>Términos y condiciones, Política de Privacidad y Cookies.</Link>
+      Al continuar confirmas que aceptas nuestros <br /> <Link to='/'>Términos y condiciones, Política de Privacidad y Cookies.</Link>
       </p>
      </form>
-     <div className={styles.footer}>
+     {/* <div className={styles.footer}>
       <select name="" id="">
        <option value="">Espanol</option>
        <option value="">English</option>
       </select>
-     </div>
+     </div> */}
     </>
   )
 }

@@ -1,0 +1,22 @@
+.container{
+    height: 13rem;
+    width: 100%;
+}
+
+.container h4{
+    font-weight: 500;
+    color: rgba(0, 0, 0, .5);
+    font-size: 1.6rem;
+}
+
+.container p{
+    font-size: 1.5rem;
+}
+
+.buttons{
+    display: flex;
+    gap: 1rem;
+    justify-content: flex-end;
+    width: 100%;
+    margin-top: 3rem;
+}

@@ -63,10 +63,15 @@
     text-align: center;
     font-size: 1.4rem;
     transition: .1s;
+     display: flex;
+ align-items: center;
+ justify-content: center;
+ padding-inline: 2rem;
+ font-weight: 500;
+ background-color: #fff;
    }
    
    .social button img{
-    margin-inline: auto;
     height: 2.4rem;
    }
    
@@ -144,6 +149,7 @@
     font-size: 1.2rem;
     margin-top: 2rem;
     color: #6B7280;
+    text-align: center;
    }
    
    .form a{

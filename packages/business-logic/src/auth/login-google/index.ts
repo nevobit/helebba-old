@@ -5,6 +5,7 @@ import { sign } from 'jsonwebtoken';
 import { OAuth2Client } from 'google-auth-library'
 import { createSubscription } from "../../subscriptions";
 import { getAllPlans } from "../../plans";
+import { sendWelcome } from "../../mailing";
 
 const { JWT_SECRET, GOOGLE_CLIENT_ID } = process.env;
 
@@ -60,8 +61,8 @@ export const loginGoogle = async (id: string) => {
         const plans = await getAllPlans({ search: SubscriptionType.FREE });
         await createSubscription({ user: newUser.id, plan: plans?.items[0]!.id, startDate: new Date(), type: SubscriptionType.FREE, subscriptionStatus: "Active", endDate: trialEndDate });
         const token = sign({ id: newUser.id }, JWT_SECRET!, { expiresIn: '5d' });
+        await sendWelcome({ email: newUser.email, accountName: newUser.name, accountOwnerName: newUser.name + ' ' + newUser.lastname })
         return { token };
-
     }
 
     if (user.locked) throw new Error("Admin is already locked");

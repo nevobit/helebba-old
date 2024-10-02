@@ -14,9 +14,3 @@ export const InvitationSchemaMongo = new Schema<Invitation>({
     versionKey: false,
     timestamps: true
 });
-
-InvitationSchemaMongo.methods.toJSON = function () {
-    const { _id, ...invitation } = this.toObject();
-    invitation.id = _id;
-    return invitation;
-};

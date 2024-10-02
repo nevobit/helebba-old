@@ -1,0 +1,54 @@
+.containerCategories {
+  background-color: #fff;
+  padding: 2rem;
+  border-radius: 1rem;
+}
+
+.containerCategories h2 {
+  font-size: 1.8rem;
+  font-weight: 600
+}
+
+.containerCategories__form {
+  margin-top: 1rem;
+  margin-bottom: 1.3rem;
+}
+
+.containerCategories__form div {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.containerCategories__form div:last-child {
+  margin-top: 1.4rem;
+}
+
+.containerCategories__form div h3 {
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+
+.containerCategories__form div ul {
+  display: flex;
+  flex-direction: column;
+  gap: .9rem;
+}
+
+.containerCategories__form div ul li label {
+  display: flex;
+  align-items: center;
+  gap: .7rem;
+  cursor: pointer;
+}
+
+.containerCategories__form div ul li label .inputCheck {
+  width: 15px;
+  height: 15px;
+  border: 1px solid rgb(0, 0, 0);
+} 
+
+.containerCategories__form div ul li label .inputCheck:checked {
+  background-color: #4181f2;
+}

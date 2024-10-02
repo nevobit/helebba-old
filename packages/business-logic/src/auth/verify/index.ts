@@ -24,6 +24,7 @@ export const verify = async ({ protocol, headers, body }: NormalizedRequest) => 
     }
 
     const timestampNum = parseInt(timestamp, 10);
+
     const currentTimestamp = Math.floor(Date.now() / 1000);
 
     if (currentTimestamp - timestampNum > 5 * 60) {
@@ -56,7 +57,7 @@ export const verifyToken = async ({ headers }: NormalizedRequest) => {
 
     try {
         const decodedToken = await jwt.verify(token!, JWT_SECRET!);
-        return { type: "success", message: decodedToken };
+        return decodedToken;
     } catch (err) {
         return { type: "error", message: "Invalid token" };
     }

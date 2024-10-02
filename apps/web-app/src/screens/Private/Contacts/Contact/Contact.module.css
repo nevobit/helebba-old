@@ -1,0 +1,101 @@
+.container {
+    padding-inline: 4rem;
+    padding-block: 2rem;
+}
+
+.header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+}
+
+.header > div{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.header > div span{
+    display: inline-block;
+    background-color: #672B60;
+    padding: 1rem;
+    border-radius: 5rem;
+    color: #fff;
+    width: 3rem;
+    height: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.tabs {
+    display: flex;
+    gap: 1rem;
+}
+
+.tabs button{
+    font-weight: 500;
+    color: rgba(0, 0, 0, .6);
+    font-size: 1.4rem;
+    padding: .5rem 1rem;
+    border-radius: .5rem;
+}
+
+.tabs .active {
+    background-color: #fff;
+    color: rgba(0, 0, 0, .8);
+}
+
+.content{
+    display: grid;
+    grid-template-columns: 50rem 1fr;
+    margin-top: 2rem;
+}
+
+.information {
+    background-color: #fff;
+    padding-block: 2rem;
+    border-radius: 1rem;
+}
+
+.information .element{
+    margin-bottom: 1rem;
+    padding-inline: 2rem;
+    padding-bottom: .5rem;
+
+}
+
+.information span{
+    display: block;
+    font-size: 1.2rem;
+    color: rgba(0, 0, 0, .6);
+}
+
+.information .element button{
+    color: var(--main-color);
+    font-size: 1.4rem;
+}
+
+
+.information .element a{
+    color: var(--main-color);
+    font-size: 1.4rem;
+}
+
+.information .element p{
+    font-size: 1.4rem;
+}
+.line{
+    width: 100%;
+    height: .1rem;
+    background-color: rgba(0, 0, 0, .1);
+}
+
+.element h3{
+    padding-top: 1rem;
+    font-weight: 500;
+    color: rgba(0, 0, 0, .8);
+    margin-bottom: 1.5rem;
+    font-size: 1.4rem;
+}

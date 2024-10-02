@@ -1,0 +1,39 @@
+.information{
+    border: 1px solid rgba(0, 0, 0, .1);
+    border-radius: 1rem;
+    margin-top: 2rem;
+}
+
+.information .field{
+    border-bottom: 1px solid rgba(0, 0, 0, .1);
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding-left:1.5rem;    
+}
+
+.information .field h3{
+    font-weight: 500;
+    font-size: 1.4rem;
+}
+
+.information .field input{
+    height: 4rem;
+    color: rgba(0, 0, 0, .7);
+    font-size: 1.4rem;
+}
+
+.information textarea{
+    min-height: 35rem;
+    padding: 1rem;
+    font-size: 1.4rem;
+    width: 100%;
+    color: rgba(0, 0, 0, .7);
+}
+
+.footer{
+    margin-top: 4rem;
+    display: flex;
+    gap: 2rem;
+    margin-bottom: 2rem;
+}

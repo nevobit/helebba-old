@@ -1,0 +1,61 @@
+.card{
+    padding: 2rem;
+    padding-top: 4rem;
+    display: grid;
+    grid-template-columns: 25rem 1fr;
+    gap: 2rem;
+}
+
+.divider{
+    width: 100%;
+    height: 1px;
+    background-color: rgba(0, 0, 0, .1);
+    margin-bottom: 2rem;
+}
+
+.info img{
+    margin-inline: auto;
+    margin-bottom: 2rem;
+}
+
+.data{
+    font-size: 1.4rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.title{
+    font-weight: 500;
+    font-size: 1.4rem;
+}
+
+.desc{
+    font-size: 1.4rem;
+    margin-bottom: 2rem;
+    margin-top: .5rem;
+    color: rgba(0, 0, 0, .7);
+}
+
+.list{
+    margin-bottom: 2rem;
+}
+
+.list{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+
+.item{
+    background-color: rgba(0, 0, 0, .05);
+    border-radius: .5rem;
+    padding-inline: 1.5rem;
+    padding-block: .5rem;
+    font-size: 1.2rem;
+    font-weight: 400;
+    color: rgba(0, 0, 0, .5);
+}

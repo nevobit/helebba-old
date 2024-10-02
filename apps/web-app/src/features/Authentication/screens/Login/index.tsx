@@ -4,27 +4,17 @@ import { Link } from 'react-router-dom';
 import { Button, Field, Input } from "@helebba/design-system/web"
 import { useLogin, useLoginGoogle } from '../../hooks';
 import { useGoogleLogin } from '@react-oauth/google';
+import { isEmail } from '../utils';
 
 const Login = () => {
   const { login } = useLogin();
   const { loginGoogle  } = useLoginGoogle();
 
-  const [user, setUser] = useState({
-    email: '',
-    password: '',
-  });
-
-  // const {loading, success, user: auth, error} = useSelector((state: AppStore) => state.auth);
-
-
-  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setUser((prev) => ({ ...prev, [event.target.name]: event.target.value }));
-  };
-
+  const [email, setEmail] = useState<string>('');
 
   const onSubmit = async (event: React.FormEvent) => {
     event.preventDefault();
-    login(user)
+    login(email)
   };
 
   const handleGoogleSuccess = async (
@@ -35,9 +25,9 @@ const Login = () => {
 
   const loginGoogleFn = useGoogleLogin({
   onSuccess: (token) => handleGoogleSuccess(token.access_token)
-});
-
+  });
   
+  console.log(!isEmail(email))
 
   return (
     <>
@@ -73,14 +63,14 @@ const Login = () => {
             name="email"
             id="email"
             placeholder="Introduce tu correo electrónico"
-            onChange={handleChange}
+            onChange={({ target }) => setEmail(target.value)}
           />
         </Field>
         <label htmlFor="remember" className={styles.remember}>
           <input type="checkbox" name="remember" id="remember" />
           Recuérdame
         </label>
-        <Button type="submit" className={styles.submit}>
+        <Button disabled={!isEmail(email)} type="submit" className={styles.submit}>
           Iniciar sesión
         </Button>
       </form>

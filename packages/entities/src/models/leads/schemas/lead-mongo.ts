@@ -21,9 +21,3 @@ export const LeadSchemaMongo = new Schema<Lead>({
     versionKey: false,
     timestamps: true
 });
-
-LeadSchemaMongo.methods.toJSON = function () {
-    const { _id, ...lead } = this.toObject();
-    lead.id = _id;
-    return lead;
-};

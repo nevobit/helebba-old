@@ -1,0 +1,40 @@
+.container {
+  min-height: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding: .6rem;
+  margin-top: 1.7rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.container .tagsProduct {
+  border: 1px solid rgb(223, 222, 222);
+  background-color: rgb(245, 245, 245);
+  height: 220px;
+  width: 140px;
+  padding: 1rem;
+  border-radius: 1.4rem;
+  display: flex;
+  align-items: left;
+  flex-direction: column;
+  gap: 1.8rem;
+}
+
+.tagsProduct .content {
+  text-align: left;
+}
+
+.tagsProduct .content h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.tagsProduct .content span {
+  background-color: gray;
+  padding: .3rem 1.2rem;
+  border-radius: .7rem;
+  color: white;
+}

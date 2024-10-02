@@ -1,0 +1,49 @@
+.header{
+ display: flex;
+ align-items: center;
+ justify-content: space-between;
+ padding: 2rem 4rem;
+ max-width: 100%;
+ margin-inline: auto;
+}
+
+.header h2{
+font-weight: 600;
+font-size: 2rem;
+}
+
+.options{
+ display: flex;
+ align-items: center;
+ gap: 1rem;
+}
+
+.option{
+ background-color: #fff;
+ border: 1px solid rgba(0, 0, 0, .1);
+ padding: .7rem .9rem;
+ border-radius: .5rem;
+ transition: .1s;
+}
+
+.option:hover{
+ background-color: rgba(0, 0, 0, .05);
+}
+
+.create{
+ background-color: #2164D9;
+ font-size: 1.3rem;
+ padding: 1rem .8rem;
+ color: #fff;
+ border-radius: .5rem;
+ font-weight: 500;
+}
+
+.shortcut{
+ background-color: #4181f2;
+ padding: 0.2rem .4rem;
+ border-radius: .2rem;
+ font-weight: 600;
+ font-size: 1.4rem;
+ margin-left: .8rem;
+}

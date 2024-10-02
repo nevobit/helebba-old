@@ -2,7 +2,7 @@ import React from 'react';
 import styles from './Footer.module.css';
 import Link from 'next/link';
 
-import { Facebook, Instagram, Linkedin, Twitter, Youtube } from 'react-feather';
+import { Facebook, Instagram, Linkedin, Twitter, Youtube } from 'lucide-react';
 
 const Footer = () => {
   return (

@@ -1,6 +1,6 @@
 export const PublicRoutes = {
   SIGNUP: '/signup',
-  SIGNIN: '/signin',
+  SIGNIN: '/login',
   FORGOT: '/forgot',
   LOGIN: '/login',
 };
@@ -9,7 +9,7 @@ export const PrivateRoutes = {
   PRIVATE: '/private',
   HOME: '/',
   CONTACTS: '/contacts',
-  CONTACT: '/contact',
+  CONTACT: '/contact/:id',
   PRODUCTS: '/products',
   PRODUCT: '/products/:id',
   ACCOUNTS: '/accounts',

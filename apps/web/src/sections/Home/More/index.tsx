@@ -2,7 +2,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
 import styles from './More.module.css';
-import { Check } from 'react-feather';
+import { Check } from 'lucide-react';
 
 const More = () => {
   return (

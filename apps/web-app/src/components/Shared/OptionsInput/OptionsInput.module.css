@@ -1,0 +1,42 @@
+.optionsContainer {
+    font-family: Arial, sans-serif;
+  }
+  
+  .optionsList {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    margin-bottom: 10px;
+  }
+  
+  .optionTag {
+    background-color: #f0f0f0;
+    border-radius: .5rem;
+    padding: 5px 10px;
+    display: flex;
+    align-items: center;
+    font-size: 1.4rem;
+    font-weight: 400;
+    color: rgba(0, 0, 0, .7);
+  }
+  
+  .optionTag button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    margin-left: 5px;
+    font-size: 16px;
+  }
+  
+  .input {
+    width: 100%;
+    padding: 1rem;
+    border: 1px solid rgba(0, 0, 0, .1);
+    border-radius: .5rem;
+    font-size: 1.4rem;
+  }
+
+  .input::placeholder{
+    color: rgba(0, 0, 0, .5);
+  }
+  

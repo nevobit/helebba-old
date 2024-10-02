@@ -28,9 +28,3 @@ export const WarehouseSchemaMongo = new Schema<Warehouse>(
     timestamps: true,
   },
 );
-
-WarehouseSchemaMongo.methods.toJSON = function () {
-  const { _id, ...warehouse } = this.toObject();
-  warehouse.id = _id;
-  return warehouse;
-};

@@ -81,9 +81,3 @@ ProductSchemaMongo.pre('validate', function (this, next) {
     next();
 });
 
-
-ProductSchemaMongo.methods.toJSON = function () {
-    const { _id, ...product } = this.toObject();
-    product.id = _id;
-    return product;
-};

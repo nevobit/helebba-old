@@ -17,9 +17,3 @@ export const PlanSchemaMongo = new Schema<Plan>(
     timestamps: true,
   }
 );
-
-PlanSchemaMongo.methods.toJSON = function () {
-  const { _id, ...plan } = this.toObject();
-  plan.id = _id;
-  return plan;
-};

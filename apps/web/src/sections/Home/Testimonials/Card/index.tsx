@@ -1,6 +1,6 @@
 import React from 'react'
 import styles from "./Card.module.css"
-import { Star } from 'react-feather';
+import { Star } from 'lucide-react';
 
 interface Props {
     title: string;

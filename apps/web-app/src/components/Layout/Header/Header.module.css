@@ -1,0 +1,216 @@
+.header{
+ background-color: #1f2937;
+ height: 6.5rem;
+ padding-inline: 2rem;
+ display: flex;
+ align-items: center;
+ justify-content: space-between;
+ z-index: 999999999999999999;
+
+}
+
+.nav{
+ display: flex;
+ align-items: center;
+ gap: .5rem;
+}
+
+.nav .logo{
+ width: 4.2rem;
+ padding:1rem;
+ border-radius: .5rem;
+ background-color: transparent;
+ transform: .3s;
+}
+
+.nav .logo:hover{
+ background-color: #ccc;
+ padding:1rem;
+ background-color: #111927;
+}
+
+.nav .active{
+ background-color: #111927;
+}
+
+.header > div{
+ display: flex;
+ align-items: center;
+ gap: 1rem;
+ color: #fff;
+}
+
+.header > div button{
+ padding: .8rem;
+}
+.header > div  button:hover{
+ border-radius: .5rem;
+ background-color: rgba(255, 255, 255, .1);
+}
+
+
+.header > div a{
+    padding: .8rem;
+   }
+   .header > div  a:hover{
+    padding: .8rem;
+    border-radius: .5rem;
+    background-color: rgba(255, 255, 255, .1);
+   }
+   
+
+
+.btn_menu {
+    height:4.25rem !important;
+    width: 3.6rem !important;
+    display: flex !important;
+    align-items: center !important ;
+    justify-content: center !important ;
+}
+.header .btn_menu div{
+    padding: .8rem;
+    display: flex !important;
+    align-items: center !important ;
+    justify-content: center !important ;
+}
+
+
+.header .btn_menu button{
+    display: flex !important;
+    align-items: center !important ;
+    justify-content: center !important ;
+    margin: 0 auto;
+    transform: translateX(0);
+    padding-bottom: 1.3rem;
+}
+
+
+
+.header > div h3{
+ font-weight: 500;
+ font-size: 1.3rem;
+}
+
+.header > div p{
+ font-weight: 400;
+ font-size: 1.2rem;
+ color: rgba(255, 255, 255, .8);
+}
+
+.header > div > div:last-child{
+ display: flex;
+ align-items: center;
+ gap: 1rem;
+}
+
+
+.header > div > div:last-child span{
+ background-color: coral;
+ height: 3rem;
+ width: 3rem;
+ border-radius: 5rem;
+ display: grid;
+ place-items: center;
+ font-size: 1.6rem;
+ font-weight: 400;
+ color: #fff;
+}
+
+.user_btn{
+ position: relative;
+}
+
+.user_options {
+ position: absolute;
+ top: calc(100% + 15px);
+ right: 0;
+ left: auto;
+ margin: 0;
+ padding: 8px;
+ list-style: none;
+ background-color: #fff;
+ border: 1px solid #ccc;
+ border-radius: 4px;
+ box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+ z-index: 1;
+ min-width: 15rem;
+ width: 22rem;
+}
+
+.user_options li{
+ padding: .4rem 0;
+ border-radius: .5rem;
+}
+
+.user_options li button{
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ font-size: 1.3rem; 
+ gap: .7rem;
+ color: #111927;
+}
+
+.user_options li a{
+ display: flex;
+ align-items: center;
+ justify-content: flex-start;
+ font-size: 1.3rem; 
+ gap: .7rem;
+ color: #111927;
+ margin-left: .5rem;
+ height: 3.5rem;
+}
+
+.user_options li:hover{
+ background-color: rgba(0, 0, 0, .05);
+}
+
+.user_btn{
+ cursor: pointer;
+ padding: 1rem;
+ border-radius: .5rem;
+}
+
+.user_btn:hover{
+ background-color: rgba(0, 0, 0, .1);
+ 
+}
+
+.user_options .sepator{
+ background-color: rgba(0, 0, 0, .1) !important;
+ height: .1rem !important;
+ border-radius: 0  !important;
+ width: 100% !important;
+ display: inline-block;
+ margin: .3rem 0;
+}
+
+.list{
+    display: grid;
+    gap: 1rem;
+}
+
+.notifications{
+    max-width: 35rem;
+}
+
+.notifications h3{
+    font-weight: 500;
+    font-size: 1.8rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid rgba(0, 0, 0, .1);
+    margin-bottom: 1.5rem;
+}
+
+.notifications p{
+    font-size: 1.3rem;
+    color: rgba(0, 0, 0, .65);
+    text-align: center;
+}
+
+.menus{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}

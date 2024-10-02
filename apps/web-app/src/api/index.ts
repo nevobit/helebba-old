@@ -23,13 +23,15 @@ helebbaApi.interceptors.request.use((config) => {
         config.headers.Authorization = `Bearer ${token}`;
     }
 
-    const timestamp = Date.now();
+    const timestamp = (Date.now() / 1000);
     const fullUrl = `${config.baseURL}${config.url}`;
     const bodyString = JSON.stringify(config.data || {});
     const signature = generateSignature(fullUrl, bodyString, timestamp);
 
     config.headers['X-Timestamp'] = timestamp.toString();
     config.headers['X-Signature'] = signature;
+    config.headers['X-Path'] = fullUrl;
+
 
     return config;
 }, (error) => {

@@ -12,6 +12,12 @@
     transition: 0.3s;
     border: none;
     cursor: pointer;
+    
+}
+
+.disabled{
+    opacity:.1;
+    background-color: red;
 }
 
 .large{

@@ -1,0 +1,57 @@
+.table_grid{
+    display: grid;
+    width: 100%;
+    gap: 2rem;
+    background-color: #fff;
+}
+
+
+.table_container{
+    background-color: #fff;
+    padding: 2rem;
+    border-radius: 1rem;
+}
+
+.table_container h4{
+    font-weight: 500;
+    font-size: 1.6rem;
+}
+
+.table_container table{
+    background-color: #fff;
+    margin-top: 2rem;
+    width: 100%;
+}
+
+.table_container table th{
+    font-size: 1.3rem;
+    font-weight: 500;
+    margin-bottom: .5rem;
+}
+
+.table_container table td{
+    font-size: 1.2rem;
+    font-weight: 400;
+    border-bottom: none;
+
+}
+
+
+.table_grid{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 2rem;
+    
+}
+
+.title{
+    font-size: 2rem;
+    color: #1F2937;
+    font-weight: 600;
+    margin-bottom: 2rem;
+}
+
+.container{
+    padding-inline: 4rem;
+    padding-block: 2rem;
+}

@@ -23,9 +23,3 @@ export const StoreSchemaMongo = new Schema<Store>({
     versionKey: false,
     timestamps: true
 });
-
-StoreSchemaMongo.methods.toJSON = function () {
-    const { _id, ...store } = this.toObject();
-    store.id = _id;
-    return store;
-};

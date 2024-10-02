@@ -1,0 +1,12 @@
+.container{
+ background: #ebf2ff;
+ text-align: center;
+ font-size: 1.3rem;
+ padding: 1rem;
+ z-index: 999999;
+}
+
+.container button{
+ text-decoration: underline;
+ font-weight: 500;
+}

@@ -1,0 +1,14 @@
+.point{
+ height: 3.2rem;
+ width: 3.2rem;
+ min-width: 3.2rem;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ background-color: #d9e7ff;
+ border-radius: .5rem;
+}
+
+.point > svg{
+ color: #1971ea;
+}

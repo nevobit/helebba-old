@@ -1,0 +1,40 @@
+.card{
+    padding-block: 2rem;
+    padding-inline: 4rem;
+    border-top: 1px solid rgba(0, 0, 0, .1);
+}
+
+.info{
+    display: flex;
+    gap: 4rem;
+}
+
+.info h3{
+    font-weight: 500;
+}
+
+.info p{
+    font-size: 1.4rem;
+    margin-top: 1rem;
+    font-weight: 300;
+    line-height: 24px;
+    letter-spacing: .15px;
+    color: rgba(0, 0, 0, 0.87);
+}
+
+.list{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    margin-top: 5rem;
+}
+
+.item{
+    background-color: rgba(0, 0, 0, .05);
+    border-radius: .5rem;
+    padding-inline: 1.5rem;
+    padding-block: .5rem;
+    font-size: 1.2rem;
+    font-weight: 400;
+    color: rgba(0, 0, 0, .5);
+}

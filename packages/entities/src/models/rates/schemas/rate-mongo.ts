@@ -11,9 +11,3 @@ export const RateSchemaMongo = new Schema<Rate>({
     versionKey: false,
     timestamps: true
 });
-
-RateSchemaMongo.methods.toJSON = function () {
-    const { _id, ...rate } = this.toObject();
-    rate.id = _id;
-    return rate;
-};

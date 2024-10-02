@@ -1,0 +1,55 @@
+.contianerListCatalog {
+  background-color: #fff;
+  padding: 2rem;
+  border-radius: 1rem;
+}
+
+.contianerListCatalog__header,
+.contianerListCatalog__header div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.contianerListCatalog__header h2 {
+  font-size: 1.8rem;
+  font-weight: 600
+}
+
+.contianerListCatalog__header .catalogButtonContainer {
+  gap: 1rem;
+}
+
+.catalogView {
+  padding: .7rem;
+}
+
+.catalogView {
+  background-color: transparent;
+  border-radius: .7rem;
+  cursor: pointer;
+  font-size: 1.3rem;
+  font-weight: 500;
+  border: 1px solid rgb(210, 210, 210);
+  display: flex;
+  align-items: center;
+}
+
+.catalogView p {
+  margin-left: .4rem;
+}
+
+.contianerListCatalog__header div > .catalogInput {
+  position: relative;
+}
+
+
+.contianerListCatalog__header div > .catalogInput button {
+  background-color: #4181f2;
+  padding: .4rem;
+  border-radius: .5rem;
+  position: absolute;
+  top: 5px;
+  bottom: 5px;
+  right: 5px;
+}

@@ -18,9 +18,3 @@ export const SubscriptionSchemaMongo = new Schema<Subscription>(
     timestamps: true,
   }
 );
-
-SubscriptionSchemaMongo.methods.toJSON = function () {
-  const { _id, ...subscription } = this.toObject();
-  subscription.id = _id;
-  return subscription;
-};

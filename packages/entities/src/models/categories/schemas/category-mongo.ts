@@ -18,9 +18,3 @@ export const CategorySchemaMongo = new Schema<Category>(
     timestamps: true,
   },
 );
-
-CategorySchemaMongo.methods.toJSON = function () {
-  const { _id, ...category } = this.toObject();
-  category.id = _id;
-  return category;
-};

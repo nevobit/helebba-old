@@ -66,9 +66,3 @@ export const DocumentSchemaMongo = new Schema<Document>(
     timestamps: true,
   },
 );
-
-DocumentSchemaMongo.methods.toJSON = function () {
-  const { _id, ...document } = this.toObject();
-  document.id = _id;
-  return document;
-};

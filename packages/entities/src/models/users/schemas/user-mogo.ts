@@ -30,9 +30,3 @@ export const UserSchemaMongo = new Schema<User>(
     timestamps: true,
   }
 );
-
-UserSchemaMongo.methods.toJSON = function () {
-  const { _id, ...user } = this.toObject();
-  user.id = _id;
-  return user;
-};

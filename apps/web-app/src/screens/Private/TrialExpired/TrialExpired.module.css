@@ -1,0 +1,109 @@
+.overlay{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: block;
+    background-color: rgba(5, 2, 2, 0.3);
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding-top: 2rem;
+    z-index: 1;
+   }
+
+.container{
+    height: 85%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    gap: 4rem;
+}
+
+.period{
+    background-color: #fff;
+    padding: 3rem;
+    border-radius: .5rem;
+    width: 55rem;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.period img{
+    width: 10rem;
+    margin: auto;
+    margin-bottom: 1rem;
+}
+
+.period h2{
+    font-size: 2.1rem;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 1rem;
+    color: #2e394c;
+}
+
+.period p{
+    font-size: 1.5rem;
+    text-align: center !important; 
+    margin-bottom: 2rem;
+    width: 50rem;
+    width: 100%;
+}
+
+.period > div{
+    display: flex;
+    gap: 2rem;
+    align-items: flex-start;
+}
+
+.period ul li{
+    margin-bottom: 1rem;
+    font-size: 1.4rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.period button{
+    width: 95%;
+    margin-top: 2rem;
+    height: 3rem;
+    font-size: 1.5rem;
+    font-weight: 500;
+}
+
+.extend{
+    background-color: #fff;
+    width: 55rem;
+    padding: 3rem;
+    border-radius: .5rem;
+}
+
+.extend h2{
+    font-size: 1.6rem;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 2rem;
+    color: #2e394c;
+}
+
+.extend p{
+    font-size: 1.4rem;
+    margin-bottom: .8rem;
+    line-height: 2rem;
+}
+
+.extend p span{
+    color: var(--main-color);
+    font-weight: 500;
+}
+
+.period button{
+    font-size: 1.4rem;
+    gap: .5rem;
+    cursor: pointer;
+}

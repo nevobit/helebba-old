@@ -1,0 +1,36 @@
+.list{
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.list li{
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+    background-color: rgba(0, 0, 0, 0.1);
+    border-radius: 1.5rem;
+    padding: .5rem 1.5rem;
+    font-size: 1.3rem;
+}
+
+.list li button{
+    display: flex;
+    background-color: transparent;
+}
+
+.search_input{
+    position: relative;
+    display: inline-block;
+    height: 4rem;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(0, 0, 0, .1);
+    border-radius: .5rem;
+    overflow: hidden;
+    background-color: #fff;
+    padding-inline: 1rem;
+    font-size: 1.5rem;
+}

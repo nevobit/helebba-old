@@ -18,7 +18,7 @@ import { setLogger } from "@helebba/constant-definitions";
 import { swaggerOptions, swaggerUiOptions } from "../docs";
 import { verify } from "@helebba/business-logic";
 
-const { PORT, HOST, REGION, CORS_ORIGIN, ENVIRONMENT, DATABASE_URL, MONGO_URL, REDIS_URL } = process.env;
+const { PORT, HOST, REGION, CORS_ORIGIN, ENVIRONMENT, MONGO_URL } = process.env;
 
 const consoleOptions = {
   transport: LoggerTransportName.CONSOLE,
@@ -68,16 +68,9 @@ MonoContext.setState({
 
 const main = async () => {
   await initDataSources({
-    postgresqldb: {
-      postgresUrl: DATABASE_URL
-    },
     mongoose: {
       mongoUrl: MONGO_URL
     },
-    redisdb: {
-      redisReadUrl: REDIS_URL,
-      redisWriteUrl: REDIS_URL
-    }
   });
 
   const server = fastify({
@@ -105,8 +98,9 @@ const main = async () => {
 
   server.addHook('preValidation', async (req, reply) => {
     const data = await verify({ url: req.routeOptions.url, body: req.body, headers: req.headers, protocol: req.protocol });
+
     if (data?.type == "error") {
-      reply.send(data.message)
+      return reply.code(500).send({ type: data.type, message: data.message })
     }
   });
 

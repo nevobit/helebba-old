@@ -1,0 +1,52 @@
+.container{
+    height: 5rem;
+    width: 100%;
+}
+
+.container h4{
+    font-weight: 500;
+    color: rgba(0, 0, 0, .5);
+    font-size: 1.6rem;
+}
+
+.container p{
+    font-size: 1.5rem;
+}
+
+.buttons{
+    display: flex;
+    gap: 1rem;
+    justify-content: flex-end;
+    width: 100%;
+    margin-top: 3rem;
+}
+
+.content{
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #fff;
+    color: #000;
+    padding: 2rem;
+    border-radius: 5px;
+    transition: opacity 0.5s ease-in-out;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.content_show{
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #fff;
+    color: #000;
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: opacity 0.5s ease-in-out;
+    opacity: 0;
+    visibility: hidden;
+    opacity: 1;
+    visibility: visible;
+}

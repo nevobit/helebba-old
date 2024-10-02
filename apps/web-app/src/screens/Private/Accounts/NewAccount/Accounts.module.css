@@ -1,0 +1,130 @@
+.header{
+ display: flex;
+ align-items: center;
+ justify-content: space-between;
+ padding: 2rem 4rem;
+}
+
+.header img{
+ width: 14rem;
+}
+
+.form{
+ background-color: #fff;
+ max-width: 60rem;
+ margin-inline: auto;
+ border-radius: 1rem;
+ padding: 4rem 5.6rem 3.2rem;
+ border: 1px solid rgba(0, 0, 0, .1);
+ margin-top: 2rem;
+}
+
+.form select{
+    width: 100%;
+}
+
+.title{
+ font-size: 2.1rem;
+ line-height: 3rem;
+ font-weight: 600;
+ text-align: left;
+ color: #1f2937;
+ margin-bottom: 2.5rem;
+}
+
+.header > div:last-child{
+ display: flex;
+ align-items: center;
+ gap: 1rem;
+}
+
+
+.header > div:last-child span{
+ background-color: coral;
+ height: 3rem;
+ width: 3rem;
+ border-radius: 5rem;
+ display: grid;
+ place-items: center;
+ font-size: 1.6rem;
+ font-weight: 400;
+ color: #fff;
+}
+
+.form a{
+ font-size: 1.4rem;
+ color: #2164D9;
+ display: flex;
+ align-items: center;
+ gap: .5rem;
+ font-weight: 500;
+}
+
+.step{
+ font-size: 1.2rem;
+ font-weight: 500;
+}
+
+.buttons{
+ display: grid;
+ grid-template-columns: repeat(3, 1fr);
+ gap: 2rem;
+ margin-top: .5rem;
+}
+
+.buttons button{
+ border: 1px solid rgba(0, 0, 0, .1);
+ padding: 1rem;
+ text-align: center;
+ font-size: 1.4rem;
+ border-radius: .5rem;
+ font-weight: 500;
+ color: #1f2937c4;
+}
+
+.buttons .active{
+ color: #2164D9;
+ background-color: #2164d925;
+ border: 1px solid #2164d997;
+}
+
+.employe_buttons {
+ display: grid;
+ grid-template-columns: repeat(6, 1fr);
+ gap: 2rem;
+}
+
+.employe_buttons button{
+ border-radius: .5rem;
+ border: 1px solid rgba(0, 0, 0, .1);
+ text-align: center;
+ height: 3rem;
+ font-size: 1.4rem;
+ color: #6b7280;
+ font-weight: 500;
+}
+
+.employe_buttons .active{
+ color: #2164D9;
+ background-color: #2164d925;
+ border: 1px solid #2164d997;
+}
+
+.form select{
+ border: 1px solid rgba(0, 0, 0, .1);
+ height: 4rem;
+}
+
+.footer{
+ display: flex;
+ align-items: center;
+ justify-content: space-between;
+ margin-top: 2rem;
+}
+
+.name{
+ font-weight: 500;
+ color: #1f2937;
+ font-size: 1.5rem;
+ cursor: pointer;
+}

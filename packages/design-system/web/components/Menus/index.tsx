@@ -8,7 +8,7 @@ import React, {
   useState,
 } from 'react';
 import styles from './Menus.module.css';
-import { MoreHorizontal, MoreVertical } from 'react-feather';
+import { MoreHorizontal, MoreVertical } from 'lucide-react';
 import { createPortal } from 'react-dom';
 import { useOutsideClick } from '../../../utilities';
 

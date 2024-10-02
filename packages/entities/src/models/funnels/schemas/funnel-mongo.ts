@@ -20,9 +20,3 @@ export const FunnelSchemaMongo = new Schema<Funnel>({
     versionKey: false,
     timestamps: true
 });
-
-FunnelSchemaMongo.methods.toJSON = function () {
-    const { _id, ...funnel } = this.toObject();
-    funnel.id = _id;
-    return funnel;
-};

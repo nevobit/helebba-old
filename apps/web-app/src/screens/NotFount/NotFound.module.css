@@ -1,0 +1,37 @@
+.container{
+ display: grid;
+ place-content: center;
+ height: calc(100vh - 25rem);
+ text-align: center;
+}
+
+.container h3{
+ font-weight: 500;
+ font-size: 2.5rem;
+}
+
+.copy{
+    font-size: 1.6rem;
+    font-weight: 500;
+    color: rgba(0, 0, 0, .7);
+    margin-bottom: 4rem;
+}
+
+.container > a{
+    font-weight: 300;
+}
+.buttons{
+ display: grid;
+ justify-content: center;
+ gap: 1.5rem;
+ margin-top: 2rem;
+}
+
+.buttons a{
+ background-color: #fff;
+ padding: 2rem;
+ min-width: 12rem;
+ text-align: center;
+ border-radius: .5rem;
+ font-size: 1.4rem;
+}

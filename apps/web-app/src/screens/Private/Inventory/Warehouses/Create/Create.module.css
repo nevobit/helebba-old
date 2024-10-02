@@ -1,0 +1,210 @@
+.overlay{
+ position: fixed;
+ top: 0;
+ left: 0;
+ right: 0;
+ bottom: 0;
+ display: block;
+ background-color: rgba(0, 0, 0, 0.5);
+ display: flex;
+ justify-content: center;
+ align-items: flex-start;
+ padding-top: 2rem;
+}
+
+.container{
+ height: 50rem;
+ width: min(750px, 90%);
+ background-color: #fff;
+ border-radius: 1rem;
+ box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+ display: grid;
+ grid-template-rows: 6rem auto 6rem;
+}
+
+.header{
+ display: flex;
+ align-items: center;
+ justify-content: space-between;
+ padding: 2rem;
+ border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.header h2{
+ font-weight: 600;
+}
+
+.footer{
+ display: flex;
+ align-items: center;
+ justify-content: flex-end;
+ gap: 2rem;
+ padding: 2rem;
+ border-bottom: 1px solid rgba(0, 0, 0, .1);
+ z-index: 1;
+}
+
+.main{
+ background-color: #fff;
+ display: grid;
+ justify-content: center;
+ grid-template-columns: 1fr ;
+ gap: 2rem;
+ padding: 2rem;
+ overflow-y: auto;
+ overflow-x: hidden;
+ z-index: 0;
+}
+
+.first{
+ display: grid;
+ align-items: center;
+ grid-template-columns: 1fr 1fr;
+ gap: 2rem;
+ height: 5rem;
+}
+
+.first > div{
+ margin-top: 0;
+}
+
+.contact_type .combo_button{
+ border-radius: .5rem;
+ border: 1px solid rgba(0, 0, 0, .1);
+ max-width: fit-content;
+ display: flex;
+ align-items: center;
+ overflow: hidden;
+}
+
+
+.combo_button button{
+ padding: 1.1rem;
+ font-size: 1.2rem;
+ font-weight: 500;
+ transition: .3s;
+}
+.combo_button .active{
+ background-color: var(--main-color);
+ color: #fff;
+}
+
+.contact_type p{
+ line-height: 2rem;
+ color: rgba(0, 0, 0, 0.6);
+ font-size: 1.3rem;
+ font-weight: 600;
+}
+
+/* .main > div > div{
+ background-color: #fff;
+ border-radius: .7rem;
+ padding: 2rem;
+ box-shadow: var(--box-shadow);
+ margin-bottom: 2rem;
+} */
+
+.main > div > div h3{
+ font-weight: 500;
+ font-size: 1.6rem;
+ margin-bottom: 1rem;
+}
+
+/* .main > div > div p{
+ font-size: 1.3rem;
+ margin-bottom: 1rem;
+
+} */
+
+.basic{
+ background-color: #fff;
+ border-radius: .5rem;
+ padding: 1rem;
+ box-shadow: var(--box-shadow);
+}
+
+.category{
+ background-color: #fff;
+ border-radius: .5rem;
+ padding: 1rem;
+ box-shadow: var(--box-shadow);
+}
+
+.grid{
+ display: grid;
+ grid-template-columns: 1fr 1fr;
+ gap: 2rem;
+}
+
+.col{
+ display: grid;
+ grid-template-columns: 1fr 1fr;
+ gap: 1rem;
+}
+
+.select{
+ border: 1px solid rgba(0, 0, 0, .1);
+ position: relative;
+ height: 3.5rem;
+ border-radius: .5rem;
+ 
+}
+
+.select_select{
+ padding: .5rem;
+ padding-left: 1rem;
+ padding-top: 1.3rem;
+ width: 100%;
+ height: 100%;
+ display: flex;
+ justify-content: center;
+ align-items: center;
+}
+.select_select i{
+ font-size: 2.5rem;
+}
+
+.options{
+ position: absolute;
+ background-color: #fff;
+ z-index: 1;
+ display: none;
+ grid-template-columns: repeat( 3, 1fr);
+ gap: 1rem;
+}
+
+.open_select{
+ display: grid; 
+}
+
+.options button{
+ border: 1px solid rgba(0, 0, 0, .1);
+ border-radius: .5rem;
+}
+
+.options button:hover{
+ background-color: rgba(0, 0, 0, .04);
+}
+
+.options button i{
+ font-size: 2rem;
+ display: grid;
+ justify-content: center;
+ align-items: center;
+}
+
+.check{
+ display: flex;
+ align-items: center;
+ justify-content: flex-start;
+ margin-top: 2rem;
+}
+
+.check input{
+ width: 1.8rem;
+}
+
+.check label{
+ font-size: 1.3rem;
+ margin-left: 1rem;
+}

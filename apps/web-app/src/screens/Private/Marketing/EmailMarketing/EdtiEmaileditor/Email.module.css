@@ -1,0 +1,146 @@
+.buttons{
+    display: flex;
+    gap: 2rem;
+    justify-content: space-between;
+    padding: 2rem;
+}
+
+.buttons > div{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.buttons button{
+    max-width: 20rem;
+}
+
+
+.modal{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, .2);
+    backdrop-filter: blur(1px);
+    z-index: 999999;
+    display: flex;
+    justify-content: center;
+    padding-top: 15rem;
+}
+
+.content{
+    background-color: #fff;
+    width: 50rem;
+    height: 40rem;
+    padding: 2rem;
+    border-radius: 1rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, .05);
+}
+
+.content h3{
+    margin-bottom: 1rem;
+    font-size: 1.6rem;
+}
+
+.content button{
+    margin-top: 2rem;
+   background-color: var(--main-color);
+   max-width: 10rem;
+}
+
+.btn_new{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 2rem;
+    vertical-align: middle;
+    line-height: 1;
+    white-space: nowrap;
+    border-radius: .5rem;
+    appearance: none;
+    padding:  1.5rem;
+    font-size: 1.3rem;
+    font-weight: 500;
+    transition: .3s;
+    background-color: #1971ea;
+    color: #fff;
+   }
+   
+   .btn_new:hover{
+    background-color: #1661c9;
+   }
+
+   .title{
+    font-weight: 600;
+   }
+.selector{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid rgba(0, 0, 0, .05);
+    padding-bottom: 1rem;
+    cursor: pointer;
+}
+
+.selector h4{
+    font-size: 1.4rem;
+}
+.check{
+    border: 1px solid rgba(0, 0, 0, .1);
+    height: 2rem;
+    width: 2rem;
+    border-radius: .5rem;
+}
+
+.check_active{
+    border: 1px solid rgba(0, 0, 0, .1);
+    height: 2rem;
+    width: 2rem;
+    border-radius: .5rem;
+    background-color: #1971ea;
+}
+
+.close{
+    background-color: transparent !important;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+.header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.open{
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+    font-size: 1.4rem;
+}
+
+.inputs{
+    display: grid;
+    align-items: flex-end;
+    gap: 1rem;
+    grid-template-columns: 1fr 3rem;
+    margin-bottom: 2.5rem;
+}
+
+.inputs button{
+    padding: 0 !important;
+    height: 3rem;
+    margin-bottom: .5rem;
+}
+
+.list{
+    overflow-y: scroll;
+}
+
+.namemail{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}

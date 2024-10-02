@@ -1,0 +1,66 @@
+.container{
+ padding-inline: 4rem;
+ display: grid;
+ grid-template-columns: repeat(auto-fill, minmax(30rem, 1fr));
+ justify-content: space-between;
+ align-items: center;
+ gap: 2rem;
+}
+
+.warehouse{
+ background-color: #fff;
+ box-shadow: var(--box-shadow);
+ border-radius: .5rem ;
+ padding: 2rem;
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+ justify-content: flex-start;
+ min-height: 12rem;
+ gap: 1rem;
+}
+
+.warehouse h2{
+ display: flex;
+ align-items: center;
+ gap: .5rem;
+ font-size: 1.4rem;
+ color: rgba(0, 0, 0, .7);
+ font-weight: 600;
+}
+
+.warehouse h2 span{
+ background-color: var(--main-color);
+ display: inline-block;
+ height: 1.5rem;
+ width: 1.5rem;
+ border-radius: 50%;
+}
+
+.default{
+ background-color: var(--main-color);
+ padding: .5rem;
+ border-radius: .5rem;
+ color: #fff;
+ font-weight: 500;
+ font-size: 1.2rem;
+}
+
+.icon{
+ color: var(--main-color);
+ background-color: #1970ea33;
+ border-radius: 50rem;
+ width: 4.5rem;
+ height: 4.5rem;
+ display: grid;
+ justify-content: center;
+ align-items: center; 
+}
+
+.icon i{
+ display: inline-block;
+ font-size: 2.5rem;
+ display: grid;
+ align-items: center;
+ justify-content: center;
+}
