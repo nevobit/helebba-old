@@ -1,12 +1,12 @@
-import { updateAccount } from '@helebba/business-logic';
+import { updateAccount, verifyToken } from '@helebba/business-logic';
 import { UpdateAccountDto } from '@helebba/entities';
-import { RouteOptions } from 'fastify';
-import { RouteMethod } from '@helebba/constant-definitions';
+import { makeFastifyRoute, RouteMethod } from '@helebba/constant-definitions';
 
-export const updateAccountRoute: RouteOptions = {
-  method: RouteMethod.PATCH,
-  url: '/accounts',
-  handler: async (request, reply) => {
+export const updateAccountRoute = makeFastifyRoute(
+  RouteMethod.PATCH,
+  '/accounts',
+  verifyToken,
+  async (request, reply) => {
     const { body } = request;
     const data = body as UpdateAccountDto;
     try {
@@ -18,4 +18,4 @@ export const updateAccountRoute: RouteOptions = {
       }
     }
   },
-};
+)

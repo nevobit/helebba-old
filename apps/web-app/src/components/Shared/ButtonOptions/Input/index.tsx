@@ -3,19 +3,14 @@ import { Upload } from 'lucide-react'
 import { Loader } from '../..'
 import { useCreateContact, useImport } from '@/hooks';
 import { Contact } from '@helebba/entities';
-import { useState } from 'react';
 interface CC {
     contact: Partial<Contact>
     account: string;
 }
 const Input = () => {
    const { createContact } = useCreateContact();
-   const [notification, setNotification] = useState(false);
-    console.log(notification)
    const handleShowToast = () => {
-    setNotification(true);
     setTimeout(() => {
-        setNotification(false);
     }, 2000);
   };
    const { isLoading, handleFileUpload } = useImport<CC>({ field: "account", create: createContact, setNotification: handleShowToast });

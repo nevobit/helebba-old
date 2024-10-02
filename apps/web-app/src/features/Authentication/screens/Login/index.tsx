@@ -7,7 +7,7 @@ import { useGoogleLogin } from '@react-oauth/google';
 import { isEmail } from '../utils';
 
 const Login = () => {
-  const { login } = useLogin();
+  const { isLogging, login } = useLogin();
   const { loginGoogle  } = useLoginGoogle();
 
   const [email, setEmail] = useState<string>('');
@@ -24,11 +24,12 @@ const Login = () => {
   };
 
   const loginGoogleFn = useGoogleLogin({
-  onSuccess: (token) => handleGoogleSuccess(token.access_token)
+    flow: 'auth-code',
+  onSuccess: (token) => handleGoogleSuccess(token.code)
   });
-  
-  console.log(!isEmail(email))
 
+
+  
   return (
     <>
       <div className={styles.header}>
@@ -48,7 +49,7 @@ const Login = () => {
       <form className={styles.form} onSubmit={onSubmit}>
         <h2 className={styles.title}>Inicia sesión en Helebba</h2>
         <div className={styles.social}>
-         <Button size="large" onClick={() => loginGoogleFn()} ><img  src='/images/logo.png' /> Continuar con Google</Button>
+         <Button type="button" size="large" onClick={() => loginGoogleFn()} ><img  src='/images/logo.png' /> Continuar con Google</Button>
         </div>
 
         <div className={styles.separator_container}>
@@ -70,7 +71,7 @@ const Login = () => {
           <input type="checkbox" name="remember" id="remember" />
           Recuérdame
         </label>
-        <Button disabled={!isEmail(email)} type="submit" className={styles.submit}>
+        <Button loading={isLogging} disabled={!isEmail(email)} type="submit" className={styles.submit}>
           Iniciar sesión
         </Button>
       </form>

@@ -41,8 +41,6 @@ const Home = () => {
     }, 2000);
   };
 
-  console.log(confirm)
-
   const updateAccountHandler = () => {
     editAccount(accountUpdated, {
       onSuccess(data){
@@ -62,7 +60,7 @@ const Home = () => {
       city: account?.city,
       country: account?.country,
     })
-  }, [account])
+  }, [account, setFormState])
   
   
   return (

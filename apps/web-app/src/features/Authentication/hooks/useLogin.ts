@@ -8,7 +8,7 @@ export const useLogin = () => {
   const { isPending: isLogging, mutate: login, } = useMutation({
     mutationFn: loginApi,
     onSuccess() {
-      navigate(PrivateRoutes.ACCOUNTS, { replace: true });
+      navigate(PrivateRoutes.CODE, { replace: true });
     }
   });
 

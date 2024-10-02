@@ -6,7 +6,7 @@ export const loginGoogleRoute: RouteOptions = {
  url: '/login-google',
  handler: async (request: FastifyRequest, reply: FastifyReply) => {
   try{
-   const { body } = request;
+    const { body } = request;
    const data = body as string
    const user = await loginGoogle(data);
    reply.status(200).send(user);

@@ -8,7 +8,6 @@ export const UserSchemaMongo = new Schema<User>(
     lastname: { type: String, required: true },
     phone: { type: Number, required: false },
     email: { type: String, required: true, unique: true },
-    password: { type: String, required: true },
     newsletter: { type: Boolean, default: false },
     photo: { type: String },
     method: { type: String },

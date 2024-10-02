@@ -10,6 +10,7 @@ export const PrivateRoutes = {
   HOME: '/',
   CONTACTS: '/contacts',
   CONTACT: '/contact/:id',
+  CODE: '/verification',
   PRODUCTS: '/products',
   PRODUCT: '/products/:id',
   ACCOUNTS: '/accounts',

@@ -15,14 +15,12 @@ export const payDocumentRoute = makeFastifyRoute(
   async (request, reply) => {
     const { params, body } = request;
 
-    const { docType, documentId } = params as {
-      docType: string;
+    const { documentId } = params as {
       documentId: string;
     };
 
     const { date, description, amount } = body as PaymentDetails;
 
-    console.log(docType);
     const document = await payDocument(documentId, {
       date,
       description,

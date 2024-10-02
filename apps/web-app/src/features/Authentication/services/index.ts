@@ -8,6 +8,14 @@ export const loginApi = async (email: string) => {
     return data;
 };
 
+
+export const codeApi = async (code: number) => {
+    const { data } = await helebbaApi.post(`/auth/code-verification`, { code });
+    const { token } = data;
+    localStorage.setItem('token', JSON.stringify(token));
+    return data;
+};
+
 export const signupApi = async (info: Partial<CreateUserDto>) => {
     const { data } = await helebbaApi.post(`/register`, info);
     const { token } = data;

@@ -1,3 +1,5 @@
+export * from './code-validation';
+export * from './email';
 export * from './login-google';
 export * from './login';
 export * from './logout';

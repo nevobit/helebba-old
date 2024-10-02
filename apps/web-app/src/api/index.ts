@@ -26,7 +26,7 @@ helebbaApi.interceptors.request.use((config) => {
     const timestamp = (Date.now() / 1000);
     const fullUrl = `${config.baseURL}${config.url}`;
     const bodyString = JSON.stringify(config.data || {});
-    const signature = generateSignature(fullUrl, bodyString, timestamp);
+    const signature = generateSignature(fullUrl, bodyString.replace(/^['"]|['"]$/g, ''), timestamp);
 
     config.headers['X-Timestamp'] = timestamp.toString();
     config.headers['X-Signature'] = signature;

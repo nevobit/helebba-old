@@ -1,14 +1,14 @@
 import { verifyToken } from '@helebba/business-logic';
 import { CreateAccountDto } from '@helebba/entities';
-import { RouteOptions } from 'fastify';
 import { createAccount } from '@helebba/business-logic';
+import { makeFastifyRoute, RouteMethod } from '@helebba/constant-definitions';
 
 
-export const createAccountRoute: RouteOptions = {
-  method: 'POST',
-  url: '/accounts',
-  preHandler: verifyToken,
-  handler: async (request, reply) => {
+export const createAccountRoute = makeFastifyRoute(
+  RouteMethod.POST,
+  '/accounts',
+  verifyToken,
+  async (request, reply) => {
     try {
       const { user, body } = request as unknown as {
         body: CreateAccountDto,
@@ -22,4 +22,4 @@ export const createAccountRoute: RouteOptions = {
       reply.status(500).send(err);
     }
   },
-};
+);

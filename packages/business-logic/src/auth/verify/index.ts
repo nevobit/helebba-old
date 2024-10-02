@@ -38,7 +38,6 @@ export const verify = async ({ protocol, headers, body }: NormalizedRequest) => 
         .update(dataToSign)
         .digest('hex');
 
-
     if (signature !== expectedSignature) {
         return { type: "error", message: 'Unauthorized: Invalid signature' }
     }

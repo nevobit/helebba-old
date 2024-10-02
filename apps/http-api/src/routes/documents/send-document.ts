@@ -16,12 +16,9 @@ export const SendDocumentEmailRoute = makeFastifyRoute(
     const { params, body } = request;
     const account = request.headers['account'] as string;
 
-    const { docType, documentId } = params as {
-      docType: string;
+    const { documentId } = params as {
       documentId: string;
     };
-
-    console.log(docType)
 
     const { emails, subject, message, mailTemplateId } = body as emailProps;
 

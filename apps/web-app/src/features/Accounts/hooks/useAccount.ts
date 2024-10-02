@@ -9,7 +9,5 @@ export const useAccount = () => {
         queryFn: () => getAccount(account.id!)
     });
 
-
-    console.log(account)
     return { isLoading, account: accountData }
 }

@@ -65,7 +65,7 @@ const htmlMessage = `
         </div>
         <div class="footer">
             <p>Helebba nunca enviará un correo electrónico solicitando que revele o verifique su contraseña, tarjeta de crédito o número de cuenta bancaria.</p>
-            <p>Helebba, Inc,. &copy; 2024, Joobs. Todos los derechos reservados.</p>
+            <p>Helebba, Inc,. &copy; 2024, Helebba. Todos los derechos reservados.</p>
         </div>
     </div>
 </body>

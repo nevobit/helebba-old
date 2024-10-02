@@ -7,13 +7,15 @@ import { createSubscription } from "../../subscriptions";
 import { getAllPlans } from "../../plans";
 import { sendWelcome } from "../../mailing";
 
-const { JWT_SECRET, GOOGLE_CLIENT_ID } = process.env;
+const { JWT_SECRET, GOOGLE_CLIENT_ID, GOOGLE_SECRET } = process.env;
 
-const client = new OAuth2Client(GOOGLE_CLIENT_ID);
+const client = new OAuth2Client(GOOGLE_CLIENT_ID, GOOGLE_SECRET, "postmessage");
 
 const verifyGoogle = async (token: string) => {
+    const { tokens } = await client.getToken(token)
+    console.log({ tokens })
     const ticket = await client.verifyIdToken({
-        idToken: token,
+        idToken: tokens.id_token!,
         audience: GOOGLE_CLIENT_ID
     });
 
@@ -27,11 +29,13 @@ const verifyGoogle = async (token: string) => {
 }
 
 export const loginGoogle = async (id: string) => {
+    console.log(id)
     const model = getModel<User>(Collection.USERS, UserSchemaMongo);
 
     const { email, photo, name, lastname } = await verifyGoogle(id);
 
     const user = await model.findOne({ email });
+
 
     if (!user) {
         const data = {

@@ -35,6 +35,7 @@ import Categories from '@/screens/Private/Inventory/Categories';
 import EmailMarketing from '@/screens/Private/Marketing/EmailMarketing/EmailMarketing';
 import Email from '@/screens/Private/Marketing/EmailMarketing';
 import Warehouse from '@/screens/Private/Inventory/Warehouses/Warehouse';
+import CodeVerification from '@/features/Authentication/screens/Code';
 
 export const routes: RouteObject[] = [
   {
@@ -50,6 +51,10 @@ export const routes: RouteObject[] = [
     element: <GuardRoute privateValidation />,
     errorElement: <ErrorBoundary />,
     children: [
+      {
+            path: PrivateRoutes.CODE,
+          element: <CodeVerification />
+      },
       {
         element: <Layout />,
         children: [

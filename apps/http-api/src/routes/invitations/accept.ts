@@ -9,7 +9,6 @@ export const acceptInvitationRoutes = makeFastifyRoute(
         const { params } = request;
         const { id, userId } = params as { id: string, userId: string };
         const account = request.headers['account'] as string;
-        console.log({account})
         const invitation = await acceptInvitation(id, account, userId);
 
         return reply.send(invitation);

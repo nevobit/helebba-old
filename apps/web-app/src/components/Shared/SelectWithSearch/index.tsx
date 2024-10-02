@@ -19,17 +19,14 @@ const SelectWithSearch: React.FC<SelectWithSearchProps> = ({
   onChange,
 }) => {
   const [searchTerm, setSearchTerm] = useState('');
-  const [selectedOption, setSelectedOption] = useState('');
   const [selectedOptionText, setSelectedOptionText] = useState("");
   const [open, setOpen] = useState(false);
-  console.log(selectedOption)
   const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchTerm(e.target.value);
   };
 
   const handleOptionSelect = (name: string, uuid: string) => {
     setOpen(false);
-    setSelectedOption(uuid);
     setSelectedOptionText(name);
     onChange(uuid);
   };

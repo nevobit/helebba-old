@@ -4,8 +4,7 @@ import styles from './Accounts.module.css';
 import { Link, useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import EmployeesButton from './EmployeesButton';
-import { useAccountStore } from '@/state-manager';
-import { PrivateRoutes, PublicRoutes } from '@/router';
+import { PublicRoutes } from '@/router';
 import { useCreateAccount } from '../../hooks';
 import { Button, Field, Input, useForm } from '@helebba/design-system/web';
 
@@ -13,7 +12,6 @@ const NewAccount = () => {
   const navigate = useNavigate();
   const { isCreating, createAccount } = useCreateAccount();
   const { user } = useUser();
-  const selectAccount = useAccountStore((state) => state.selectAccount);
 
   const [type, setType] = useState('enterprise');
   const [employees, setEmployees] = useState('1');
@@ -30,12 +28,7 @@ const NewAccount = () => {
 
   const onSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    createAccount({...account, type, employees}, {
-      onSuccess(data) {
-        selectAccount(data)
-        navigate(PrivateRoutes.HOME, { replace: true });
-      },
-    });
+    createAccount({...account, type, employees, users: [user!.id]});
   };
 
   return (
