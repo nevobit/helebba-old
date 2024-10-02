@@ -339,6 +339,9 @@ importers:
       workbox-strategies:
         specifier: ^7.1.0
         version: 7.1.0
+      xlsx:
+        specifier: ^0.18.5
+        version: 0.18.5
       zustand:
         specifier: 5.0.0-rc.2
         version: 5.0.0-rc.2(@types/react@18.3.3)(react@18.3.1)
