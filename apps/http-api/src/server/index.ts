@@ -120,6 +120,7 @@ const main = async () => {
   server.listen(
     { port: Number(PORT) || 8000, host: HOST },
     (err, address) => {
+      console.log(err)
       logger.all(`Server successfully started on: ${address}`, { address });
       logger.info("Press CTRL-c to stop");
     }
