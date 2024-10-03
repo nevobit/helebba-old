@@ -8,7 +8,7 @@ export const useRegister = () => {
   const { isPending: isRegistering, mutate: register, } = useMutation({
     mutationFn: signupApi,
     onSuccess() {
-      navigate(PrivateRoutes.ACCOUNTS, { replace: true });
+      navigate(PrivateRoutes.CODE, { replace: true });
     }
   });
 

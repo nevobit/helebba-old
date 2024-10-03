@@ -8,29 +8,31 @@ import { getEmailHTML } from "./email";
 const { JWT_SECRET, RESEND_API_KEY } = process.env;
 const resend = new Resend(RESEND_API_KEY);
 
-export const login = async (email: string) => {
+export const register = async (email: string, lastname: string, phone: string, name: string) => {
     const model = getModel<User>(Collection.USERS, UserSchemaMongo);
 
     const user = await model.findOne({ email });
 
-    if (!user) {
+    if (user) {
         return
     }
 
-    user.lastLogin = new Date().toString();
+    const newUser = new model({ lastname, phone, email, name });
+
+    newUser.lastLogin = new Date().toString();
 
     const code = otpGenerator.generate(6, { lowerCaseAlphabets: false, upperCaseAlphabets: false, specialChars: false });
-    user.code = Number(code);
-    await user.save();
+    newUser.code = Number(code);
+    await newUser.save();
     await resend.emails.send({
         from: 'Helebba <onboarding@resend.dev>',
-        to: [user.email],
+        to: [email],
         subject: 'Verificación de correo electrónico Helebba',
         html: getEmailHTML(code)
     });
 
 
-    const token = sign({ id: user.id }, JWT_SECRET!, { expiresIn: '15d' });
+    const token = sign({ id: newUser.id }, JWT_SECRET!, { expiresIn: '15d' });
 
     return { token };
 }

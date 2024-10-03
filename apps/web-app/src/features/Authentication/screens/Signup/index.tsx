@@ -6,8 +6,9 @@ import { Button, Field, Input } from '@helebba/design-system/web'
 import { useGoogleLogin } from '@react-oauth/google';
 
 const Signup = () => {
-    const { isRegistering, register } = useRegister();
-  const { loginGoogle  } = useLoginGoogle();
+  const { isRegistering, register } = useRegister();
+  const { loginGoogle } = useLoginGoogle();
+  
   const [user, setUser] = useState({
     name: '',
     last_name: '',
@@ -33,8 +34,9 @@ const Signup = () => {
       loginGoogle(token_id)
   };
   
-      const loginGoogleFn = useGoogleLogin({
-  onSuccess: (token) => handleGoogleSuccess(token.access_token)
+  const loginGoogleFn = useGoogleLogin({
+            flow: 'auth-code',
+  onSuccess: (token) => handleGoogleSuccess(token.code)
 });
   return (
     <>

@@ -17,7 +17,7 @@ export const codeApi = async (code: number) => {
 };
 
 export const signupApi = async (info: Partial<CreateUserDto>) => {
-    const { data } = await helebbaApi.post(`/register`, info);
+    const { data } = await helebbaApi.post(`/auth/register`, info);
     const { token } = data;
     localStorage.setItem('token', JSON.stringify(token));
     return data;

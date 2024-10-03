@@ -7,3 +7,4 @@ export * from './refresh-token';
 export * from './two-factor-validate';
 export * from './two-factor';
 export * from './verify';
+export * from './register';

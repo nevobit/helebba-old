@@ -28,8 +28,6 @@ const Login = () => {
   onSuccess: (token) => handleGoogleSuccess(token.code)
   });
 
-
-  
   return (
     <>
       <div className={styles.header}>
