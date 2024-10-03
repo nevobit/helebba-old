@@ -3,11 +3,12 @@ import { RouteOptions, FastifyRequest, FastifyReply } from 'fastify';
 import { UploadImage } from '@helebba/business-logic';
 import multer from 'fastify-multer';
 
-const upload = multer({ dest: 'uploads' });
+const storage = multer.memoryStorage();
+const upload = multer({ storage });
 
 interface File {
     file: {
-        path: string;
+        buffer: Buffer;
     }
 }
 
@@ -18,7 +19,7 @@ export const uploadImageRoute: RouteOptions = {
     handler: async (request: FastifyRequest, reply: FastifyReply) => {
         try {
             const { file } = request as unknown as File;
-            const image = await UploadImage(file.path);
+            const image = await UploadImage(file.buffer);
             reply.status(201).send(image);
         } catch (err) {
             reply.status(500).send(err);

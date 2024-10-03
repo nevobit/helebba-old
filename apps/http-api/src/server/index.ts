@@ -5,6 +5,7 @@ import fastifyCors from "@fastify/cors";
 import fastifySwagger from "@fastify/swagger";
 import fastifySwaggerUi from "@fastify/swagger-ui";
 import fastifyRateLimit from "@fastify/rate-limit";
+import fastifyMultipart from '@fastify/multipart';
 import {
   ConsoleTransport,
   Logger,
@@ -103,6 +104,8 @@ const main = async () => {
       return reply.code(500).send({ type: data.type, message: data.message })
     }
   });
+  server.register(fastifyMultipart);
+
 
   server.register(
     (instance, _options, next) => {

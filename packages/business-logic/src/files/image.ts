@@ -1,9 +1,5 @@
-import { UploadApiResponse, v2 as cloudinary } from 'cloudinary';
+import { v2 as cloudinary } from 'cloudinary';
 
-interface UploadImageResponse {
-  url: string;
-  public_id: string;
-}
 
 cloudinary.config({
   cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
@@ -11,7 +7,19 @@ cloudinary.config({
   api_secret: process.env.CLOUDINARY_API_SECRET
 });
 
-export const UploadImage = async (file: string): Promise<UploadImageResponse> => {
-  const result: UploadApiResponse = await cloudinary.uploader.upload(file);
-  return { url: result.secure_url, public_id: result.public_id };
+export const UploadImage = async (file: Buffer) => {
+  const result = await cloudinary.uploader.upload_stream({
+    resource_type: 'image'
+  }, (error, result) => {
+    if (error) {
+      throw new Error(error.message);
+    }
+    if (result) {
+      return { url: result.secure_url, public_id: result.public_id };
+    }
+  }).end(file);  // Enviamos el Buffer al stream de subida
+
+  if (!result) {
+    throw new Error('Error uploading image');
+  }
 }
