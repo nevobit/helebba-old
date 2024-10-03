@@ -1,5 +1,5 @@
 import React from 'react'
-import { Monitor } from 'react-feather'
+import { Monitor } from 'lucide-react'
 import styles from './Option.module.css'
 
 interface Props{

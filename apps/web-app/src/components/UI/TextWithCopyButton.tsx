@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Copy } from 'react-feather';
+import { Copy } from 'lucide-react';
 
 const TextWithCopyButton = ({ text, maxLength }: { text: string, maxLength: number }) => {
     const [copied, setCopied] = useState(false);
