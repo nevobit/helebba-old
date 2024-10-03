@@ -3,7 +3,6 @@ import { Route } from 'react-router-dom';
 import RoutesWithNotFound from '@/utilities/routes-with-not-found';
 import Home from './Home';
 import Contacts from './Contacts';
-import Layout from '@/components/LayoutComponent';
 import Contact from './Contacts/Contact';
 import {
   Warehouses,
@@ -37,6 +36,7 @@ import EmailMarketing from './Marketing/EmailMarketing/EmailMarketing';
 import Email from './Marketing/EmailMarketing';
 import Marketplace from './Partners/Marketplace';
 import Categories from './Inventory/Categories';
+import Layout from '@/components/Layout/LayoutComponent';
 
 const Private = () => {
   return (

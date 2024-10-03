@@ -2,10 +2,9 @@ import { X } from 'lucide-react';
 import styles from './ModalCreate.module.css';
 import { useCreateDeveloper, useDevelopers, useUser } from '@/hooks';
 import { useNavigate } from 'react-router-dom';
-import { Button } from '@/components';
+import { Button, TextWithCopyButton } from '@/components';
 import { useAccountStore } from '@/state-manager';
 import { Developer } from '@helebba/entities';
-import TextWithCopyButton from '@/components/UI/TextWithCopyButton';
 
 const Developers = () => {
   const { user } = useUser();
@@ -88,7 +87,7 @@ const Developers = () => {
                     <tr key={developer.id}>
                       <td>{developer.description}</td>
                       <td><TextWithCopyButton text={developer.hash} maxLength={40} /></td>
-                      <td>{developer.createdAt.toString()}</td>
+                      <td>{developer?.createdAt?.toString()}</td>
                     </tr>
                   ))}
                 </tbody>
