@@ -1,4 +1,4 @@
-import { v2 as cloudinary } from 'cloudinary';
+import { v2 as cloudinary, UploadApiResponse } from 'cloudinary';
 
 
 cloudinary.config({
@@ -8,18 +8,14 @@ cloudinary.config({
 });
 
 export const UploadImage = async (file: Buffer) => {
-  const result = await cloudinary.uploader.upload_stream({
-    resource_type: 'image'
-  }, (error, result) => {
-    if (error) {
-      throw new Error(error.message);
-    }
-    if (result) {
-      return { url: result.secure_url, public_id: result.public_id };
-    }
-  }).end(file);  // Enviamos el Buffer al stream de subida
+  const result: UploadApiResponse = await new Promise((resolve) => {
+    cloudinary.uploader.upload_stream((error, uploadResult) => {
+      if (uploadResult) {
+        return resolve(uploadResult);
+      }
+    }).end(file);
+  });
 
-  if (!result) {
-    throw new Error('Error uploading image');
-  }
+  return { url: result.secure_url, public_id: result.public_id };
+
 }
