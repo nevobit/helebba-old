@@ -57,8 +57,10 @@ const logger = new Logger({
 });
 
 const corsOptions = {
-  origin: CORS_ORIGIN!.split(","),
+  origin: "*",
 };
+
+console.log(CORS_ORIGIN!.split(","))
 
 setLogger(logger);
 
