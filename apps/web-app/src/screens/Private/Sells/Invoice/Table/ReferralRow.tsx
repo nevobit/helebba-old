@@ -2,14 +2,14 @@ import { Modal, Table } from '@/containers';
 import { Document, getStatusDocument } from '@helebba/entities';
 import { colorsTable } from './dataTable';
 import { Check } from 'lucide-react';
-import { ConfirmDelete, Loader, Menus } from '@/components';
+import { ConfirmDelete, Menus } from '@/components';
 import { useCreateDocument, useDeleteDocument } from '@/hooks';
 import { Format01 } from '@/containers/Invoices';
-import ReactPDF, { PDFDownloadLink } from '@react-pdf/renderer';
+import  { pdf } from '@react-pdf/renderer';
 import { useAccountStore } from '@/state-manager';
-import { MouseEvent } from 'react';
 import SendDocument from '@/containers/Invoices/SendDocument';
 import { DivisaFormater } from '@/utilities';
+import { saveAs } from 'file-saver'
 
 interface Props {
   doc: Partial<Document>;
@@ -23,23 +23,6 @@ const ReferralRow = ({ doc, index, selected, onSelect }: Props) => {
   const { createDocument } = useCreateDocument(doc.docType);
   const { isDeleting, deleteDocument  } = useDeleteDocument();
  
-  const generatePdfSuccess = async (
-    e:  MouseEvent<HTMLButtonElement, globalThis.MouseEvent>,
-    instance: ReactPDF.BlobProviderParams
-  ) => {
-    e.preventDefault();
-    if (instance.loading || !instance.url) {
-      return;
-    }
-    downloadURI(instance.url, `${doc.docNumber}.pdf`);
-  };
-
-  function downloadURI(uri: string, name: string) {
-    const link = document.createElement("a");
-    link.href = uri;
-    link.download = name;
-    link.click();
-  }
 
   const handleDuplicate = () => {
     const { id, ...withoutId } = doc;
@@ -48,6 +31,20 @@ const ReferralRow = ({ doc, index, selected, onSelect }: Props) => {
       account: withoutId.account!,
       document: withoutId
     });
+  }
+
+    const handleDownload = async () => {
+    const blob = await pdf(  <Format01
+                            specs={doc.products!}
+                            name={doc.contactName}
+                            phone={""}
+                            city={""}
+                            account={account}
+                            date={doc?.date}
+                            due={doc.dueDate}
+                            
+                        />).toBlob()
+    saveAs(blob, `${doc.docNumber}.pdf`)
   }
   return (
     <Table.Row>
@@ -87,31 +84,11 @@ const ReferralRow = ({ doc, index, selected, onSelect }: Props) => {
                 <Menus.Button>Enviar</Menus.Button>
               </Modal.Open>
               
-              <PDFDownloadLink
-                    document={
-                        <Format01
-                            // ref={canvasRef}
-                            specs={doc.products!}
-                            name={doc.contactName}
-                            phone={""}
-                            city={""}
-                            account={account}
-                            date={doc?.date}
-                            due={doc.dueDate}
-                            
-                        />
-                    }
-                >
-                    {(params) =>
-                        params.loading ? <div style={{
-                            width: 150,
-                            display: 'flex',
-                            alignItems: 'center',
-                            justifyContent: 'center'
-                        }}><Loader small={true} /></div> : <Menus.Button onClick={(e) => generatePdfSuccess(e, params)}>Descargar</Menus.Button>
-                    }
-                </PDFDownloadLink>
-
+         
+      <Menus.Button onClick={handleDownload}>
+        Descargar
+      </Menus.Button>
+    
               
               <Modal.Open opens="edit">
                 <Menus.LinkTo

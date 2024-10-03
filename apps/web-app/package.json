@@ -17,6 +17,8 @@
     "@tanstack/react-query": "^5.51.21",
     "axios": "^1.7.3",
     "crypto-js": "^4.2.0",
+    "file-saver": "^2.0.5",
+    "file-server": "^2.2.1",
     "lucide-react": "^0.447.0",
     "react": "^18.3.1",
     "react-beautiful-dnd": "^13.1.1",
@@ -35,7 +37,9 @@
   },
   "devDependencies": {
     "@types/crypto-js": "^4.2.2",
+    "@types/file-saver": "^2.0.7",
     "@types/react": "^18.3.3",
+    "@types/react-beautiful-dnd": "^13.1.8",
     "@types/react-dom": "^18.3.0",
     "@types/uuid": "^10.0.0",
     "@typescript-eslint/eslint-plugin": "^7.15.0",

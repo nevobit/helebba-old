@@ -45,7 +45,7 @@ const CreateQuote = () => {
   } = useHandleDocument();
 
   const { isCreating, createDocument } = useCreateDocument(DocumentType.QUOTES);
-  const { isEditing, editDocument } = useEditDocument(DocumentType.QUOTES);
+  const { isEditing, editDocument } = useEditDocument();
 
   const isWorking = isCreating || isEditing;
 
