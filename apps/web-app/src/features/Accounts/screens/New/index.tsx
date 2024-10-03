@@ -100,7 +100,7 @@ const NewAccount = () => {
                 <option value="others">Otros</option>
               </select>
             </Field>
-            <Field label="Numero de empleados">
+            <Field label="Número de empleados">
               <div className={styles.employe_buttons}>
                 <EmployeesButton employees={employees} value='1' onChange={() => setEmployees("1")} />
                 <EmployeesButton employees={employees} value='2-5' onChange={() => setEmployees("2-5")} />

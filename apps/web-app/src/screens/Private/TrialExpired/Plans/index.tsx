@@ -51,7 +51,7 @@ const Plans = () => {
                             <div className={styles.includes}>
                                 <h4>INCLUYE</h4>
                                 <ul>
-                                    <li>Facturacion y gastos</li>
+                                    <li>Facturacióny gastos</li>
                                 </ul>
                             </div>
                         </div> */}

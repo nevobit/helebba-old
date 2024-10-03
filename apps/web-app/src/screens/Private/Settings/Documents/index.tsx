@@ -112,13 +112,13 @@ const Documents = () => {
             <h3>Campos</h3>
             <p>Apareceran en el creador de documentos y en el PDF.</p>
        
-            <Field label='NIT - Identificaion'>
+            <Field label='NIT - Identificación'>
               <Input value={identification} onChange={({target}) => setIdentification(target.value)} />
             </Field>
-            <Field label='Telefono'>
+            <Field label='Teléfono'>
               <Input value={phone} onChange={({target}) => setPhone(target.value)} />
             </Field>
-            <Field label='Direccion'>
+            <Field label='Dirección'>
               <Input value={address} onChange={({target}) => setAddress(target.value)}/>
             </Field>
             <Field label='Ciudad'>
@@ -127,7 +127,7 @@ const Documents = () => {
             <Field label='Departamento o Estado'>
               <Input value={department} onChange={({target}) => setDepartment(target.value)}/>
             </Field>
-            <Field label='Correo electronico'>
+            <Field label='Correo electrónico'>
               <Input value={website} onChange={({target}) => setWebsite(target.value)} />
             </Field>
           

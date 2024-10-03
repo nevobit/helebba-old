@@ -29,7 +29,7 @@ const ReferralsTable = () => {
           </div>
 
           <div>Fecha</div>
-          <div>Numero factura</div>
+          <div>Número factura</div>
           <div>Cliente</div>
           <div>Subtotal</div>
           <div>Total</div>

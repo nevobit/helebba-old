@@ -116,7 +116,7 @@ const Home = () => {
               
             <div className={styles.content}>
               <h3>Completa los datos de tu negocio</h3>
-              <p>Complete estos campos con la informacion que utilizo para registrar legalmente su empresa.</p>
+              <p>Complete estos campos con la información que utilizo para registrar legalmente su empresa.</p>
               <div className={styles.first}>
                 <Field label='Nombre de la empresa'>
                   <Input defaultValue={account?.name} value={accountUpdated.name} name='name'  onChange={handleChange} />
@@ -273,7 +273,7 @@ const Home = () => {
               <CheckPoint> <ShoppingCart size={18} /> </CheckPoint>
                 <div>
                 <h3>Compras</h3>
-                <p>Importa tus gastos y sigue la evolucion de tu negocio.</p>
+                <p>Importa tus gastos y sigue la evolución de tu negocio.</p>
                 </div>
               </div>
               <span>Importar <ArrowRight size={14} /> </span>

@@ -195,7 +195,7 @@ const CreateSalesOrder = () => {
             }}
           />
         </Field>
-        <Field label="Numero de documento">
+        <Field label="Número de documento">
           <Input
             name="docNumber"
             value={order.docNumber}

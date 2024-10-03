@@ -27,7 +27,7 @@ const Employee = () => {
       <div className={styles.content}>
         <div>
           <div className={styles.box}>
-            <h4>Correo electronico</h4>
+            <h4>Correo electrónico</h4>
           </div>
         </div>
         <div>

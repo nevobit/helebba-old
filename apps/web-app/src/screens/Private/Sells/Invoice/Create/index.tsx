@@ -384,7 +384,7 @@ const CreateInvoice = () => {
 
       <div className={styles.last_card}>
         <div className={styles.invoice_payment}>
-          <Field label="Informacion de pago">
+          <Field label="Informaciónde pago">
             <select
               name="paymentMethod"
               value={invoice.paymentMethod}

@@ -57,11 +57,11 @@ const Signup = () => {
       </Field>
       </div>
       
-      <Field label='Telefono'>
+      <Field label='Teléfono'>
        <Input type="text" name="phone" id="" placeholder='Escribe tu número de teléfono' onChange={handleChange} />
       </Field>
       <Field label='Email'>
-       <Input type="text" name="email" id="" placeholder='Introduce tu correo electronico' onChange={handleChange} />
+       <Input type="text" name="email" id="" placeholder='Introduce tu correo electrónico' onChange={handleChange} />
       </Field>
        <label htmlFor="newsletter" className={styles.remember}>
         <input type="checkbox" name="newsletter" id="remember"  />        

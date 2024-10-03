@@ -11,7 +11,7 @@ const PaymentInfo: React.FC<PaymentInfoProps> = ({ paymentMethod, handleChange }
   return (
     <div className={styles.last_card}>
       <div className={styles.invoice_payment}>
-        <Field label="Informacion de pago">
+        <Field label="Información de pago">
           <select
             name="paymentMethod"
             value={paymentMethod}

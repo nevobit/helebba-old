@@ -83,7 +83,7 @@ const WarehouseForm = ({ warehouseToEdit = {}, onCloseModal }: Props) => {
                   <Input name="email" value={warehouse.email} onChange={handleChange} />
                 </Field>
                 <div className={styles.col}>
-                  <Field label="Telefono">
+                  <Field label="Teléfono">
                     <Input name="phone" value={warehouse.phone} onChange={handleChange} />
                   </Field>
                   <Field label="Celular">

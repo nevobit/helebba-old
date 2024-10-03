@@ -236,7 +236,7 @@ const CreateReferral = () => {
             }}
           />
         </Field>
-        <Field label="Numero de documento">
+        <Field label="Número de documento">
           <Input
             name="docNumber"
             value={referral.docNumber}
@@ -378,7 +378,7 @@ const CreateReferral = () => {
 
       <div className={styles.last_card}>
         <div className={styles.invoice_payment}>
-          <Field label="Informacion de pago">
+          <Field label="Informaciónde pago">
             <select
               name="paymentMethod"
               value={referral.paymentMethod}

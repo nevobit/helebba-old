@@ -18,13 +18,13 @@ const TrialExpired = () => {
                 <p>Elige hoy tu plan y descubre como mejorar tu negocio con Helebba</p>
                 <div>
                     <ul>
-                        <li> <CheckCircle size={18} color='#36b274' /> Facturacion y contabilidad</li>
+                        <li> <CheckCircle size={18} color='#36b274' /> Facturacióny contabilidad</li>
                         <li> <CheckCircle size={18} color='#36b274' /> Contactos y CRM</li>
                         <li> <CheckCircle size={18} color='#36b274' /> Gestion de inventario</li>
                     </ul>
                     <ul>
                         <li> <CheckCircle size={18} color='#36b274' /> Cobro online de tus facturas</li>
-                        <li> <CheckCircle size={18} color='#36b274' /> Sincronizacion de bancos</li>
+                        <li> <CheckCircle size={18} color='#36b274' /> Sincronizaciónde bancos</li>
                         <li> <CheckCircle size={18} color='#36b274' /> Seguridad en la nube de primera clase</li>
                     </ul>
                 </div>

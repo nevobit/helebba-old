@@ -51,7 +51,7 @@ const Configuration = () => {
                 >
                   <li>Preferencias</li>
                   <li>Administración de usuarios</li>
-                  <li>Configuración de correo electronico</li>
+                  <li>Configuración de correo electrónico</li>
                 </Option>
                 <Option
                   title="Facturación"

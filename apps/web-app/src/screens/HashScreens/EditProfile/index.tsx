@@ -90,15 +90,15 @@ const EditProfile = () => {
                 </Field>
 
                 <Field label="Apellido">
-                  <Input name="description" value={admin.lastname} onChange={handleChange} placeholder="" />
+                  <Input name="lastname" value={admin.lastname} onChange={handleChange} placeholder="" />
                 </Field>
 
-                <Field label="Telefono *">
-                  <Input name="description" onChange={handleChange} placeholder="" value={admin.phone} />
+                <Field label="Teléfono *">
+                  <Input name="phone" onChange={handleChange} placeholder="" value={admin.phone} />
                 </Field>
 
                 <Field label="Idioma">
-                  <Input name="description" onChange={handleChange} placeholder="" />
+                  <Input name="language" onChange={handleChange} placeholder="" />
                 </Field>
                 </div>
 
