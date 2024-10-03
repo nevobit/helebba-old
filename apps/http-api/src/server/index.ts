@@ -19,7 +19,7 @@ import { setLogger } from "@helebba/constant-definitions";
 import { swaggerOptions, swaggerUiOptions } from "../docs";
 import { verify } from "@helebba/business-logic";
 
-const { PORT, HOST, REGION, CORS_ORIGIN, ENVIRONMENT, MONGO_URL } = process.env;
+const { PORT, HOST, REGION, ENVIRONMENT, MONGO_URL } = process.env;
 
 const consoleOptions = {
   transport: LoggerTransportName.CONSOLE,
@@ -60,7 +60,7 @@ const corsOptions = {
   origin: "*",
 };
 
-console.log(CORS_ORIGIN!.split(","))
+console.log(PORT)
 
 setLogger(logger);
 

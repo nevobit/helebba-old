@@ -2,6 +2,7 @@
 
 rm -rf dist
 mkdir -p dist
-esbuild src/**/*.ts --bundle --platform=node --target=node20 --outdir=dist --minify --tree-shaking --external:farmhash --format=cjs --analyze
+esbuild src/**/*.ts --bundle --platform=node --target=node20 --outdir=dist --minify --tree-shaking --external:farmhash  --external:mock-aws-s3 --external:aws-sdk --external:nock --format=cjs --loader:.html=text --analyze
 mkdir -p dist/server/static
 cp -R src/docs/static/* dist/server/static/
+cp package.json dist/server/ 
