@@ -239,6 +239,9 @@
   bottom: 2rem;
 }
 
-@media screen and (min-width: 1200px){
-  
+@media screen and (max-width: 1025px){
+  .main{
+        grid-template-columns: 1fr;
+
+  }
 }

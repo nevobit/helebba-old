@@ -16,6 +16,7 @@ import {
   Users,
   Home,
   BookOpen,
+  Menu,
 } from 'lucide-react';
 import HeaderLink from '@/components/Shared/HeaderLink';
 import { googleLogout } from '@react-oauth/google';
@@ -53,11 +54,17 @@ const Header = () => {
   const navigateHash = (route: string) => {
     window.location.hash = route;
   };
+const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   return (
     <Modal>
       <header className={styles.header}>
-        <nav className={styles.nav}>
+           <button
+        className={styles.hamburger}
+          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
+          <Menu width={28} height={28} color='#fff' />
+      </button>
+      <nav className={`${styles.nav} ${isMobileMenuOpen ? `${styles.mobile_menu} ${styles.active}` : ''}`}>
           <Link
             to="/"
             onClick={() => setActive(() => '')}
