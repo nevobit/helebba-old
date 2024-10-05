@@ -50,7 +50,7 @@ export default defineConfig({
       background_color: "#fff",
       start_url: "/",
       display: "standalone",
-      orientation: "portrait",
+      orientation: "any",
     }
   })
   ],
