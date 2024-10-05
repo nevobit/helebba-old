@@ -54,6 +54,10 @@
 
 @media screen and (max-width: 1200px){
     .modal {
+            top: 1rem;
+
           width: 90% !important;
+        height: 90vh !important;
+
     }
 }

@@ -242,6 +242,17 @@
 @media screen and (max-width: 1025px){
   .main{
         grid-template-columns: 1fr;
+    padding-inline: 0rem;
 
   }
+
+  .table_container {
+    width: 100%; 
+}
+}
+
+@media screen and (max-width: 768px) {
+    .grid{
+    grid-template-columns: 1fr;
+   }
 }
