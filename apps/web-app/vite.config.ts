@@ -18,8 +18,8 @@ export default defineConfig({
       swDest: "dist/sw.js"
     },
     manifest: {
-      name: "App Name",
-      short_name: "App",
+      name: "Helebba",
+      short_name: "Helebba",
       icons: [
         {
           "src": "manifest-icon-192.maskable.png",
