@@ -215,6 +215,10 @@
     gap: 1rem;
 }
 
+.hamburger{
+display: none;
+}
+
 @media screen and (max-width: 1024px) {
     .user_name, .account{
         display: none;
