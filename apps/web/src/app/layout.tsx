@@ -9,7 +9,7 @@ const poppins = Poppins({
   weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900'],
 });
 export const metadata: Metadata = {
-  metadataBase: new URL('https://helebba.com'),
+  metadataBase: new URL('https://helebba.com.co'),
   title: {
     default: 'Helebba - El software de gestión para emprendedores',
     template: '%s | Helebba - El software de gestión para emprendedores'
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Helebba - El software de gestión para emprendedores',
     description:'Helebba es el software de gestión de negocios que te permite gestionar desde un mismo sitio tu facturación, contabilidad, inventario, CRM, proyectos y RRHH.',
-    url: 'https://helebba.com',
+    url: 'https://helebba.com.co',
     siteName: 'Helebba Software',
     type: 'website',
     locale: 'es-ES',

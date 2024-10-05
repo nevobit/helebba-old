@@ -18,8 +18,8 @@ const Header = () => {
             </div>
 
             <div>
-                <Link href="https://app.helebba.com" className={styles.login_btn} >Inicia sesión</Link>
-                <Link href="https://app.helebba.com" className={styles.btn} >Empieza gratis</Link>
+                <Link href="https://app.helebba.com.co" className={styles.login_btn} >Inicia sesión</Link>
+                <Link href="https://app.helebba.com.co" className={styles.btn} >Empieza gratis</Link>
             </div>
         </nav>
     </header>
