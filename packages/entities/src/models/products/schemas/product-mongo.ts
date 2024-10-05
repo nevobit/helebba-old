@@ -9,6 +9,7 @@ export const ProductSchemaMongo = new Schema<Product>({
     kind: { type: String, },
     name: { type: String, },
     slug: { type: String, },
+    brand: { type: String, },
     desc: { type: String, },
     typeId: { type: String, },
     contactId: { type: String, ref: "contacts" },

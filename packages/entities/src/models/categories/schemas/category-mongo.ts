@@ -1,10 +1,12 @@
 import { Schema } from 'mongoose';
 import { Category } from './category';
 import { StatusType } from '../../../common';
+import slugify from 'slugify';
 
 export const CategorySchemaMongo = new Schema<Category>(
   {
     name: { type: String, required: true },
+    slug: { type: String },
     type: { type: String, default: "options" },
     color: { type: String },
     options: [{ type: String }],
@@ -18,3 +20,11 @@ export const CategorySchemaMongo = new Schema<Category>(
     timestamps: true,
   },
 );
+
+CategorySchemaMongo.pre('validate', function (this, next) {
+  if (this.name) {
+    this.slug = slugify(this.name, { lower: true, strict: true })
+  }
+  next();
+});
+

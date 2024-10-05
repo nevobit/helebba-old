@@ -645,7 +645,7 @@ const ProductFrom = ({ productToEdit = {}, onCloseModal }: Props) => {
                                   'factoryCode',
                                 )
                               }
-                            />{' '}
+                            />
                           </td>
                           <td>
                             <Button
@@ -679,6 +679,16 @@ const ProductFrom = ({ productToEdit = {}, onCloseModal }: Props) => {
             </p>
 
             <Field
+              label="Marca">
+              <Input
+                          type="text"
+                          name="brand"
+                          value={product.brand}
+                          onChange={handleChange}
+                        />
+            </Field>
+
+            <Field
               label="Etiquetas"
               tip="Presiona la barra espaciadora para agregar una etiqueta">
               <TagsInput title="Etiquetas" onChanged={handleTagsChanged} />
@@ -689,6 +699,8 @@ const ProductFrom = ({ productToEdit = {}, onCloseModal }: Props) => {
                 {categoriesInput.map((category) => (
                   <Field label={category.name} >
                     <div className={styles.option} >
+                      {category.type !== "text" ? (
+
                       <select onChange={handleChange} name="categoryOption">
                       <option style={{
                         color: "rgba(0,0,0,0.5)"
@@ -697,6 +709,10 @@ const ProductFrom = ({ productToEdit = {}, onCloseModal }: Props) => {
                           <option value={option}>{option}</option>
                         ))}
                       </select>
+                      ) : (
+                          <p style={{ fontSize: 14 }} >Categoria { category.name }</p>
+                      )}
+                        
                       <Button onClick={() => onRemoveCategory(category.id)} variant="third" type='button' > <Trash size={16} /> </Button>
                       </div>
 

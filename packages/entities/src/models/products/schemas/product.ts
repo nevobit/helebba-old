@@ -83,6 +83,7 @@ export interface Product extends Base {
     kind: string;
     name: string;
     slug: string;
+  brand: string;
     desc: string;
     typeId: string;
     contactId: string;
