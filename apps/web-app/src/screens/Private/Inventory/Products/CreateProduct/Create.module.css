@@ -22,9 +22,9 @@
    }
    
    .container{
-    min-height: 60rem;
-    display: grid;
-    grid-template-rows: auto 6rem;
+    height: 60rem;
+    display: flex;
+    flex-direction: column;
    }
    
    .header{
@@ -51,7 +51,7 @@
     background-color: #f3f4f6;
     display: grid;
     justify-content: center;
-    grid-template-columns: 1fr 35rem;
+    grid-template-columns: 1fr 30rem;
     gap: 2rem;
     overflow-y: auto;
     overflow-x: hidden;
@@ -232,4 +232,13 @@
   display: grid;
   grid-template-columns: 1fr 6rem;
   margin-bottom: 2rem;
+}
+
+.footer{
+  position:static ;
+  bottom: 2rem;
+}
+
+@media screen and (min-width: 1200px){
+  
 }
