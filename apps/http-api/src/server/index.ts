@@ -60,8 +60,6 @@ const corsOptions = {
   origin: "*",
 };
 
-console.log(PORT)
-
 setLogger(logger);
 
 MonoContext.setState({
@@ -83,7 +81,7 @@ const main = async () => {
   server.register(fastifyCors, corsOptions);
   server.register(fastifyRateLimit, {
     max: 30,
-    timeWindow: "1 minute",
+    timeWindow: "10 minute",
     keyGenerator: (request) => request.ip,
     errorResponseBuilder: (_request, context) => {
       return {
