@@ -22,7 +22,7 @@
    }
    
    .container{
-    height: 60rem;
+    height: 80vh;
     display: flex;
     flex-direction: column;
    }
