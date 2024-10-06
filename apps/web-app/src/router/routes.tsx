@@ -51,6 +51,7 @@ export const routes: RouteObject[] = [
     element: <GuardRoute privateValidation />,
     errorElement: <ErrorBoundary />,
     children: [
+      ...accountsRoutes,
       {
             path: PrivateRoutes.CODE,
           element: <CodeVerification />
@@ -209,7 +210,7 @@ export const routes: RouteObject[] = [
           ...homeRoutes
         ]
       },
-      ...accountsRoutes,
+    
     ]
   },
 ];

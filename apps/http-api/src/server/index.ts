@@ -80,8 +80,8 @@ const main = async () => {
 
   server.register(fastifyCors, corsOptions);
   server.register(fastifyRateLimit, {
-    max: 30,
-    timeWindow: "10 minute",
+    max: 10000,
+    timeWindow: "1 minute",
     keyGenerator: (request) => request.ip,
     errorResponseBuilder: (_request, context) => {
       return {
