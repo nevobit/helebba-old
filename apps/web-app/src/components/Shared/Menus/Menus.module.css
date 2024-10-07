@@ -24,9 +24,9 @@
 
 .list {
   position: fixed;
-  background-color: var(--color-grey-0);
-  box-shadow: var(--shadow-md);
-  border-radius: var(--border-radius-md);
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: .5rem;
   padding-right: 1rem;
   padding: 1rem;
 }

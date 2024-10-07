@@ -90,6 +90,8 @@ const ProductFrom = ({ productToEdit = {}, onCloseModal }: Props) => {
             tags,
             kind: hasVariants ? 'variants' : 'simple',
             variants: hasVariants ? elements : undefined,
+            categories: categoriesInput.length > 0 ? categoriesInput : [],
+            categoryId: categoriesInput.length > 0 ? categoriesInput[0]?.id : '',
           },
         },
         {
@@ -175,6 +177,7 @@ const ProductFrom = ({ productToEdit = {}, onCloseModal }: Props) => {
           initialElements(newVariants!);
         }
       }
+      setCategoriesInput(editValues.categories ? editValues.categories : [])
     }
   }, []);
 
@@ -536,7 +539,7 @@ const ProductFrom = ({ productToEdit = {}, onCloseModal }: Props) => {
                     </thead>
                     <tbody>
                       {elements.map((element) => (
-                        <tr>
+                        <tr key={element.id}>
                           <td>
                             <Input
                               type="text"
@@ -645,7 +648,7 @@ const ProductFrom = ({ productToEdit = {}, onCloseModal }: Props) => {
                                   'factoryCode',
                                 )
                               }
-                            />{' '}
+                            />
                           </td>
                           <td>
                             <Button
@@ -679,6 +682,16 @@ const ProductFrom = ({ productToEdit = {}, onCloseModal }: Props) => {
             </p>
 
             <Field
+              label="Marca">
+              <Input
+                          type="text"
+                          name="brand"
+                          value={product.brand}
+                          onChange={handleChange}
+                        />
+            </Field>
+
+            <Field
               label="Etiquetas"
               tip="Presiona la barra espaciadora para agregar una etiqueta">
               <TagsInput title="Etiquetas" onChanged={handleTagsChanged} />
@@ -689,6 +702,8 @@ const ProductFrom = ({ productToEdit = {}, onCloseModal }: Props) => {
                 {categoriesInput.map((category) => (
                   <Field label={category.name} >
                     <div className={styles.option} >
+                      {category.type !== "text" ? (
+
                       <select onChange={handleChange} name="categoryOption">
                       <option style={{
                         color: "rgba(0,0,0,0.5)"
@@ -697,6 +712,10 @@ const ProductFrom = ({ productToEdit = {}, onCloseModal }: Props) => {
                           <option value={option}>{option}</option>
                         ))}
                       </select>
+                      ) : (
+                          <p style={{ fontSize: 13, color: "rgba(0,0,0.8)" }} >Categoria { category.name }</p>
+                      )}
+                        
                       <Button onClick={() => onRemoveCategory(category.id)} variant="third" type='button' > <Trash size={16} /> </Button>
                       </div>
 
