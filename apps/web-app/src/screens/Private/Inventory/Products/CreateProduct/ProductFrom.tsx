@@ -12,7 +12,7 @@ import { FormEvent, useEffect, useState } from 'react';
 import { useAccountStore } from '@/state-manager';
 import { Category, Contact, Product, Warehouse } from '@helebba/entities';
 import Textarea from '@/components/Shared/Textarea';
-import { Plus, Trash } from 'react-feather';
+import { Plus, Trash } from 'lucide-react';
 import ImageInput from '@/components/Shared/ImageInput';
 import { useUploadImage } from '@/hooks';
 import TagsInput from '@/components/Shared/TagsInput';
