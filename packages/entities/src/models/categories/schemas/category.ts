@@ -2,7 +2,7 @@ import { Base } from "../../../common";
 
 export interface Category extends Base{
     name: string;
-    slug: string;
+    slug?: string;
     type: string;
     color: string;
     image: string;

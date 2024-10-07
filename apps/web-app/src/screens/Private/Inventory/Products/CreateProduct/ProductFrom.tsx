@@ -90,6 +90,8 @@ const ProductFrom = ({ productToEdit = {}, onCloseModal }: Props) => {
             tags,
             kind: hasVariants ? 'variants' : 'simple',
             variants: hasVariants ? elements : undefined,
+            categories: categoriesInput.length > 0 ? categoriesInput : [],
+            categoryId: categoriesInput.length > 0 ? categoriesInput[0]?.id : '',
           },
         },
         {
@@ -536,7 +538,7 @@ const ProductFrom = ({ productToEdit = {}, onCloseModal }: Props) => {
                     </thead>
                     <tbody>
                       {elements.map((element) => (
-                        <tr>
+                        <tr key={element.id}>
                           <td>
                             <Input
                               type="text"
@@ -710,7 +712,7 @@ const ProductFrom = ({ productToEdit = {}, onCloseModal }: Props) => {
                         ))}
                       </select>
                       ) : (
-                          <p style={{ fontSize: 14 }} >Categoria { category.name }</p>
+                          <p style={{ fontSize: 13, color: "rgba(0,0,0.8)" }} >Categoria { category.name }</p>
                       )}
                         
                       <Button onClick={() => onRemoveCategory(category.id)} variant="third" type='button' > <Trash size={16} /> </Button>

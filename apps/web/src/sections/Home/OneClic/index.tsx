@@ -12,7 +12,7 @@ const OneClic = () => {
         <h4 className={styles.subtitle}>TU EMPRESA A UN CLIC DE DISTANCIA</h4>
         <h2 className={styles.title} >Entiende dónde se encuentra tu negocio en todo momento</h2>
         <p className={styles.copy}>¿Qué te parecería cambiar horas de trabajo por un simple clic? Helebba simplifica la gestión de tu negocio, automatizando tareas y agilizando todos tus procesos.</p>
-        <Link className={styles.btn} href="https://app.helebba.com">Pruébalo gratis</Link>
+        <Link className={styles.btn} href="https://app.helebba.com.co">Pruébalo gratis</Link>
         </div>
 
         <div className={styles.information} >
@@ -31,7 +31,7 @@ const OneClic = () => {
                     </li>
                 </ul>
 
-                <Link href="https://app.helebba.com" >Aprende más</Link>
+                <Link href="https://app.helebba.com.co" >Aprende más</Link>
             </div>
         </div>
 
@@ -50,7 +50,7 @@ const OneClic = () => {
                     </li>
                 </ul>
 
-                <Link href="https://app.helebba.com" >Aprende más</Link>
+                <Link href="https://app.helebba.com.co" >Aprende más</Link>
             </div>
             <Image src="/images/home/home-2.svg" width={500} height={500} alt='Helebba se ocupa de las facturas' />
 

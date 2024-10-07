@@ -13,27 +13,14 @@ const CategorySelector: React.FC<CategorySelectorProps> = ({
   categories,
   onSelectCategory,
 }) => {
-  const [isOpen, setIsOpen] = useState(false);
-  const [selectedCategory, setSelectedCategory] = useState<Category | null>(null);
-//   const [newCategoryName, setNewCategoryName] = useState('');
 
+  const [isOpen, setIsOpen] = useState(false);
   const handleToggleDropdown = () => setIsOpen(!isOpen);
 
   const handleSelectCategory = (category: Category) => {
-    setSelectedCategory(category);
     onSelectCategory(category);
     setIsOpen(false);
   };
-
-//   const handleAddCategory = () => {
-//     if (newCategoryName.trim()) {
-//       onAddCategory(newCategoryName.trim());
-//       setNewCategoryName('');
-//     }
-//   };
-
-console.log(selectedCategory)
-
   return (
     <div className={styles.categorySelector}>
       <div className={styles.selectBox} onClick={handleToggleDropdown}>
