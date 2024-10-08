@@ -4,7 +4,7 @@ import fastify from "fastify";
 import fastifyCors from "@fastify/cors";
 import fastifySwagger from "@fastify/swagger";
 import fastifySwaggerUi from "@fastify/swagger-ui";
-import fastifyRateLimit from "@fastify/rate-limit";
+// import fastifyRateLimit from "@fastify/rate-limit";
 import fastifyMultipart from '@fastify/multipart';
 import {
   ConsoleTransport,
@@ -79,20 +79,20 @@ const main = async () => {
   });
 
   server.register(fastifyCors, corsOptions);
-  server.register(fastifyRateLimit, {
-    max: 10000,
-    timeWindow: "1 minute",
-    keyGenerator: (request) => request.ip,
-    errorResponseBuilder: (_request, context) => {
-      return {
-        code: 429,
-        error: "Too Many Requests",
-        message: `Rate limit exceeded, retry in ${context.after}`,
-        date: Date.now(),
-        expiresIn: context.after,
-      };
-    },
-  });
+  // server.register(fastifyRateLimit, {
+  //   max: 10000,
+  //   timeWindow: "1 minute",
+  //   keyGenerator: (request) => request.ip,
+  //   errorResponseBuilder: (_request, context) => {
+  //     return {
+  //       code: 429,
+  //       error: "Too Many Requests",
+  //       message: `Rate limit exceeded, retry in ${context.after}`,
+  //       date: Date.now(),
+  //       expiresIn: context.after,
+  //     };
+  //   },
+  // });
 
   server.register(fastifySwagger, swaggerOptions);
   server.register(fastifySwaggerUi, swaggerUiOptions);
