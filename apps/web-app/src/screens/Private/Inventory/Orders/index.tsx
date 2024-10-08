@@ -20,7 +20,6 @@ const SalesOrder = () => {
   console.log(openCreate, option, search, isLoading);
 
   if (isLoading) return <LineScaleLoader />;
-  if (isLoading) return <LineScaleLoader />;
   return (
     <>
       <ScreenHeader title={title} setOpen={() => setOpenCreate(true)}>
@@ -32,7 +31,7 @@ const SalesOrder = () => {
         option={option}
         setOption={setOption}
         setSearch={setSearch}>
-        {documents?.items?.length <= 0 ? (
+        {documents?.count <= 0 ? (
           <Empty
             button={''}
             title={title}

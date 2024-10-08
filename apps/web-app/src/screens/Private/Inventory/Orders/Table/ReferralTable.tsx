@@ -5,7 +5,7 @@ import { DocumentType, Document } from '@helebba/entities';
 import ReferralRow from './ReferralRow';
 
 const ReferralsTable = () => {
-  const { documents } = useDocuments(DocumentType.REFERRALS);
+  const { documents } = useDocuments(DocumentType.SALES_ORDER);
   const [{ selectedRows, selectAll }, toggleRowSelect, toggleSelectAll] =
     useTableSelection({ data: documents?.items });
 
