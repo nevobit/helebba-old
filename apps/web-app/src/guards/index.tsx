@@ -9,11 +9,13 @@ interface Props {
 
 const PrivateValidationFragment = <Outlet />;
 const PublicValidationFragment = (
-  <Navigate to={"/private"} replace />
+  <Navigate to={"/"} replace />
 )
 
 const GuardRoute = ({privateValidation}: Props) => {
   const { isLoading, user } = useUser();
+
+  console.log("user", user)
 
   if(isLoading) return <LineScaleLoader />
 
