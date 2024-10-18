@@ -47,7 +47,7 @@ const Login = () => {
       <form className={styles.form} onSubmit={onSubmit}>
         <h2 className={styles.title}>Inicia sesión en Helebba</h2>
         <div className={styles.social}>
-         <Button type="button" size="large" onClick={() => loginGoogleFn()} ><img  src='/images/logo.png' /> Continuar con Google</Button>
+         <Button type="button" size="large" onClick={() => loginGoogleFn()} ><img  src='/images/logo.png' alt='Logo Google'/> Continuar con Google</Button>
         </div>
 
         <div className={styles.separator_container}>
