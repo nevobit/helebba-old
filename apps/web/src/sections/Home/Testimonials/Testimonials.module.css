@@ -5,7 +5,6 @@
     padding-block: 10rem;
     /* margin-bottom: 8rem; */
     padding-bottom: 20rem;
-    
 }
 
 .content{
@@ -27,6 +26,7 @@
     display: flex;
     align-items: center;
     gap: 4rem;
+    justify-content: center;
 }
 
 
