@@ -8,7 +8,7 @@ const Testimonial = () => {
     <section className={styles.section}>
       <div className={styles.content}>
         <div className={styles.img} >
-            <Image src="/images/home/testi_osito.jpeg" width={380} height={480} alt='Testimonio' />
+            <Image src="/images/home/testi_osito.jpeg" width={550} height={480} alt='Testimonio' />
         </div>
         <div className={styles.text} >
 
