@@ -140,14 +140,27 @@
   }
 }
 
+.hamburger .bar {
+  transition: all 0.4s ease;
+}
+
 .hamburger.open .bar:nth-child(1) {
-  transform: rotate(45deg) translate(5px, 5px);
+  transform: translateY(8px);
 }
 
 .hamburger.open .bar:nth-child(2) {
-  opacity: 0;
+  transform: scale(0);
 }
 
 .hamburger.open .bar:nth-child(3) {
-  transform: rotate(-45deg) translate(5px, -5px);
+  transform: translateY(-8px);
+}
+
+.hamburger:not(.open) .bar:nth-child(1),
+.hamburger:not(.open) .bar:nth-child(3) {
+  transform: translateY(0);
+}
+
+.hamburger:not(.open) .bar:nth-child(2) {
+  transform: scale(1);
 }
