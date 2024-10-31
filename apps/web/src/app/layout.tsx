@@ -3,6 +3,8 @@ import { Poppins } from 'next/font/google'
 import '@helebba/design-system/web/styles/index.css'
 import { Footer, Header, Top } from '@/components'
 import React from 'react'
+import { GoogleTagManager } from '@next/third-parties/google'; 
+
 const poppins = Poppins({
   subsets: ['latin'],
   display: 'swap',
@@ -52,6 +54,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="es">
+      <GoogleTagManager gtmId="G-Y9EK4NFQJX" />
       <body className={poppins.className}>
         <Top />
         <Header />
@@ -59,5 +62,5 @@ export default function RootLayout({
         <Footer />
       </body>
     </html>
-  )
+  );
 }
