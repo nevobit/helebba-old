@@ -11,6 +11,9 @@ const poppins = Poppins({
   weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900'],
 });
 export const metadata: Metadata = {
+  verification: {
+    google: 'adzbIeQhnCvH-LtHow0c3Db_PSCcEU-BBcR90Aq5Doo'
+  },
   metadataBase: new URL('https://helebba.com.co'),
   title: {
     default: 'Helebba - El software de gestión para emprendedores',

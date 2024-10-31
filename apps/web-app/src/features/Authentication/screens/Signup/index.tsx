@@ -11,7 +11,7 @@ const Signup = () => {
   
   const [user, setUser] = useState({
     name: '',
-    last_name: '',
+    lastname: '',
     phone: 0,
     email: '',
     password: '',
@@ -46,7 +46,7 @@ const Signup = () => {
      </div>
      
      <form className={styles.form} onSubmit={onSubmit}>
-      <h2 className={styles.title}>Prueba Helebba 15 días gratis</h2>
+      <h2 className={styles.title}>Prueba Helebba 14 días gratis</h2>
       <p className={styles.copy}>Sin compromisos, sin límites y sin necesidad de tarjeta de crédito.</p>
       
       <div className={styles.form_colum}>
@@ -55,7 +55,7 @@ const Signup = () => {
        <Input type="text" name="name" id="" placeholder='Escribe tu nombre' onChange={handleChange} />
       </Field>
       <Field label='Apellido'>
-       <Input type="text" name="last_name" id="" placeholder='Escribe tu apellido' onChange={handleChange} />
+       <Input type="text" name="lastname" id="" placeholder='Escribe tu apellido' onChange={handleChange} />
       </Field>
       </div>
       

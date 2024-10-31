@@ -47,23 +47,32 @@
     color: var(--main-color);
 }
 
-.pricing_cards{
+.pricing_cards {
     display: flex;
-    align-items: center;
+    flex-wrap: wrap;
     justify-content: center;
     gap: 2rem;
     margin-bottom: 5rem;
     margin-top: 3rem;
-
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-.card{
+.card {
     border-radius: 1rem;
     background-color: #FFF;
     box-shadow: 0 4px 8px rgba(0, 0, 0, .2);
-    height: 55rem;
-    width: 28rem;
     padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 28rem;
+    flex-grow: 1;
+}
+.card .includes,
+.card .stats {
+    margin-top: auto;
 }
 
 .card h3{
@@ -155,5 +164,9 @@
 @media screen and (max-width: 768px) {
     .pricing_cards{
         flex-wrap: wrap;
+    }
+
+    .card {
+        width: 100%;
     }
 }
