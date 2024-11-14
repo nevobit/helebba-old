@@ -2,8 +2,7 @@ import type { Metadata } from 'next'
 import { Poppins } from 'next/font/google'
 import '@helebba/design-system/web/styles/index.css'
 import { Footer, Header, Top } from '@/components'
-import React from 'react'
-import { GoogleTagManager } from '@next/third-parties/google'; 
+import React from 'react';
 
 const poppins = Poppins({
   subsets: ['latin'],
@@ -57,13 +56,27 @@ export default function RootLayout({
 }) {
   return (
     <html lang="es">
+      <head>
+        <script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=G-Y9EK4NFQJX"></script>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-Y9EK4NFQJX');
+            `,
+          }}
+        />
+      </head>
       <body className={poppins.className}>
         <Top />
         <Header />
         {children}
         <Footer />
       </body>
-      <GoogleTagManager gtmId="GTM-Y9EK4NFQJX" />
     </html>
   );
 }
