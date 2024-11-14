@@ -1,5 +1,5 @@
 import { helebbaApi } from '@/api';
-import { Contact } from '@helebba/entities';
+import { Contact, UpdateContactDto } from '@helebba/entities';
 
 export const updateContact = async (contact: Partial<Contact>) => {
   const { data } = await helebbaApi.patch(`/contacts/${contact.id}`, contact);
@@ -8,7 +8,7 @@ export const updateContact = async (contact: Partial<Contact>) => {
 
 export const createContact = async ({
   account,
-  contact }: { account: string, contact: Partial<Contact> }
+  contact }: { account: string, contact: UpdateContactDto }
 ) => {
   const { data } = await helebbaApi.post(`/contacts`, contact, {
     headers: {

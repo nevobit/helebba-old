@@ -4,11 +4,11 @@ import NewAccount from "@/features/Accounts/screens/New";
 
 export const homeRoutes: RouteObject[] = [
   {
-    path: '/',
-    element: <Accounts />
+    path: 'accounts',
+    element: <Accounts />,
   },
   {
     path: '/accounts/new',
-    element: <NewAccount />
+    element: <NewAccount />,
   },
-]
+];

@@ -1,6 +1,6 @@
 import { Collection, getModel } from "@helebba/constant-definitions"
 import { SubscriptionType, User, UserSchemaMongo } from "@helebba/entities"
-import { genSaltSync, hashSync } from 'bcrypt';
+import { genSaltSync, hashSync } from 'bcryptjs';
 import { sign } from 'jsonwebtoken';
 import { OAuth2Client } from 'google-auth-library'
 import { createSubscription } from "../../subscriptions";
