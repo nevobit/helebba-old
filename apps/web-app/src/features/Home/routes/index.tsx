@@ -1,14 +1,9 @@
 import { RouteObject } from "react-router-dom";
-import Accounts from "../screens/Home";
-import NewAccount from "@/features/Accounts/screens/New";
+import Home from '../screens/Home';
 
 export const homeRoutes: RouteObject[] = [
   {
-    path: 'accounts',
-    element: <Accounts />,
-  },
-  {
-    path: '/accounts/new',
-    element: <NewAccount />,
+    path: '/',
+    element: <Home />,
   },
 ];
