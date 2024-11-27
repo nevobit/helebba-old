@@ -21,17 +21,15 @@
   padding-top: 2rem;
 }
 
-.container {
-  height: 30rem;
-  display: grid;
-  grid-template-rows: auto ;
-}
 
 .header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 2rem;
+}
+
+.header button{
+  background-color: transparent;
 }
 
 .header h2 {
@@ -43,8 +41,11 @@
   align-items: center;
   justify-content: flex-end;
   gap: 2rem;
-  padding: 2rem;
   z-index: 1;
+}
+
+.window{
+  width: min(90%, 55rem);
 }
 
 .main {
@@ -150,8 +151,8 @@
 
 .switch{
   position: relative;
-  height: 2.6rem;
-  width: 5rem;
+  height: 2.2rem;
+  width: 4rem;
   border-radius: 50rem;
   border: 1px solid rgba(0, 0, 0, 0.1);
   cursor: pointer;
@@ -164,12 +165,13 @@
   top: 0;
   left: 0;
   display: inline-flex;
-  height: 2.5rem;
-  width: 2.5rem;
+  height: 2rem;
+  width: 2rem;
   border-radius: 50rem;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   border: 1px solid rgba(0, 0, 0, 0.1);
   transition: all .2s;
+  background-color: #fff;
 }
 
 .switch.active{
@@ -177,16 +179,23 @@
 }
 
 .switch.active span{
-  display: inline-flex;
-  right:  10px;
+  right: 0;
+  margin-left: auto;
   background-color: #fff;
+}
+
+.role{
+  background-color: #F6F7F9;
+  padding: 1.5rem;
+  border-radius: 1rem;
+  margin-top: 1.5rem;
 }
 
 .roles{
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
 }
 
 .role h3{
@@ -207,4 +216,13 @@
 
 .role select{
   width: 100%;
+}
+
+.desc{
+  font-size: 1.4rem;
+  margin-top: 1rem;
+}
+
+.desc span{
+  font-weight: 500;
 }

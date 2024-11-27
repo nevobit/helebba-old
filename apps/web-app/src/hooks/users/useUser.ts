@@ -1,9 +1,9 @@
 import { getCurrentUser } from "@/services";
 import { User } from "@helebba/entities";
-import { useQuery } from "@tanstack/react-query"
+import { useSuspenseQuery } from "@tanstack/react-query"
 
 export const useUser = () => {
-    const { isLoading, data: user } = useQuery<User>({
+    const { isLoading, data: user } = useSuspenseQuery<User>({
         queryKey: ["users"],
         queryFn: getCurrentUser
     });

@@ -1,0 +1,41 @@
+.header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.header h2{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.tooltipContainer {
+  position: relative;
+  display: inline-block; 
+}
+
+.tooltip {
+  visibility: visible;
+  position: absolute;
+  top: 100%; 
+  left: 0%;
+  background-color: rgba(0, 0, 0, 0.75);
+  color: white;
+  padding: 8px;
+  border-radius: 4px;
+  font-size: 1.2rem;
+  font-weight: 300;
+  width: 40rem;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+  background-color: #111827;
+  padding: 8px 12px;
+  line-height: 1.6rem;
+  z-index: 99999;
+}
+
+.tooltipContainer:hover .tooltip {
+  opacity: 1;
+}

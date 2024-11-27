@@ -1,0 +1,20 @@
+.header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.header button{
+    background-color: transparent;
+}
+
+
+.linkBtn{
+    border-radius: .5rem 0 0 .5rem;
+}
+
+.container{
+    width: calc(100% - 6.4rem);
+    max-width:1280px;
+    min-height: 90vh;
+}

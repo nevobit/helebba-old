@@ -8,8 +8,8 @@ export const loginGoogleRoute: RouteOptions = {
   try{
     const { body } = request;
    const data = body as string
-   const user = await loginGoogle(data);
-   reply.status(200).send(user);
+    const token = await loginGoogle(data);
+    reply.status(200).send(token);
   }catch(err){
    reply.status(500).send(err);
   }

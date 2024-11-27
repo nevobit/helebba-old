@@ -1,7 +1,7 @@
 import { getContact } from "../services"
-import { useContactStore } from "@/state-manager";
 import { Contact } from "@helebba/entities";
 import { QueryObserverResult, RefetchOptions, useQuery } from "@tanstack/react-query"
+import { useContactStore } from "../store";
 
 interface Result {
     isLoading: boolean,
@@ -13,7 +13,7 @@ interface Result {
 export const useContact = (): Result => {
     const contactId = useContactStore((state) => state.contact);
     const { isLoading, isPending, data: contact, refetch } = useQuery({
-        queryKey: ["contact"],
+        queryKey: ["contact", contactId],
         queryFn: () => getContact(contactId!)
     });
 

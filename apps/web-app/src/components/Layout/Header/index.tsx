@@ -1,4 +1,4 @@
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, NavLink, useNavigate } from 'react-router-dom';
 import styles from './Header.module.css';
 import items from './items';
 import { useState } from 'react';
@@ -22,12 +22,12 @@ import HeaderLink from '@/components/Shared/HeaderLink';
 import { googleLogout } from '@react-oauth/google';
 import { useUser } from '@/hooks';
 import { Modal } from '@/containers';
-import { Menus } from '@/components';
 import ProductFrom from '@/screens/Private/Inventory/Products/CreateProduct/ProductFrom';
 import ContactFrom from '@/screens/Private/Contacts/CreateContact/ContactFrom';
 import WarehouseForm from '@/screens/Private/Inventory/Warehouses/Create/WarehouseForm';
 import { useAccount } from '@/features/Accounts/hooks';
 import { PrivateRoutes } from '@/router';
+import { Button, Menus } from '@helebba/design-system/web';
 
 interface SubPath {
   name: string;
@@ -40,8 +40,7 @@ const Header = () => {
   const { user } = useUser();
   const { account } = useAccount();
   const [active, setActive] = useState('');
-
-  const [open, setOpen] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const navigate = useNavigate();
 
@@ -54,7 +53,6 @@ const Header = () => {
   const navigateHash = (route: string) => {
     window.location.hash = route;
   };
-const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   return (
     <Modal>
@@ -65,7 +63,7 @@ const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
           <Menu width={28} height={28} color='#fff' />
       </button>
       <nav className={`${styles.nav} ${isMobileMenuOpen ? `${styles.mobile_menu} ${styles.active}` : ''}`}>
-          <Link
+          <NavLink
             to="/"
             onClick={() => setActive(() => '')}
             className={
@@ -73,7 +71,7 @@ const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
             }>
             {' '}
             <img src="/isotype.svg" alt="Logo Helebba" width={155} />{' '}
-          </Link>
+          </NavLink>
           {items.map((item: Path) => (
             <HeaderLink
               active={active}
@@ -84,30 +82,29 @@ const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
           ))}
         </nav>
         <div>
-          <Menus>
             <div className={styles.menus}>
               <div className={styles.btn_menu}>
                 <Menus.Menu>
                   <Menus.Toggle id="header">
-                    <Plus color="#fff" size={24} />
+                  <Plus color="#fff" size={22} />
                   </Menus.Toggle>
 
                   <Menus.List id="header">
                     <div className={styles.list}>
                       <Modal.Open opens="contact">
                         <Menus.Button>
-                          <Users size={18} color="rgba(0,0,0,0.6)" /> Contacto
+                        <Users size={16} color="rgba(0,0,0,0.6)" /> Contacto
                         </Menus.Button>
                       </Modal.Open>
 
                       <Modal.Open opens="product">
                         <Menus.Button>
-                          <Package size={18} color="rgba(0,0,0,0.6)" /> Producto
+                        <Package size={16} color="rgba(0,0,0,0.6)" /> Producto
                         </Menus.Button>
                       </Modal.Open>
                       <Modal.Open opens="warehouse">
                         <Menus.Button>
-                          <Home size={18} color="rgba(0,0,0,0.6)" /> Almacén
+                        <Home size={16} color="rgba(0,0,0,0.6)" /> Almacén
                         </Menus.Button>
                       </Modal.Open>
                     </div>
@@ -115,9 +112,11 @@ const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
                 </Menus.Menu>
               </div>
 
-              <button onClick={() => navigateHash('search')}>
+            <Button style={{
+              padding: 0
+            }} variant="plain" onClick={() => navigateHash('search')}>
                 <Search color="#fff" size={20} />
-              </button>
+            </Button>
 
               <div className={styles.btn_menu}>
                 <Menus.Menu>
@@ -139,64 +138,70 @@ const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
               </div>
 
               <a href="https://wa.link/5uj5mf" target="_blank">
-                <HelpCircle color="#fff" size={20} />
+              <HelpCircle color="#fff" size={20} style={{
+                marginTop: 5
+              }} />
               </a>
-            </div>
+          </div>
 
-            <div className={styles.user_btn} onClick={() => setOpen(!open)}>
+          <Menus.Menu>
+            <Menus.Toggle id='user-options'>
+              <div className={styles.user_btn}>
               <span>{user?.name?.charAt(0)}</span>
-              <div>
-                <h3 className={styles.user_name}>
-                  {user?.name} {user?.lastname}
-                </h3>
-                <p className={styles.account}>{account?.name}</p>
+                <div>
+                  <h3 className={styles.user_name}>
+                    {user?.name} {user?.lastname}
+                  </h3>
+                  <p className={styles.account}>{account?.name}</p>
+                </div>
               </div>
+            </Menus.Toggle>
 
-              {open && (
-                <ul className={styles.user_options}>
-                  <li>
-                    <button onClick={() => navigateHash('/settings/profile')}>
-                      <User size={16} /> Editar perfil
-                    </button>
-                  </li>
-                  <li>
-                    <button
-                      onClick={() => navigateHash('settings/configuration')}>
-                      <Settings size={16} /> Configuración
-                    </button>
-                  </li>
-                  <li>
-                    <button
-                      onClick={() => navigateHash('settings/subscription')}>
-                      <CreditCard size={16} /> Suscripción
-                    </button>
-                  </li>
-                  <li>
-                    <button onClick={() => navigate(PrivateRoutes.REFERRALS)}>
-                      <Gift size={16} /> Invita y gana 50 CO$
-                    </button>
-                  </li>
-                  <span className={styles.sepator}></span>
-                  <li>
-                    <button onClick={() => navigate("/partners/marketplace")}>
-                      <BookOpen size={16} /> Asesores financieros
-                    </button>
-                  </li>
-                  <span className={styles.sepator}></span>
-                  <li>
-                    <Link to={PrivateRoutes.ACCOUNTS_NEW}>
-                      <Plus size={16} /> Anadir cuenta
-                    </Link>
-                  </li>
-                  <li>
-                    <button onClick={logoutHandler}>
-                      <LogOut size={16} /> Cerrar sesión
-                    </button>
-                  </li>
-                </ul>
-              )}
-            </div>
-          </Menus>
+            <Menus.List id='user-options' >
+              <span className={styles.user_options}>
+                <li>
+                  <button onClick={() => navigateHash('/settings/profile')}>
+                    <User size={16} /> Editar perfil
+                  </button>
+                </li>
+                <li>
+                  <button
+                    onClick={() => navigateHash('settings/configuration')}>
+                    <Settings size={16} /> Configuración
+                  </button>
+                </li>
+                <li>
+                  <button
+                    onClick={() => navigateHash('settings/subscription')}>
+                    <CreditCard size={16} /> Suscripción
+                  </button>
+                </li>
+                <li>
+                  <button onClick={() => navigate(PrivateRoutes.REFERRALS)}>
+                    <Gift size={16} /> Invita y gana 50 CO$
+                  </button>
+                </li>
+                <span className={styles.sepator}></span>
+                <li>
+                  <button onClick={() => navigate("/partners/marketplace")}>
+                    <BookOpen size={16} /> Asesores financieros
+                  </button>
+                </li>
+                <span className={styles.sepator}></span>
+                <li>
+                  <Link to={PrivateRoutes.ACCOUNTS_NEW}>
+                    <Plus size={16} /> Anadir cuenta
+                  </Link>
+                </li>
+                <li>
+                  <button onClick={logoutHandler}>
+                    <LogOut size={16} /> Cerrar sesión
+                  </button>
+                </li>
+              </span>
+            </Menus.List>
+          </Menus.Menu>
+
         </div>
       </header>
       <Modal.Window

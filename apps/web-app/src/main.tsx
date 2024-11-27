@@ -2,7 +2,7 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { buildProvidersTree } from '@helebba/design-system/common';
-import { Modal } from '@helebba/design-system/web';
+import { Menus, Modal } from '@helebba/design-system/web';
 import { AppRouter } from './router';
 import { GoogleOAuthProvider } from "@react-oauth/google";
 import '@helebba/design-system/web/styles/index.css';
@@ -23,12 +23,20 @@ const ProvidersTree = buildProvidersTree([
   [GoogleOAuthProvider, { clientId: VITE_GOOGLE_CLIENT_ID }],
 ]);
 
+// if ('serviceWorker' in navigator) {
+//   navigator.serviceWorker.register('/sw.js', { type: 'module' });
+// }
+
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
     <ProvidersTree>
+      <>
       <Modal>
-        <AppRouter />
-      </Modal>
+          <Menus>
+            <AppRouter />
+          </Menus>
+        </Modal>
+      </>
     </ProvidersTree>
   </React.StrictMode>,
 );

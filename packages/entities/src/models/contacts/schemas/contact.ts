@@ -8,6 +8,17 @@ export enum ContactType {
     Lead = 'lead'
 }
 
+export interface Bank {
+    id: string;
+    name: string;
+    accountNumber: string;
+    code: string;
+    accountType: string;
+    holderName: string;
+    currency: string;
+    reference: string;
+}
+
 export interface BillAddress {
     address?: string;
     city?: string;
@@ -69,6 +80,9 @@ export interface Defaults {
 
 export interface SocialNetworks {
     website: string;
+    facebook: string;
+    instagram: string;
+    linkedin: string;
 }
 
 export interface Contact extends Base {
@@ -77,6 +91,7 @@ export interface Contact extends Base {
     name: string;
     code: string;
     tradeName: string;
+    identification: string;
     email: string;
     mobile: string;
     isPerson: boolean;
@@ -91,7 +106,10 @@ export interface Contact extends Base {
     socialNetworks: SocialNetworks;
     tags: string[];
     notes: Note[];
+    banks: Bank[];
     contactPersons: ContactPerson[];
     shippingAddresses: ShippingAddress[];
     customFields: CustomField[];
+    company: string;
+    users: string[]
 }

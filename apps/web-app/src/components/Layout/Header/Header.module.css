@@ -43,17 +43,13 @@
 .header > div button{
  padding: .8rem;
 }
+
 .header > div  button:hover{
  border-radius: .5rem;
  background-color: rgba(255, 255, 255, .1);
 }
 
-
-.header > div a{
-    padding: .8rem;
-   }
    .header > div  a:hover{
-    padding: .8rem;
     border-radius: .5rem;
     background-color: rgba(255, 255, 255, .1);
    }
@@ -68,7 +64,6 @@
     justify-content: center !important ;
 }
 .header .btn_menu div{
-    padding: .8rem;
     display: flex !important;
     align-items: center !important ;
     justify-content: center !important ;
@@ -81,7 +76,6 @@
     justify-content: center !important ;
     margin: 0 auto;
     transform: translateX(0);
-    padding-bottom: 1.3rem;
 }
 
 
@@ -97,14 +91,25 @@
  color: rgba(255, 255, 255, .8);
 }
 
-.header > div > div:last-child{
- display: flex;
- align-items: center;
- gap: 1rem;
+.user_btn h3{
+   font-weight: 500;
+ font-size: 1.3rem;
+}
+.user_btn p{
+   font-weight: 400;
+ font-size: 1.2rem;
+ color: rgba(255, 255, 255, .8);
+ text-align: left;
 }
 
+.user_name{
+     font-weight: 500;
+ font-size: 1.3rem;
+ color: #fff;
+ text-align: left;
+}
 
-.header > div > div:last-child span{
+.user_btn:last-child span{
  background-color: coral;
  height: 3rem;
  width: 3rem;
@@ -118,37 +123,29 @@
 
 .user_btn{
  position: relative;
+ display: flex;
+ align-items: center;
+ gap: 1rem;
 }
 
 .user_options {
- position: absolute;
- top: calc(100% + 15px);
- right: 0;
- left: auto;
- margin: 0;
- padding: 8px;
- list-style: none;
- background-color: #fff;
- border: 1px solid #ccc;
- border-radius: 4px;
- box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
- z-index: 1;
- min-width: 15rem;
- width: 22rem;
+  width: 90rem;
 }
 
 .user_options li{
- padding: .4rem 0;
+ padding: 1rem .5rem;
  border-radius: .5rem;
 }
 
 .user_options li button{
  display: flex;
  align-items: center;
- justify-content: center;
+ justify-content: flex-start;
  font-size: 1.3rem; 
  gap: .7rem;
  color: #111927;
+ background-color: transparent;
+ width: 20rem;
 }
 
 .user_options li a{
@@ -158,8 +155,6 @@
  font-size: 1.3rem; 
  gap: .7rem;
  color: #111927;
- margin-left: .5rem;
- height: 3.5rem;
 }
 
 .user_options li:hover{
@@ -170,11 +165,6 @@
  cursor: pointer;
  padding: 1rem;
  border-radius: .5rem;
-}
-
-.user_btn:hover{
- background-color: rgba(0, 0, 0, .1);
- 
 }
 
 .user_options .sepator{

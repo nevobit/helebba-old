@@ -8,7 +8,7 @@ export default defineConfig({
   plugins: [react(),
   VitePWA({
     devOptions: {
-      enabled: true
+      enabled: false
     },
     strategies: "injectManifest",
     srcDir: "src",

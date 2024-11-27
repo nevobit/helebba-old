@@ -1,0 +1,179 @@
+.summaryContainer{
+    display: grid;
+    grid-template-columns: 35rem 1fr;
+    gap: 2rem;
+}
+
+.summaryContainer 
+
+.infoBox{
+    border: 1px solid rgba(0, 0, 0, .1);
+    border-radius: .7rem;
+}
+
+.contactInfo{
+    display: grid;
+    gap: 1rem;
+    border-bottom: 1px solid rgba(0, 0, 0, .1);
+    padding: 1rem 1.5rem;
+}
+
+.locationInfo {
+    padding: 1rem 1.5rem;
+    /* border-bottom: 1px solid rgba(0, 0, 0, .1); */
+}
+
+.locationInfo h5{
+    margin-bottom: 1rem;
+    font-size: 1.3rem;
+    font-weight: 600;
+
+}
+
+
+.locationInfo > div{
+       display: grid;
+    gap: 1rem;
+}
+
+.field span{
+    font-size: 1.3rem;
+    color: rgba(0, 0, 0, .5);
+}
+
+.field p{
+    font-size: 1.4rem;
+    font-weight: 400;
+    color: rgba(0, 0, 0, .7);
+}
+
+.information{
+    display: grid;
+    gap: 2rem;
+}
+
+.contentInfo{
+    padding: 1.5rem;
+}
+
+.title{
+    font-weight: 500;
+    font-size: 1.7rem;
+    margin-bottom: 1rem;
+}
+
+.buttons{
+    display: grid;
+    gap: 1rem;
+}
+
+.col{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: flex-start;
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.infoHeader{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 1rem 2rem;
+}
+
+.infoHeader select{
+    width: max-content;
+}
+
+.infoHeader > div{
+    display: flex;
+    align-items: center;
+    gap: 2.5rem;
+}
+
+.dot{
+    display: inline-flex;
+    height: 1rem;
+    width: 1rem;
+    background-color: #53CB82;
+    border-radius: 50rem;
+    margin-right: .5rem;
+}
+
+.subtitle{
+    font-size: 1.4rem;
+}
+
+
+.value{
+    font-size: 1.8rem;
+    color: rgba(0, 0, 0, .7);
+    font-weight: 500;
+}
+
+.totalInfo{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    gap: 1rem;
+}
+
+.totalInfo > div{
+    background-color: #F6F7F9;
+    display: flex;
+    padding: 1rem;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 1rem;
+    border-radius: 1rem;
+    width: 45%;
+}
+
+.quoteInfo{
+     background-color: #F6F7F9;
+    display: flex;
+    padding: 1rem;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 1rem;
+    border-radius: 1rem;
+    width: 92%;
+    margin-top: 1rem;
+}
+
+.quoteInfo .icon{
+    background-color: #F2E8DA;
+    color: #E6AF5B;
+}
+
+.quoteInfo p{
+    font-size: 1.4rem;
+    color: rgba(0, 0, 0, .5);
+    font-weight: 300;
+}
+
+.totalInfo > div p{
+    font-size: 1.4rem;
+}
+
+.totalInfo > div h5{
+    font-size: 1.6rem;
+    font-weight: 500;
+    color: rgba(0, 0, 0, .8);
+}
+
+
+.icon{
+    display: inline-flex;
+    padding: 1rem;
+    background-color: #D7EFE2;
+    border-radius: 1rem;
+    color: #53CB82;
+}
+
+.totalInfo > div:nth-child(even) .icon {
+  background-color: #F9D8D7;
+  color: #FE4F4B;
+}

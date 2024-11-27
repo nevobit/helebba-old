@@ -21,7 +21,6 @@
  right: auto;
  left: 0;
  margin: 0;
- padding: 8px 0;
  list-style: none;
  background-color: #fff;
  border: 1px solid #ccc;
@@ -30,10 +29,11 @@
  z-index: 2;
  min-width: 15rem;
  width: max-content;
+ overflow: hidden;
 }
 
 .menuOptions li a{
- padding: 1.5rem 2rem;
+ padding: 1rem 2rem;
  cursor: pointer;
  display: flex;
  align-items: center;

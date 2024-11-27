@@ -1,0 +1,56 @@
+.container{
+    background-color: #111827;
+    color: #fff;
+}
+
+.content{
+    width: min(90%, 135rem);
+    margin-inline: auto;
+    padding-block: 8rem;
+}
+
+.container h2{
+    position: relative;
+    text-align: center;
+    font-size: 8rem;
+}
+
+.container h2 span {
+    position: relative;
+}
+.container h2 svg{
+    position: absolute;
+    right: -4.5rem;
+    bottom: -1rem;
+}
+
+.content p{
+    text-align: center;
+    color: #D1D5DA;
+    margin-top: -.5rem;
+    font-size: 1.6rem;
+    line-height: 2.7rem;
+}
+
+.buttons{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.buttons a{
+    background-color: #fff;
+    border-radius: 1rem;
+    padding: 2rem 3rem;
+    color: #111827;
+    font-weight: 500;
+    font-size: 1.4rem;
+    color: var(--main-color);
+}
+
+.buttons a:first-child{
+    background-color: var(--main-color);
+    color: #fff;
+}
