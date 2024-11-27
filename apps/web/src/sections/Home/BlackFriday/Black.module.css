@@ -15,7 +15,7 @@
     font-size: 8rem;
 }
 
-.container h2 span {
+.container h2 span:last-child {
     position: relative;
 }
 .container h2 svg{
@@ -53,4 +53,41 @@
 .buttons a:first-child{
     background-color: var(--main-color);
     color: #fff;
+}
+
+.offer{
+    background-color: #8BE737;
+    position: absolute;
+    border-radius: 50rem;
+    color: #000;
+    font-size: 4.5rem;
+    display: inline-flex;
+    height: 12rem;
+    width: 12rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+    left: 33rem;
+    top: 6rem;
+    z-index: 9999;
+    transform: rotate(-15deg);
+}
+
+.offer span{
+    display: block;
+}
+
+
+.offer .desc{
+    font-size: 1.4rem;
+    color: #000;
+
+}
+
+.discount{
+    font-size: 1.4rem;
+    line-height: 0;
+    margin-bottom: 1rem;
 }
