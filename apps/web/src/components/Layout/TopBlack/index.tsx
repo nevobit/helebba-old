@@ -61,7 +61,7 @@ const TopBlack = () => {
             </span>
           </div>
         </div>
-        <p>Habla con el equipo de ventas: <div className={styles.number}><Phone size={15} /> +57 320 653 5488</div></p>
+        <p className={styles.sells}>Habla con el equipo de ventas: <div className={styles.number}><Phone size={15} /> +57 320 653 5488</div></p>
       </div>
     </div>
   )

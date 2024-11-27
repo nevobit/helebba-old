@@ -6,7 +6,7 @@
 .content{
     width: min(90%, 135rem);
     margin-inline: auto;
-    padding-block: 8rem;
+    padding-block: 10rem;
 }
 
 .container h2{
@@ -90,4 +90,34 @@
     font-size: 1.4rem;
     line-height: 0;
     margin-bottom: 1rem;
+}
+
+@media screen and (max-width:768px) {
+    .container h2{
+        line-height: 7.5rem;
+        margin-bottom: 2rem;
+}
+
+    .buttons{
+        display: grid;
+    }
+
+    .buttons a{
+        text-align: center;
+        width: 100%;
+    }
+
+    .offer{
+        left: 0rem;
+        top: -5rem;
+        font-size: 3.5rem;
+        width: 9rem;
+        height: 9rem;
+    }
+
+    .discount{
+        font-size: 1.2rem;
+        margin-top: -1.5rem;
+        margin-bottom: 2.5rem;
+    }
 }
