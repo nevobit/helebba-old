@@ -7,7 +7,7 @@ import Link from 'next/link';
 import { Menu, X } from 'lucide-react';
 
 const NewHeader = () => {
-  const [isOpen, setIsOpen] = useState(true);
+  const [isOpen, setIsOpen] = useState(false);
   return (
     <header className={styles.header}>
       <nav className={styles.content} >
