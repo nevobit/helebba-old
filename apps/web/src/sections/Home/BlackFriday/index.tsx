@@ -23,7 +23,7 @@ const BlackFriday = () => {
                     <Link href='/'>Ver planes de precios</Link>
                 </div>
             </div>
-            <Image src='/InfoSoftHe.png' objectFit='contain' width={1200} height={350} alt='Helebba Software' />
+            <Image className={styles.image} src='/InfoSoftHe.png' objectFit='contain' width={1200} height={350} alt='Helebba Software' />
         </div>
     )
 }

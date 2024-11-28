@@ -42,3 +42,87 @@
 .loginBtn{
   color:  rgb(103 154 245);
 }
+
+.menu{
+  display: none;
+}
+
+.mobile{
+  display: none;
+}
+
+.mobileActive{
+  display: none;
+}
+
+@media screen and (max-width:768px) {
+  .content ul{
+    display: none;
+  }
+
+  .buttons{
+    display: none;
+  }
+
+  .buttons a{
+    display: none;
+  }
+
+  .menu{
+    display: flex;
+    color: rgb(156 163 175);
+    background-color: rgb(31 41 55) ;
+    border-radius: .5rem;
+    padding: .5rem;
+  }
+
+  .activeButtons{
+    display: grid;
+    gap: 2rem;
+    text-align: center;
+    margin-top: 2rem;
+  }
+
+  .active{
+    display: grid;
+  }
+
+  .mobileActive{
+    background-color: #fff;
+    display: block;
+    color: #111827;
+    padding: 2rem;
+    margin-top: 1rem;
+  }
+
+  .mobileActive .buttons{
+    gap: 2rem;
+  }
+
+  .mobileActive ul{
+    display: grid;
+    gap: 2rem;
+    font-size: 1.6rem;
+  }
+
+  .btn{
+    color: #fff;
+    margin-top: 2rem;
+  }
+
+  .btnSec{
+    color: var(--hlb-btn-primary-color);
+    margin-bottom: 2rem;
+  }
+
+  .loginBtn{
+    background-color: #111827;
+    color: #fff;
+    border-radius: 1rem;
+    padding: 1rem 2rem;
+  }
+
+
+
+
+}

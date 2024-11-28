@@ -99,13 +99,18 @@
 }
 
     .buttons{
-        display: grid;
+        flex-direction: column;
+        width: 100%;
+        margin-top: 2rem;
     }
 
     .buttons a{
         text-align: center;
         width: 100%;
     }
+    .content p{
+    font-size: 1.8rem;
+}
 
     .offer{
         left: 0rem;
@@ -119,5 +124,9 @@
         font-size: 1.2rem;
         margin-top: -1.5rem;
         margin-bottom: 2.5rem;
+    }
+
+    .image{
+        height: 14rem;
     }
 }
