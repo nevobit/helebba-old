@@ -6,13 +6,15 @@
 .content{
     width: min(90%, 135rem);
     margin-inline: auto;
-    padding-block: 10rem;
+    padding-block: 9rem;
+    padding-bottom: 5rem;
 }
 
 .container h2{
     position: relative;
     text-align: center;
-    font-size: 8rem;
+    font-size: 10rem;
+    line-height: 12rem;
 }
 
 .container h2 span:last-child {
@@ -27,8 +29,7 @@
 .content p{
     text-align: center;
     color: #D1D5DA;
-    margin-top: -.5rem;
-    font-size: 1.6rem;
+    font-size: clamp(1.6rem, 1.8rem + 1.5vw, 2rem);
     line-height: 2.7rem;
 }
 
@@ -46,7 +47,7 @@
     padding: 2rem 3rem;
     color: #111827;
     font-weight: 500;
-    font-size: 1.4rem;
+    font-size: 1.5rem;
     color: var(--main-color);
 }
 
@@ -60,7 +61,7 @@
     position: absolute;
     border-radius: 50rem;
     color: #000;
-    font-size: 4.5rem;
+    font-weight: 700;
     display: inline-flex;
     height: 12rem;
     width: 12rem;
@@ -69,21 +70,17 @@
     align-items: center;
     justify-content: center;
     gap: 0;
-    left: 33rem;
-    top: 6rem;
-    z-index: 9999;
+    left: 29rem;
+    top: 7rem;
+    z-index: 99;
     transform: rotate(-15deg);
+    line-height: 6.5rem;
 }
 
-.offer span{
+.offer h6{
     display: block;
-}
-
-
-.offer .desc{
-    font-size: 1.4rem;
-    color: #000;
-
+    font-weight: 900;
+    font-size: 4.5rem;
 }
 
 .discount{
@@ -92,6 +89,9 @@
     margin-bottom: 1rem;
 }
 
+.container img{
+    margin-inline: auto;
+}
 @media screen and (max-width:768px) {
     .container h2{
         line-height: 7.5rem;

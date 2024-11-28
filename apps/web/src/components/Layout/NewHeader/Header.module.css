@@ -1,0 +1,44 @@
+.header{
+  background-color: #111827;
+  padding-block: 1rem;
+  color: #fff;
+  border-bottom: 1px solid rgba(255, 255, 255, .1);
+}
+
+.content{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: min(90%, 135rem);
+  margin-inline: auto;
+}
+
+.content ul{
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  font-size: 1.5rem;
+  font-weight: 300;
+}
+
+.content > div{
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.btn{
+  background-color: var(--hlb-btn-primary-color);
+  border-radius: .7rem;
+  padding: 1rem 2rem;
+}
+
+.btnSec{
+  border: 1px solid var(--hlb-btn-primary-color);
+  border-radius: .7rem;
+  padding: 1rem 2rem;
+}
+
+.loginBtn{
+  color:  rgb(103 154 245);
+}
