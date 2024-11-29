@@ -20,7 +20,6 @@
     border-radius: 1rem;
     overflow: hidden;
     position: relative;
-    min-height: 75rem;
 }
 
 .cardHeader{
@@ -218,6 +217,10 @@
 @media screen and (max-width:768px) {
     .cards{
         grid-template-columns: 1fr;
+    }
+
+    .specialCard{
+     min-height: 75rem;
     }
 
     .lastCard{

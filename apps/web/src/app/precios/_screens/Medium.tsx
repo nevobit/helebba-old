@@ -76,7 +76,7 @@ const Medium = () => {
                     </div>
                 </div>
 
-                <div className={styles.card} >
+                <div className={`${styles.card} ${styles.specialCard}`} >
                     <div className={styles.cardHeader} style={{
                         backgroundColor: '#041A54'
                     }}  >
