@@ -1,9 +1,11 @@
 import React from 'react'
 import styles from "./Pricing.module.css"
-import Head from 'next/head';
 import Buttons from './Buttons';
-import PricingInfo from './PricingInfo';
-import PricingInfoPlus from './PricingInfoPlus';
+import BlackFriday from '@/sections/Home/BlackFriday';
+import Entrepenuers from './_screens/Entrepenuers';
+import Small from './_screens/Small';
+import Medium from './_screens/Medium';
+import Consultancies from './_screens/Consultancies';
 
 const Pricing = ({
     searchParams,
@@ -11,27 +13,29 @@ const Pricing = ({
     searchParams: { [key: string]: string | undefined };
     params: { [key: string]: string };
   }) => {
+
+  const renderScreen = () => {
+    switch (searchParams?.type) {
+      case 'entrepeneurs':
+        return <Entrepenuers />
+      case 'empresas-pequenas':
+        return <Small />
+      case 'empresas-medianas':
+        return <Medium />
+      case 'asesorias':
+        return <Consultancies />
+      default:
+        return <Entrepenuers />
+    }
+  }
+
   return (
     <div>
-        <Head>
-            <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet' />
-        </Head>
-          <div className={styles.banner}>
-                    <h2>Empieza tu prueba gratis</h2>
-                    <p>Prueba Helebba gratis durante 7 días. No necesitas tarjeta de crédito.</p>
-                </div>
-
-                <div>
-                   <Buttons />
-
-                    {searchParams?.type == "companies"? (
-                        <PricingInfo />
-                    ): (
-
-                <PricingInfoPlus />
-                    )}
-
-                </div>
+      <BlackFriday image={false} />
+      <div className={styles.banner}>
+        <Buttons />
+        {renderScreen()}
+      </div>
     </div>
   )
 }

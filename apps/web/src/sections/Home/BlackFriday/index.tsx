@@ -4,10 +4,10 @@ import { Dot } from 'lucide-react';
 import Link from 'next/link';
 import Image from 'next/image';
 
-const BlackFriday = () => {
+const BlackFriday = ({ image = true }: { image?: boolean }) => {
     return (
         <div className={styles.container}>
-            <div className={styles.content} >
+            <div className={`${image == false ? styles.contentPadding : ''}  ${styles.content}`} >
                 <h2>
                     <div className={styles.offer}>
                         <h6>75%</h6>
@@ -18,12 +18,17 @@ const BlackFriday = () => {
                 <p>Hacer crecer tu negocio no cuesta tanto.</p>
                 <p>Tu plan de Helebba al 75% de descuento</p>
                 <p>durante esta semama.</p>
+                {image && (
+
                 <div className={styles.buttons} >
                     <Link href='/'>Empieza gratis</Link>
                     <Link href='/'>Ver planes de precios</Link>
-                </div>
+                    </div>
+                )}
             </div>
-            <Image className={styles.image} src='/InfoSoftHe.png' objectFit='contain' width={1200} height={350} alt='Helebba Software' />
+            {image && (
+                <Image className={styles.image} src='/InfoSoftHe.png' objectFit='contain' width={1200} height={350} alt='Helebba Software' />
+            )}
         </div>
     )
 }

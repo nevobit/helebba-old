@@ -22,7 +22,7 @@ const NewHeader = () => {
             <li><Link href='/' >Empresas</Link></li>
             <li><Link href='/' >Emprendedores</Link></li>
             <li><Link href='/' >Asesorías</Link></li>
-            <li><Link href='/' >Precios</Link></li>
+            <li><Link href='/precios' >Precios</Link></li>
             <li><Link href='/' >Recursos</Link></li>
           </ul>
         </div>

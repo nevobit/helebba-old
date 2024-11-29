@@ -10,6 +10,10 @@
     padding-bottom: 5rem;
 }
 
+.contentPadding{
+    padding-bottom: 20rem;
+}
+
 .container h2{
     position: relative;
     text-align: center;
