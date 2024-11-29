@@ -26,7 +26,7 @@ const Consultancies = () => {
                 </div>
 
                 <div className={styles.lastImage} >
-                    <Image src='/asesorias_SPANISH.svg' alt='Asesorias Helebba' width={650} height={400} />
+                    <Image src='/Asesorias_SPANISH.svg' alt='Asesorias Helebba' width={650} height={400} />
                 </div>
             </div>
         </div>
