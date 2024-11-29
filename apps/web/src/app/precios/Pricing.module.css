@@ -5,16 +5,6 @@
     margin-top: 4rem;
 }
 
-.banner h2{
-    font-size: 6rem;
-}
-
-.banner p{
-    color: rgba(0, 0, 0, .5);
-    margin-top: 1rem;
-    font-size: 2.1rem;
-}
-
 .pricing_buttons{
     margin: 0 auto;
     display: flex;
