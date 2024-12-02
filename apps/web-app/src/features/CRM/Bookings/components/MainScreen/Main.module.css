@@ -1,0 +1,56 @@
+.data{
+    border: 1px solid rgba(0, 0, 0, .1);
+    border-radius: 1rem;
+    padding: 1rem;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.container{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.nextBookings{
+    border: 1px solid rgba(0, 0, 0, .1);
+    border-radius: 1rem;
+}
+.activity{
+    border: 1px solid rgba(0, 0, 0, .1);
+    border-radius: 1rem;
+}
+
+.header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem;
+    border-bottom: 1px solid rgba(0, 0, 0, .1);
+    height: 5.5rem;
+}
+
+.header h3{
+    font-size: 1.6rem;
+    font-weight: 500;
+}
+
+.content{
+    min-height: 20rem;
+}
+
+.empty{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding-block: 4rem;
+}
+
+.empty p{
+    font-size: 1.4rem;
+    font-weight: 400;
+    margin-top: 1rem;
+}

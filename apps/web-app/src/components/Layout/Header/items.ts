@@ -2,6 +2,10 @@ import { PrivateRoutes } from "@/constant-definitions";
 
 export default [
   {
+    name: 'Mi zona',
+    path: '/employees/me',
+  },
+  {
     name: 'Contactos',
     path: '/contacts',
   },
@@ -18,17 +22,13 @@ export default [
         path: PrivateRoutes.QUOTES,
       },
       {
+        name: "Servicios",
+        path: "/services"
+      },
+      {
         name: "Embudo de Ventas",
         path: "/crm/funnels"
       },
-      // {
-      //   name: 'Actividades',
-      //  path: '/contacts',
-      // },
-      // {
-      //   name: 'Servicios',
-      //  path: '/contacts',
-      // },
       {
         name: 'Punto de venta',
         path: '/pos',
@@ -43,38 +43,64 @@ export default [
         name: 'Gastos',
         path: '/expenses',
       },
-      // {
-      //   name: 'Nominas',
-      //  path: '/payshet',
-      // },
-      // {
-      //   name: 'Bandeja de entrada',
-      //  path: '/enterban',
-      // }
+      {
+        name: 'Escáner',
+        path: '/inbox',
+      },
+      {
+        name: 'Nominas',
+        path: '/payrolls',
+      },
     ],
   },
-  // {
-  //  name: 'Equipo',
-  //  path: '/team',
-  //  subPaths:[
-  //   {
-  //     name: 'Mi zona',
-  //    path: '/myzone',
-  //   },
-  //   {
-  //     name: 'Empelados',
-  //    path: '/employees',
-  //   },
-  //   {
-  //     name: 'Ausencias',
-  //    path: '/ausencs',
-  //   },
-  //   {
-  //     name: 'Control horario',
-  //    path: '/controhor',
-  //   }
-  // ]
-  // },
+  {
+    name: 'CRM',
+    path: '/crm/bookings',
+    subPaths: [
+      {
+        name: 'Embudo de ventas',
+        path: '/upsell/deals',
+      },
+      {
+        name: 'Actividades',
+        path: '/crm/activities',
+      },
+      {
+        name: 'Calendario',
+        path: '/calendar',
+      },
+      {
+        name: 'Reservas',
+        path: '/crm/bookings',
+      },
+      {
+        name: 'Reuniones',
+        path: '/calendar/booking',
+      },
+    ],
+  },
+  {
+    name: 'RRHH',
+    path: '/team/employees',
+    subPaths: [
+      {
+        name: 'Empleados',
+        path: '/team/employees',
+      },
+      {
+        name: 'Ausencias',
+        path: '/team/leaves',
+      },
+      {
+        name: 'Control horario',
+        path: '/team/timetracking',
+      },
+      {
+        name: 'Contratos',
+        path: '/contracts',
+      }
+    ]
+  },
   {
     name: 'Inventario',
     path: PrivateRoutes.INVENTORY_OPERATIONS,
@@ -84,16 +110,20 @@ export default [
         path: PrivateRoutes.INVENTORY_OPERATIONS,
       },
       {
-        name: 'Almacenes',
-        path: PrivateRoutes.WAREHOUSES,
-      },
-      {
         name: 'Categorias',
         path: '/categories',
       },
       {
         name: 'Productos',
         path: '/products',
+      },
+      {
+        name: 'Catálogos',
+        path: PrivateRoutes.WAREHOUSES,
+      },
+      {
+        name: 'Almacenes',
+        path: PrivateRoutes.WAREHOUSES,
       },
       {
         name: 'Pedidos',
@@ -106,8 +136,22 @@ export default [
     ],
   },
   {
-    name: 'Empleados',
-    path: '/team',
+    name: 'Proyectos',
+    path: '/projects/tasks',
+    subPaths: [
+      {
+        name: 'Mis tareas',
+        path: "/projects/tasks",
+      },
+      {
+        name: 'Proyectos',
+        path: "/projects",
+      },
+      {
+        name: 'Tareas',
+        path: "/tasks",
+      },
+    ],
   },
   {
     name: 'Marketing',
@@ -119,10 +163,6 @@ export default [
       },
     ],
   },
-  // {
-  //  name: 'Proyectos',
-  //  path: '/projects'
-  // },
   // {
   //  name: 'Bancos',
   //  path: '/banks'

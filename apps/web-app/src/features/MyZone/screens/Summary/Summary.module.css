@@ -1,0 +1,75 @@
+
+.box{
+    border: 1px solid rgba(0, 0, 0, .1);
+    width: 100%;
+    border-radius: 1rem;
+    padding: 2rem;
+    margin-bottom: 2rem;
+}
+
+.box .header h2{
+    font-size: 1.6rem;
+    font-weight: 500;
+}
+
+.cards{
+    display: grid;
+    grid-template-columns: 2fr 2fr 1fr 1fr;
+    gap: 16px;
+    margin-top: 2rem;
+}
+
+.card{
+    background: #f9fafb;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    padding: 16px;
+}
+
+.card h3{
+    font-weight: 500;
+    font-size: 1.6rem;
+}
+
+.absences > div{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.absences img{
+    width: 7rem;
+}
+
+.absences h4{
+    font-size: 1.4rem;
+    font-weight: 500;
+    line-height: 1.4rem;
+}
+
+.absences p{
+    font-size: 1.3rem;
+}
+
+.holidays > div{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 3rem;
+}
+
+.holidays img{
+    width: 3.5rem;
+}
+
+.holidays h4{
+    font-size: 1.4rem;
+    font-weight: 500;
+    line-height: 1.4rem;
+}
+
+.holidays p{
+    font-size: 1.3rem;
+}
+

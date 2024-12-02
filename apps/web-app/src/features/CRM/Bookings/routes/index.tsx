@@ -3,7 +3,7 @@ import { Home } from "../screens";
 
 export const bookingsRoutes: RouteObject[] = [
   {
-    path: '/crm/bookings',
+    path: '/crm/bookings/:id',
     element: <Home />
   },
 ]

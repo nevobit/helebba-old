@@ -1,0 +1,74 @@
+.container{
+    flex: 1;
+    display: flex;
+    width: 100%;
+    padding-bottom: 2rem;
+}
+
+.sidebar{
+    padding: 0 32px 18px 32px;
+    width: 250px;
+    min-width: 250px;
+    background-color: #f9fafb;
+    border-right: 1px solid rgba(0, 0, 0, .1);
+    padding-top: 3rem;
+    min-height: 90vh;
+}
+
+.avatar{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 16px;
+    cursor: pointer;
+    background: #fff;
+    border-radius: 8px;
+    width: 100%;
+    padding: 16px;
+    border: 1px solid #e5e7eb;
+    margin-top: 1.5rem;
+}
+
+.avatar > div{
+    background: #eeafa7;
+    color: white;
+    font-size: 32px;
+    font-weight: 500;
+    height: 80px;
+    width: 80px;
+    border-radius: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 16px;
+}
+
+.items{
+    padding-top: 2rem;
+}
+
+.items li a{
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+    margin-bottom: 4px;
+    padding: 6px 8px;
+    color: #2e394c;
+    font-size: 14px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 400;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.content{
+    position: relative;
+    flex: 1;
+    margin: 0 0 0px 0px;
+    width: calc(100% - 250px);
+    padding-top: 30px;
+    padding-left: 30px;
+    padding-right: 30px;
+}

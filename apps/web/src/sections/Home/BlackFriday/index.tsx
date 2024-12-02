@@ -8,16 +8,11 @@ const BlackFriday = ({ image = true }: { image?: boolean }) => {
     return (
         <div className={styles.container}>
             <div className={`${image == false ? styles.contentPadding : ''}  ${styles.content}`} >
-                <h2>
-                    <div className={styles.offer}>
-                        <h6>75%</h6>
-                        <div className={styles.discount}>descuento</div>
-                    </div>
-                    <span>Black Friday<Dot size={90} color='#F13A39' /></span>
-                </h2>
-                <p>Hacer crecer tu negocio no cuesta tanto.</p>
-                <p>Tu plan de Helebba al 75% de descuento</p>
-                <p>durante esta semama.</p>
+                <h1>
+                    <span>El software de gestión para pymes y emprendedores<Dot size={70} color='#F13A39' /></span>
+                </h1>
+                <p>Helebba es la herramienta en la nube que tiene todo lo que necesitas para gestionar tu</p>
+                <p>empresa donde y cuando quieras.</p>
                 {image && (
 
                 <div className={styles.buttons} >
