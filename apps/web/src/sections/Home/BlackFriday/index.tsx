@@ -17,7 +17,7 @@ const BlackFriday = ({ image = true }: { image?: boolean }) => {
 
                 <div className={styles.buttons} >
                     <Link href='/'>Empieza gratis</Link>
-                    <Link href='/'>Ver planes de precios</Link>
+                        <Link href='/'><Image src='/google-logo.png' alt='Logo de Google' width={25} height={25} /> Empieza gratis con Google</Link>
                     </div>
                 )}
             </div>

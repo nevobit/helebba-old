@@ -50,7 +50,7 @@
 
 .buttons a{
     background-color: #fff;
-    border-radius: 1rem;
+    border-radius: .5rem;
     padding: 2rem 3rem;
     color: #111827;
     font-weight: 500;
@@ -99,6 +99,17 @@
 .container img{
     margin-inline: auto;
 }
+
+.buttons a:last-child{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    border: 1px solid var(--main-color);
+    background-color: transparent;
+    color: #fff;
+    padding-block: 1.8rem;
+}
+
 @media screen and (max-width:768px) {
     .container h2{
         line-height: 7.5rem;
