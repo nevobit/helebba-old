@@ -1,0 +1,163 @@
+.container{
+    gap: 0 15rem;
+    background-color: rgb(249 250 251);
+}
+
+.content{
+    width: min(90%, 1200px);
+    margin-inline: auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 4rem;
+    align-items: flex-start;
+}
+
+
+.container img{
+    border-radius: 1rem;
+}
+
+.container h2{
+    text-align: center;
+    /* max-width: 450px; */
+    font-size: 5.5rem;
+    line-height: 5rem;
+    font-weight: 800;
+    margin-bottom: 2rem;
+    color: rgba(0, 0, 0, .85);
+}
+
+.container p {
+    font-size: 1.8rem;
+    text-align: center;
+}
+
+.container a{
+    padding: 1.5rem 0rem;
+    border: none;
+    background-color: var(--main-color);
+    border-radius: .5rem;
+    color: #fff;
+    font-size: 1.5rem;
+    margin-top: 2rem;
+    font-weight: 600;
+    display: block;
+    width: 50%;
+    text-align: center;
+}
+
+.features{
+    padding: 8rem 0;
+}
+
+.features h2{
+    font-size: 2.5rem;
+    text-align: left;
+    margin: 0;
+    margin-top: -1rem;
+}
+
+.features p{
+    text-align: left;
+    color: rgba(0, 0, 0, .8);
+}
+
+.features h3{
+    font-size: 1.8rem;
+    font-weight: 500;
+}
+
+.features >div{
+    margin-top: 4rem;
+}
+.features li{
+    margin-bottom: 4rem;
+}
+.features li p{
+    font-size: 1.6rem;
+    padding-left: 2rem;
+    margin-top: .5rem;
+}
+
+.features li i{
+    color: var(--main-color);
+}
+.white{
+    background-color: #fff;
+}
+
+.banner h1{
+    color: rgb(17, 24, 39);
+    letter-spacing: -.025em;
+    font-weight: 900;
+    text-align: center;
+    font-size: 5.5rem;
+}
+
+.buttons{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.buttons a{
+    width: max-content;
+    padding-inline: 4rem;
+    margin-top: 4rem;
+}
+
+.buttons a:last-child{
+    background-color: #fff;
+    border: 1px solid var(--main-color);
+    color: var(--main-color);
+}
+
+.banner{
+    padding-block: 12rem;
+}
+
+.features li h3{
+    font-weight: 500;
+}
+
+.features li p{
+    color: rgb(107, 114, 128) 
+}
+
+.features .content p{
+    color: rgb(107, 114, 128) 
+}
+
+@media screen and (max-width:780px) {
+    .container{
+        /* border: 1px solid rgba(0,0,0,0.2); */
+        flex-direction: column;
+        margin-top: 2rem;
+        text-align: center;
+    }
+
+    .container h2{
+        max-width: 100%;
+        font-size: 4.5rem;
+        line-height: 5rem;
+        font-weight: 800;
+        margin-bottom: 2rem;
+        color: rgba(0, 0, 0, .85);
+    }
+    
+    .container img{
+        margin-top: 5rem;
+    }
+    
+    .container button{
+        margin-bottom: 3rem;
+    }
+
+    .buttons a{
+        margin-bottom: 3rem;
+        width: 100%;
+    }
+    
+    
+}

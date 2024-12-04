@@ -151,7 +151,7 @@ const Summary = ({ contact }: { contact: Contact }) => {
                             <div className={styles.totalInfo}>
                                 <div>
                                     <span className={styles.icon}>
-                                        <Check size={14} />
+                                        <Check size={14} color={"rgb(25,99,239)"} />
                                     </span>
                                     <div>
                                         <p>Total cobrado</p>

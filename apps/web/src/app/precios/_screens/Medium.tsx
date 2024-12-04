@@ -86,7 +86,7 @@ const Medium = () => {
                     </div>
                     <div className={styles.cardContentNoPadding} >
                         <div className={styles.paddingContent} >
-                            <p>¿Necesitas más? Programa una reunión con el equipo de Holded y diseña el plan que mejor se adapte a tu negocio.</p>
+                            <p>¿Necesitas más? Programa una reunión con el equipo de Helebba y diseña el plan que mejor se adapte a tu negocio.</p>
 
                         </div>
                         <div className={styles.padding} >

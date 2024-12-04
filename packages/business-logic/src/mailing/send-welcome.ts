@@ -76,7 +76,7 @@ const htmlMessage = `
           Con Helebba puedes hacer muchas cosas, pero para empezar, no tienes por qué saberlo todo. ¿Quieres aprender ya los básicos? Te dejamos este vídeo de introducción con todos los pasos que necesitas saber:</p>
             <p style="text-align: center; font-family: sans-serif; font-size: 16px; margin-top: 30px">
           Si tienes dudas, recuerda que estamos siempre disponibles a través del chat.</p>
-              <h2 style="font-family: sans-serif; text-align: center; font-weight: 500; font-size: 35px;" >¡Ahora a probar Holded!</h2>
+              <h2 style="font-family: sans-serif; text-align: center; font-weight: 500; font-size: 35px;" >¡Ahora a probar Helebba!</h2>
 
 
 
