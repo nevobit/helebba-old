@@ -1,0 +1,19 @@
+.name{
+    font-size: 2rem;
+    font-weight: 500;
+}
+
+.content{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.letter{
+    background-color: #FB476D;
+    color: #F3F4F6;
+    padding: .8rem;
+    border-radius: 50rem;
+    font-size: 1.3rem;
+    font-weight: 600;
+}

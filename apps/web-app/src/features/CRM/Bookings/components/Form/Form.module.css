@@ -1,0 +1,24 @@
+.container{
+    max-width: 50rem;
+    margin-inline: auto;
+}
+
+.container h2{
+    text-align: center;
+    font-size: 3rem;
+    font-weight: 500;
+}
+
+.container p{
+    text-align: center;
+    font-size: 1.6rem;
+    color: rgb(107, 114, 128);
+    margin-top: .5rem;
+}
+
+.form{
+    display: grid;
+    align-items: flex-start;
+    gap: 1.5rem;
+    margin-top: 3rem;
+}

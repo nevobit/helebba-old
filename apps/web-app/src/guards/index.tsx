@@ -15,8 +15,6 @@ const PublicValidationFragment = (
 const GuardRoute = ({privateValidation}: Props) => {
   const { isLoading, user } = useUser();
 
-  console.log("user", user)
-
   if(isLoading) return <LineScaleLoader />
 
   return user ? (

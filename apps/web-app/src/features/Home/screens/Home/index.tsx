@@ -140,7 +140,9 @@ const Home = () => {
                   </select>
                 </Field>
                 </div>
-                <Button  loading={isEditing} onClick={updateAccountHandler} className={styles.btn}>Continuar</Button>
+                  <Button style={{
+                    marginTop: 20
+                  }} variant="primary" loading={isEditing} onClick={updateAccountHandler}>Continuar</Button>
             </div>
             ): null}
             
@@ -243,7 +245,7 @@ const Home = () => {
             <p>Invita a tu asesoría o navega por nuestro directorio de profesionales de confianza para conectar con un experto que comprenda tus necesidades únicas</p>
           </div>
           <div className={styles.panel_content}>
-            <a href="https://wa.link/5uj5mf" target="_blank" >Encontrar contador</a>
+            <Link to="/partners/marketplace" >Encontrar contador</Link>
             <p className={styles.blue_p}>Descubre las ventajas de la contabilidad colaborativa</p>
           </div>
         </div>

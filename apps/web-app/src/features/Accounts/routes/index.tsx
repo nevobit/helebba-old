@@ -4,7 +4,7 @@ import NewAccount from "../screens/New";
 
 export const accountsRoutes: RouteObject[] = [
   {
-    path: '/accounts',
+    path: 'accounts',
     element: <Accounts />
   },
   {

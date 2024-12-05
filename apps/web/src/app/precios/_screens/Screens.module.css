@@ -1,0 +1,236 @@
+.content{
+    background-color: #fff;
+    width: 100%;
+    padding-bottom: 8rem;
+}
+
+.cards{
+    display: grid;
+    grid-template-columns: repeat(3, 35rem);
+    justify-content: center;
+    margin-top: -5rem;
+    gap: 3rem;
+    width: 100%;
+    padding-inline: 2rem;
+}
+
+.card{
+    background-color: #fff;
+    border: 1px solid rgba(0, 0, 0, .1);
+    border-radius: 1rem;
+    overflow: hidden;
+    position: relative;
+}
+
+.cardHeader{
+    background-color: #57676A;
+    padding: 2rem;
+    color: #fff;
+}
+
+.cardHeader p{
+    margin: 0;
+    color: #fff;
+    font-size: 1.8rem;
+}
+
+.cardHeader p span:first-child{
+    text-decoration: line-through;
+}
+
+.cardHeader h2{
+    font-size: 3rem;
+}
+
+.cardHeader h2 span{
+    font-weight: 500;
+    font-size: 1.6rem;
+}
+
+.cardHeader p:first-child{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+}
+
+.cardHeader .popular{
+    border: 1px solid rgba(255, 255, 255, .7);
+    font-size: 1.3rem;
+    padding: .5rem 1rem;
+    border-radius: .5rem;
+    background-color: rgb(49 16 143);
+}
+
+.cardHeader p:last-child{
+    font-size: 1.4rem;
+}
+
+.cardContent{
+    padding: 2rem;
+    padding-top: 1rem;
+}
+
+.cardContent  p{
+    height: 6.5rem;
+    font-size: 1.4rem;
+    color: #111827;
+    font-weight: 400;
+}
+
+.cardContent button{
+    background-color: #57676A;
+    width: 100%;
+    padding: 1.5rem 2rem;
+    border-radius: .5rem;
+    color: #fff;
+    margin-top: 2rem;
+    font-size: 1.6rem;
+}
+.cardContentNoPadding p{
+    height: 6.5rem;
+    font-size: 1.4rem;
+    color: #111827;
+    font-weight: 400;
+
+}
+
+.cardContentNoPadding button{
+   background-color: #57676A;
+    width: 100%;
+    padding: 1.5rem 2rem;
+    border-radius: .5rem;
+    color: #fff;
+    margin-top: 2rem;
+    font-size: 1.6rem;
+}
+
+.cardContentNoPadding{
+    display: flex;
+    flex-direction: column;
+    height: 79%;
+}
+
+.paddingContent{
+    padding-top: .5rem;
+    padding-inline: 2rem;
+    flex-grow: 1;
+    flex-shrink: 1;
+    flex-basis: 0%;
+    height: 380px;
+    z-index: 9;
+    margin-bottom: auto;
+}
+
+.padding{
+    padding-inline: 2rem;
+    margin-top: auto;
+    z-index: 2;
+}
+
+.image{
+    max-height: 70%;
+    position: absolute;
+    bottom: 0;
+    z-index: 0;
+    width: 100%;
+}
+.image img{
+    width: 100%;
+    object-fit: cover;
+}
+
+.cardContent ul{
+    font-size: 1.4rem;
+    display: grid;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.cardContent .omit{
+    color: rgb(156 163 175);
+}
+
+.lastCard{
+    background-image: linear-gradient(to bottom, #fff, #ebeffc);
+    margin-top: -5rem;
+    max-width: 120rem;
+    margin-inline: auto;
+    border-radius: 1rem;
+    padding: 3rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-content: space-between;
+    position: relative;
+    overflow: hidden;
+}
+
+.lastCard h2{
+    font-weight: 500;
+    font-size: 1.8rem;
+    color: transparent;
+    background-clip: text;
+    background-image: linear-gradient(to right, #10264c, #1963ef);
+}
+
+.lastCard p{
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: #111827;
+}
+
+.lastCard ul{
+    font-size: 1.4rem;
+    display: grid;
+    gap: 1rem;
+    margin-bottom: 4rem;
+    margin-top: 2rem;
+}
+
+.lastCard ul li{
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+}
+
+.lastCard button{
+    background-color: #1963ef;
+    color: #fff;
+    font-size: 1.6rem;
+    padding: 2rem 4rem;
+    border-radius: 1rem;
+}
+
+.lastCard a{
+    display: block;
+    margin-top: 1.5rem;
+    color: #1963ef;
+}
+
+.lastImage{
+    margin-left: auto;
+    position: absolute;
+    right: 0;
+}
+
+
+@media screen and (max-width:768px) {
+    .cards{
+        grid-template-columns: 1fr;
+    }
+
+    .specialCard{
+     min-height: 75rem;
+    }
+
+    .lastCard{
+        min-height: 80rem;
+        width: 90%;
+        grid-template-columns: 1fr;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, .05);
+    }
+
+    .lastImage{
+        bottom: 0;
+}
+}

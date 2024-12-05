@@ -1,4 +1,4 @@
-import { Upload, X } from 'lucide-react'
+import { Trash, Upload, X } from 'lucide-react'
 import styles from './ImageInput.module.css'
 import { Loader } from '..'
 import { ChangeEvent } from 'react';
@@ -17,6 +17,8 @@ const ImageInput = ({isLoading, uploadImage, urls, removeImage, multiImage = tru
           uploadImage(e.target.files[0]);
         }
     };
+
+    console.log(urls)
 
     return (
         <div className={styles.main}>
@@ -42,7 +44,12 @@ const ImageInput = ({isLoading, uploadImage, urls, removeImage, multiImage = tru
                         </div>
                     </label>
                 ) : (
-                    <img className={styles.main_image} src={urls[0]} alt="" />
+                        <picture className={styles.picture}>
+                            <div onClick={() => removeImage?.(urls[0])}>
+                                <Trash size={16} />
+                            </div>
+                            <img className={styles.main_image} src={urls[0]} alt="" />
+                        </picture>
                 )}
             </div>
             {multiImage && (
@@ -50,7 +57,7 @@ const ImageInput = ({isLoading, uploadImage, urls, removeImage, multiImage = tru
             <div className={styles.other_images}>
                 {urls.slice(1).map((photo: string) => (
                     <picture className={styles.second_piture} key={photo} >
-                    <button className={styles.remove} onClick={() => removeImage?.(photo)} > <X size={14} /> </button>
+                        <button type='button' className={styles.remove} onClick={() => removeImage?.(photo)} > <X size={14} /> </button>
                     
                     <img key={photo} className={styles.second_image} src={photo} style={{
                         objectFit: 'contain'

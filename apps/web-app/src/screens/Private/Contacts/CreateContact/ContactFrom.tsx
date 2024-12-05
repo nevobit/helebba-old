@@ -23,8 +23,8 @@ const ContactFrom = ({ contactToEdit = {}, onCloseModal }: Props) => {
   const { formState: contact, handleChange } = useForm(
     isEditSession ? editValues : {},
   );
-
   const [type, setType] = useState( contact.isPerson ? "person" :"enterprise");
+
 
   const [selectedDepartment, setSelectedDepartment] = useState<string>('');
   const [cities, setCities] = useState<string[]>([]);

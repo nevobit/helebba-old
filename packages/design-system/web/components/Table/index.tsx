@@ -1,12 +1,24 @@
 import { createContext, ReactNode, useContext, useState, useMemo } from 'react';
 import styles from './Table.module.css';
+import { Check, ChevronLeft, ChevronRight } from 'lucide-react';
+import { colors } from './colors';
 
 export interface ColumnDef<T> {
   header: string;
-  accessor: keyof T | ((item: T) => ReactNode);
+  accessor: keyof T | ((item: T) => ReactNode) | string;
   width?: string;
   Cell?: (props: { value: unknown; row: T }) => ReactNode;
   sortable?: boolean;
+  trunc?: boolean;
+  isNumeric?: boolean;
+}
+
+export interface FilterKey {
+  key: string;
+  value: string | boolean;
+  operator?: 'eq' | 'contains' | 'gt' | 'lt' | 'between' | 'in';
+  status: 'active' | 'inactive'
+
 }
 
 interface TableContextProps<T> {
@@ -18,8 +30,15 @@ interface TableContextProps<T> {
   currentPage: number;
   totalPages: number;
   setCurrentPage: (page: number) => void;
-  selectedRows: T[];
-  toggleRowSelection: (row: T) => void;
+  selectedRows: string[];
+  filterKeys?: FilterKey[];
+  selectAll: boolean;
+  search?: string;
+  searchKey?: string;
+  toggleSelectAll: () => void;
+  toggleRowSelect: (id: string) => void;
+  page: number;
+  rowHandler?: (id: string) => void;
 }
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -31,23 +50,35 @@ interface TableProps<T> {
   columns: ColumnDef<T>[];
   data: T[];
   pageSize?: number;
+  onSelectionChange?: (selectedRows: string[]) => void; 
   onRowSelect?: (selectedRows: T[]) => void;
   children: ReactNode;
+  searchKey: string;
+  search: string;
+  filterKeys?: FilterKey[];
+  page: number,
+  setCurrentPage: (page: number) => void,
+  rowHandler?: (id: string) => void;
 }
 
 export function Table<T>({
   columns,
   data,
   pageSize = 10,
-  onRowSelect,
   children,
+  onSelectionChange,
+  page,
+  setCurrentPage,
+  rowHandler,
+  search,
+  searchKey,
+  filterKeys,
 }: TableProps<T>) {
   const [sortColumn, setSortColumn] = useState<keyof T | null>(null);
   const [sortDirection, setSortDirection] = useState<'asc' | 'desc' | null>(
     null,
   );
-  const [currentPage, setCurrentPage] = useState(1);
-  const [selectedRows, setSelectedRows] = useState<T[]>([]);
+  const [selectedRows, setSelectedRows] = useState<string[]>([]);
 
   const onSortData = (column: keyof T) => {
     if (sortColumn === column) {
@@ -57,6 +88,7 @@ export function Table<T>({
       setSortDirection('asc');
     }
   };
+
 
   const sortedData = useMemo(() => {
     if (!sortColumn) return data;
@@ -69,35 +101,71 @@ export function Table<T>({
     });
   }, [data, sortColumn, sortDirection]);
 
-  const paginatedData = sortedData.slice(
-    (currentPage - 1) * pageSize,
-    currentPage * pageSize,
-  );
+  let filteredData = data.filter((item) => (item[searchKey as keyof T] as string)?.includes(search))
+
+
+  if (filterKeys && filterKeys.length > 0) {
+    filterKeys.map((filter) => {
+      if (filter.status == 'active') {
+        if (filter.operator == 'eq') {
+          filteredData = filteredData.filter((item) => {
+            const fillValue = filter.value == 'true' ? true : false
+            return (item[filter.key as keyof T] as boolean) == fillValue
+          })
+        } else if (filter.operator == 'contains') {
+          filteredData = filteredData.filter((item) => (item[filter.key as keyof T] as string)?.toLowerCase().includes((filter.value as string)?.toLowerCase()))
+        }
+      }
+    })
+
+  }
+
+
+
   const totalPages = Math.ceil(sortedData.length / pageSize);
 
-  const toggleRowSelection = (row: T) => {
-    const newSelection = selectedRows.includes(row)
-      ? selectedRows.filter((r) => r !== row)
-      : [...selectedRows, row];
-    setSelectedRows(newSelection);
-    onRowSelect?.(newSelection);
+  const [selectAll, setSelectAll] = useState<boolean>(false);
+  const toggleRowSelect = (id: string) => {
+    const isSelected = selectedRows.includes(id);
+    const updatedSelection = isSelected
+      ? selectedRows.filter((rowId) => rowId !== id)
+      : [...selectedRows, id];
+
+    setSelectedRows(updatedSelection);
+    onSelectionChange?.(updatedSelection);
+    setSelectAll(false);
   };
+
+  const toggleSelectAll = () => {
+    const allIds = !selectAll
+      ? data.map((item) => item["id" as keyof T] as string)
+      : [];
+    setSelectedRows(allIds);
+    onSelectionChange?.(allIds);
+    setSelectAll(!selectAll);
+  };
+
 
   return (
     <TableContext.Provider
       value={{
         columns,
-        data: paginatedData,
+        data: filteredData,
         sortColumn,
         sortDirection,
         // eslint-disable-next-line @typescript-eslint/no-explicit-any, @typescript-eslint/ban-ts-comment
         // @ts-ignore
         onSortData,
-        currentPage,
+        currentPage: page,
         totalPages,
         setCurrentPage,
         selectedRows,
-        toggleRowSelection,
+        searchKey,
+        selectAll,
+        toggleSelectAll,
+        toggleRowSelect,
+        page,
+        rowHandler
       }}>
       <div className={styles.table} role="table">
         {children}
@@ -109,9 +177,28 @@ export function Table<T>({
 function Header<T>() {
   const context = useContext(TableContext) as TableContextProps<T>;
   if (!context) throw new Error('Header must be used within a Table');
-  const { columns, onSortData, sortColumn, sortDirection } = context;
+  const { columns, onSortData, sortColumn, sortDirection, selectedRows, selectAll, toggleSelectAll, data } = context;
+
   return (
     <div className={`${styles.header} ${styles.common_row}`} role="row">
+
+      <div style={{
+        position: "relative",
+        padding: 0,
+        paddingInline: 12
+      }}>
+        <input
+          type="checkbox"
+          checked={selectAll || data.length == selectedRows.length}
+          onChange={toggleSelectAll}
+          style={{
+            border: '1px solid rgba(0,0,0,0.3)',
+            backgroundColor: selectAll ? "var(--main-color)" : "transparent",
+            transition: "all .3s",
+            zIndex: 9
+          }}
+        />
+      </div>
       {columns.map((column, index) => (
         <div
           key={index}
@@ -119,7 +206,7 @@ function Header<T>() {
           onClick={() =>
             column.sortable && onSortData(column.accessor as keyof T)
           }
-          className={column.sortable ? styles.sortable : ''}>
+          className={`${column.sortable ? styles.sortable : ''} ${styles.th} ${column.isNumeric ? styles.numeric : ''}`}>
           {column.header}
           {column.sortable && sortColumn === column.accessor && (
             <span>{sortDirection === 'asc' ? '▲' : '▼'}</span>
@@ -132,37 +219,76 @@ function Header<T>() {
 
 interface RowProps<T> {
   item: T;
+  index: number;
 }
 
-function Row<T>({ item }: RowProps<T>) {
+function Row<T>({ item, index }: RowProps<T>) {
   const context = useContext(TableContext) as TableContextProps<T>;
   if (!context) throw new Error('Row must be used within a Table');
-  const { columns, toggleRowSelection, selectedRows } = context;
-  const isSelected = selectedRows.includes(item);
+  const { columns, selectedRows, searchKey, toggleRowSelect, rowHandler } = context;
+  const id = item["id" as keyof T] as string;
+
+  const selected = selectedRows.includes(id);
+
+  const value = item[searchKey as keyof T] as string;
+
+  const handler = () => {
+    rowHandler?.(id)
+  }
 
   return (
     <div
-      className={`${styles.row} ${styles.common_row} ${isSelected ? styles.selected : ''}`}
-      role="row"
-      onClick={() => toggleRowSelection(item)}>
+      className={`${styles.row} ${styles.common_row}`}
+      role="row">
+      <div style={{
+        paddingInline: 10
+      }} >
+        <div
+          onClick={() => toggleRowSelect(id)}
+          className={styles.select}
+          style={{
+            backgroundColor: selected ? 'rgba(0,0,0,0.1)' : colors[index],
+          }}
+        >
+          {selected ? (
+            <Check color="#000" size={12}
+              style={{
+                zIndex: 1,
+                pointerEvents: "none"
+              }}
+            />
+          ) : (
+            <>
+              {value?.charAt(0).toUpperCase()}
+              {value?.split(" ")[1] ? value?.split(" ")[1]?.charAt(0).toUpperCase() : value?.charAt(1).toUpperCase()}
+            </>
+          )}
+        </div>
+      </div>
+
       {columns.map((column, index) => (
-        <Cell key={index} column={column} row={item} />
+        <Cell key={index} handler={handler} column={column} row={item} />
       ))}
     </div>
   );
 }
 
-function Cell<T>({ column, row }: { column: ColumnDef<T>; row: T }) {
+function Cell<T>({ column, row, handler }: { handler: () => void, column: ColumnDef<T>; row: T }) {
   const value =
     typeof column.accessor === 'function'
       ? column.accessor(row)
-      : row[column.accessor as keyof T];
+      : typeof column.accessor === 'string' ? getNestedValue(row, column.accessor) : row[column.accessor as keyof T];
+
+  const isNumeric = column.isNumeric || typeof value === 'number';
+
   return (
-    <div style={{ width: column.width }}>
+    <div onClick={handler} style={{ width: column.width }}
+      className={`${isNumeric ? styles.numeric : ''}`}
+    >
       {column.Cell ? (
         <column.Cell value={value} row={row} />
       ) : (
-        <div>{value as ReactNode}</div>
+          <div className={`${column.trunc ? styles.trunc : ''} ${isNumeric ? styles.numeric : ''}`}>{value as ReactNode}</div>
       )}
     </div>
   );
@@ -182,7 +308,7 @@ function Body<T>({ empty }: BodyProps) {
   return (
     <section className={styles.body}>
       {data.map((item, index) => (
-        <Row key={index} item={item} />
+        <Row key={index} item={item} index={index} />
       ))}
     </section>
   );
@@ -191,25 +317,32 @@ function Body<T>({ empty }: BodyProps) {
 function Footer<T>() {
   const context = useContext(TableContext) as TableContextProps<T>;
   if (!context) throw new Error('Footer must be used within a Table');
-  const { currentPage, totalPages, setCurrentPage } = context;
+  const { page, setCurrentPage } = context;
 
   return (
     <footer className={styles.footer}>
-      <button
-        onClick={() => setCurrentPage(Math.max(1, currentPage - 1))}
-        disabled={currentPage === 1}>
-        Previous
-      </button>
-      <span>{`Page ${currentPage} of ${totalPages}`}</span>
-      <button
-        onClick={() => setCurrentPage(Math.min(totalPages, currentPage + 1))}
-        disabled={currentPage === totalPages}>
-        Next
-      </button>
+      <div>
+        <span>1 - 2</span>
+      </div>
+
+
+      <div className={styles.page}>
+        <button onClick={() => setCurrentPage(-1)} >< ChevronLeft style={{ color: page == 1 || page == null ? 'rgba(0,0,0,0.3)' : '' }} size={15} /> </button>
+        <span> {page ?? 1} </span>
+        <button onClick={() => setCurrentPage(1)} > <ChevronRight style={{ color: page == 1 || page == null ? 'rgba(0,0,0,0.3)' : '' }} size={15} /> </button>
+      </div>
     </footer>
   );
 }
 
+function getNestedValue<T>(obj: T, path: string): unknown {
+  return path.split('.').reduce((acc, key) => {
+    if (acc && typeof acc === "object" && key in acc) {
+      return (acc as Record<string, unknown>)[key];
+    }
+    return undefined;
+  }, obj as unknown);
+}
 Table.Header = Header;
 Table.Body = Body;
 Table.Footer = Footer;

@@ -34,4 +34,3 @@ registerRoute(navigationRoute);
 // const bgSyncPlugin = new BackgroundSyncPlugin("backgroundSyncQueue", {
 //     maxRetentionTime: 24 * 60
 // });
-

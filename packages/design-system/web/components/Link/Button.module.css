@@ -1,0 +1,124 @@
+.button {
+    gap: .5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    vertical-align: middle;
+    line-height: 1;
+    white-space: nowrap;
+    border-radius: 0.5rem;
+    appearance: none;
+    font-size: 1.3rem;
+    font-weight: 500;
+    transition: 0.3s;
+    border: none;
+    cursor: pointer;
+    padding-inline: 1.5rem;
+    padding-block: 1rem;
+    width: max-content;
+}
+
+.primary{
+    color: #fff;
+    background-color: var(--hlb-btn-primary-color);
+}
+
+
+  .primary:hover {
+                background-color: #383838;
+    }
+     .secondary {
+        background-color: #fff;
+        border: 1px solid var(--hlb-btn-primary-color);
+        color: var(--hlb-btn-primary-color);
+    }
+    
+    .secondary:hover {
+        background-color: #E8F0FC;
+    }
+    
+    .disabled {
+        opacity: .3;
+        cursor: initial;
+    }
+    
+    .disabled:hover {
+        pointer-events: none;
+    }
+    
+    .primary.critical {
+        background-color: #D32F2F;
+    }
+    
+    .primary.critical:hover {
+        background-color: #d44343;
+    }
+    
+    .secondary.critical {
+        border-color: #D32F2F;
+        color: #D32F2F;
+    }
+    
+    .secondary.critical:hover {
+        background-color: #e5737314;
+}
+
+.disabled{
+    opacity:.3;
+}
+
+.plain{
+    background-color: transparent;
+    font-weight: 400;
+    color: var(--hlb-btn-primary-color);
+}
+
+.plain:hover{
+    background-color: #edeff3;
+}
+
+.plain.critical{
+    color: #D32F2F;
+}
+
+.large{
+    width: 100%;
+}
+
+.icon {
+    display: inline-flex;
+    align-items: center;
+}
+
+.image {
+    width: 20px; 
+    height: 20px;
+    margin-right: 8px; 
+    margin-left: 8px; 
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.spinner{
+    display: inline-flex;
+    width: 15px; 
+    height: 15px;
+    border: 3px solid rgba(0, 0, 0, 0.1); 
+    border-top: 3px solid #dadada; 
+    border-radius: 50%;
+    transition: all .3s;
+    animation: spinner .5s linear infinite;
+}
+
+.fullWidth{
+    width: 100%;
+}
+
+@keyframes spinner {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}

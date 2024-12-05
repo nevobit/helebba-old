@@ -27,7 +27,7 @@ const Header = () => {
 
       <nav className={`${styles.nav} ${isOpen ? styles.active : ''}`}>
         <ul>
-          <li><Link href="/">Funcionalidades</Link></li>
+          <li><Link href="/funcionalidades">Funcionalidades</Link></li>
           <li><Link href="/">Empresas</Link></li>
           <li><Link href="/">Emprendedores</Link></li>
           <li><Link href="/">Asesorías</Link></li>

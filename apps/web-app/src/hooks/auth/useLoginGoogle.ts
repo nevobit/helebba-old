@@ -8,7 +8,8 @@ export const useLoginGoogle = () => {
 
   const { isPending: isLoggingGoogle,  mutate: loginGoogle, } = useMutation({
     mutationFn: loginGoogleApi,
-    onSuccess(){
+    onSuccess() {
+      console.log('Enter here')
         navigate(PrivateRoutes.ACCOUNTS, { replace: true });
     }
   });

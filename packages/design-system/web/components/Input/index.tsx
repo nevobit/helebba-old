@@ -7,12 +7,13 @@ interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
   checkBox?: boolean;
 }
 
-const Input = ({ icon, className, checkBox = false, ...rest }: InputProps) => {
+const Input = ({ icon, className, checkBox = false, disabled = false, ...rest }: InputProps) => {
   return (
-    <div className={`${styles.input} ${checkBox && styles.check}`}>
+    <div className={`${styles.input} ${checkBox && styles.check} ${disabled && styles.disabled}`}>
       {icon && icon}
       <input
         {...rest}
+        disabled={disabled}
         className={`${styles.input_element} ${
           className == 'none' && styles.input_none
         }`}

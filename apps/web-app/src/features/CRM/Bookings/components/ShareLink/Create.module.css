@@ -1,0 +1,27 @@
+.window{
+    max-width: 60rem;
+}
+.header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid rgba(0, 0, 0, .1);
+}
+
+.header button{
+    background-color: transparent;
+}
+
+.body{
+    padding-block: 2rem;
+}
+
+.body p{
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+}
+
+.body a{
+    padding-left: 0;
+    margin-bottom: 2rem;
+}

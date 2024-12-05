@@ -6,11 +6,40 @@ import React, {
   createContext,
   useContext,
   useState,
+  useRef,
+  useEffect,
 } from 'react';
 import styles from './Menus.module.css';
 import { MoreHorizontal, MoreVertical } from 'lucide-react';
 import { createPortal } from 'react-dom';
-import { useOutsideClick } from '../../../utilities';
+
+const useOutsideClick = (handler: () => void, listenCapturing = true) => {
+  const ref = useRef<HTMLUListElement>(null);
+
+  useEffect(() => {
+    const handleClick = (e: MouseEvent) => {
+      const target = e.target as Node;
+      const element = ref.current;
+
+      if (
+        !element ||
+        element.contains(target) ||
+        (target as HTMLElement).closest(`.${styles.toggle}`)
+      ) {
+        return;
+      }
+
+      handler();
+    };
+
+    document.addEventListener('click', handleClick, listenCapturing);
+    return () => {
+      document.removeEventListener('click', handleClick, listenCapturing);
+    };
+  }, [handler, listenCapturing]);
+
+  return ref;
+};
 
 interface Props {
   children: React.ReactNode;
@@ -28,33 +57,32 @@ interface MenusContextProps {
   setPosition: Dispatch<SetStateAction<{ x: number; y: number }>>;
 }
 
-const intialValues: MenusContextProps = {
-  open,
-  close,
-  setPosition: () => {},
-  openId: '',
-  position: { x: 0, y: 0 },
-};
+const MenusContext = createContext<MenusContextProps | undefined>(undefined);
 
-const MenusContext = createContext(intialValues);
+function useMenusContext() {
+  const context = useContext(MenusContext);
+  if (!context) {
+    throw new Error('useMenusContext debe ser usado dentro de un MenusProvider');
+  }
+  return context;
+}
 
 const Menus = ({ children }: Props) => {
   const [openId, setOpenId] = useState('');
   const [position, setPosition] = useState({ x: 0, y: 0 });
 
+  const open = (id: string) => setOpenId(id);
   const close = () => setOpenId('');
-  const open = setOpenId;
 
   return (
-    <MenusContext.Provider
-      value={{ openId, close, open, position, setPosition }}>
+    <MenusContext.Provider value={{ openId, open, close, position, setPosition }}>
       {children}
     </MenusContext.Provider>
   );
 };
 
 const Menu: FC<Props> = ({ children }) => {
-  return <div>{children}</div>;
+  return <div className={styles.menu}>{children}</div>;
 };
 
 const Toggle = ({
@@ -66,55 +94,50 @@ const Toggle = ({
   children?: ReactNode;
   vertical?: boolean;
 }) => {
-  const { openId, close, open, setPosition } = useContext(MenusContext);
+  const { openId, close, open, setPosition } = useMenusContext();
 
   const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
-    const buttonElement = (event.target as HTMLElement).closest('button');
+    event.stopPropagation();
 
-    if (!buttonElement) {
-      return;
-    }
+    const buttonElement = (event.target as HTMLElement).closest('button');
+    if (!buttonElement) return;
+
     const rect = buttonElement.getBoundingClientRect();
-    if (typeof setPosition === 'function') {
-      setPosition(
-        () =>
-          ({
-            x: window.innerWidth - rect.width - rect.x,
-            y: rect.y + rect.height + 8,
-          }) as { x: number; y: number },
-      );
+    setPosition({
+      x: window.innerWidth - rect.width - rect.x,
+      y: rect.y + rect.height + 8,
+    });
+
+    if (openId === id) {
+      close();
+    } else {
+      open(id);
     }
-    openId === '' || openId !== id ? open(id) : close();
   };
+
   return (
-    <button className={styles.toggle} onClick={handleClick}>
-      {children ? (
-        children
-      ) : (
-        <>
-          {vertical ? <MoreHorizontal size={20} /> : <MoreVertical size={20} />}
-        </>
-      )}
+    <button
+      className={styles.toggle}
+      onClick={handleClick}
+      type="button"
+    >
+      {children || (vertical ? <MoreHorizontal size={18} /> : <MoreVertical size={18} />)}
     </button>
   );
 };
 
-interface ListProps {
-  id: string;
-  children: ReactNode;
-}
+const List = ({ id, children }: { id: string; children: ReactNode }) => {
+  const { openId, position, close } = useMenusContext();
+  const ref = useOutsideClick(close);
 
-const List: React.FC<ListProps> = ({ id, children }) => {
-  const { openId, position, close } = useContext(MenusContext);
-  const ref = useOutsideClick({ handler: close, listenCapturing: true });
   if (openId !== id) return null;
 
   return createPortal(
     <ul
       className={styles.list}
       style={{
-        top: position && position.y,
-        right: position && position.x,
+        top: position.y,
+        right: position.x,
       }}
       ref={ref}>
       {children}
@@ -124,16 +147,22 @@ const List: React.FC<ListProps> = ({ id, children }) => {
 };
 
 const Button = ({ children, onClick, ...rest }: ButtonProps) => {
-  const { close } = useContext(MenusContext);
+  const { close } = useMenusContext();
 
   const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.stopPropagation();
     onClick?.(e);
     close();
   };
 
   return (
     <li>
-      <button onClick={handleClick} className={styles.button} {...rest}>
+      <button
+        onClick={handleClick}
+        className={styles.button}
+        type="button"
+        {...rest}
+      >
         {children}
       </button>
     </li>

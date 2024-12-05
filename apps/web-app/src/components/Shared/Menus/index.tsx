@@ -60,16 +60,15 @@ const Menus = ({ children }: Props) => {
   );
 };
 
-// Componente Menu (envuelve los elementos del menú)
 const Menu: FC<Props> = ({ children }) => {
   return <div>{children}</div>;
 };
 
-// Componente Toggle (botón para abrir/cerrar el menú)
 const Toggle = ({ id, children }: { id: string; children?: ReactNode }) => {
   const { openId, close, open, setPosition } = useContext(MenusContext);
 
   const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
+    console.log("BUTTON")
     const buttonElement = (event.target as HTMLElement).closest('button');
     if (!buttonElement) {
       return;
@@ -86,7 +85,9 @@ const Toggle = ({ id, children }: { id: string; children?: ReactNode }) => {
       );
     }
 
-    openId === '' || openId !== id ? open(id) : close();
+
+    console.log(openId === '' || openId !== id)
+    return openId === '' || openId !== id ? open(id) : close();
   };
 
   return (

@@ -1,0 +1,42 @@
+.container{
+    display: flex;
+    justify-content: center;
+    padding-top: 10rem;
+}
+.box{
+    border: 1px solid #e5e7eb;
+    box-shadow: 0 4px 44px rgba(0, 0, 0, .07);
+    background-color: #fff;
+    padding: 5rem 2rem;
+    width: min(90%, 70rem);
+    border-radius: 1rem;
+    color: #2e394c;
+    text-align: center;
+}
+
+.images{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin-block: 2rem;
+    gap: 2rem;
+}
+
+.images img{
+    width: 18rem;
+}
+
+.box button{
+    margin-inline: auto;
+}
+
+.box p{
+    max-width: 480px;
+    margin: 12px auto;
+    color: rgb(107, 114, 128);
+    font-size: 14px;
+    font-weight: normal;
+    text-align: center;
+    letter-spacing: 0.2px;
+    line-height: 20px;
+}

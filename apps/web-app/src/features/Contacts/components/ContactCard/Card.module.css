@@ -1,0 +1,153 @@
+.container{
+    position: fixed;
+    right: 0;
+    top: 0;
+    height: 100vh;
+    padding: 4rem;
+    width: 100%;
+    z-index: 9;
+    background-color: rgba(0, 0, 0, .3);
+}
+
+.content{
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+  height: 95%;
+  width: 50rem;
+  background: #F3F4F6;
+  box-shadow: -4px 0 16px rgba(0, 0, 0, 0.1);
+  transform: translateX(100%);
+  transition: all 0.3s ease-in-out;
+  opacity: 0;
+  pointer-events: all;
+  border-radius: 1rem;
+}
+
+.content.open {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+.header {
+    padding-inline: 2rem;
+    padding-block: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid rgba(0, 0, 0, .1);
+}
+
+
+
+
+.loadingContainer {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid #f3f3f3;
+  border-top: 3px solid #3498db;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+
+.contactInfo{
+    background-color: #F9FAFB;
+    border-bottom: 1px solid rgba(0, 0, 0, .1);
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    align-items: flex-start;
+    justify-content: space-between;
+    padding-inline: 2rem;
+    padding-block: 2rem;
+    text-align: center;
+    font-size: 1.3rem;
+    color: rgba(0, 0, 0, .6);
+}
+
+.contactInfo a{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.contactInfo a > div{
+    height: 4rem;
+    width: 4rem;
+    background-color: rgba(255, 255, 255, .7);
+    border-radius: 50rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+}
+
+.contactInfo .more  div{
+    background-color: var(--hlb-btn-primary-color);
+    color: #F3F4F6;
+}
+
+.information{
+    background-color: #F9FAFB;
+    padding-inline: 2rem;
+    padding-block: 2rem;
+    border-bottom: 1px solid rgba(0, 0, 0, .1);
+}
+
+.information h4{
+    font-weight: 500;
+    font-size: 1.5rem;
+}
+
+.information .informationHeader{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.informationContent{
+    background-color: #F3F4F6;
+    border-radius: .5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    padding: 1rem;
+}
+
+.informationContent li{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.informationContent li p{
+    font-size: 1.4rem;
+}
+
+.confirmationModal{
+    max-width: 30rem;
+}
+
+.confirmFooter{
+display: flex;
+align-items: center;
+gap: 1.5rem;
+justify-content: flex-end;
+}
+
+.confirmCopy{
+    margin-top: -2rem;
+}

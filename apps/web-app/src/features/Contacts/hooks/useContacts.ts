@@ -1,12 +1,14 @@
 import { getContacts } from "../services"
 import { useAccountStore } from "@/state-manager";
-import { useQuery } from "@tanstack/react-query"
+import { keepPreviousData, useQuery } from "@tanstack/react-query"
 
-export const useContacts = () => {
+export const useContacts = (page: number = 1) => {
     const account = useAccountStore((state) => state.account);
     const { isLoading, data: contacts } = useQuery({
-        queryKey: ["contacts"],
-        queryFn: () => getContacts(account.id!)
+        queryKey: ["contacts", page],
+        queryFn: () => getContacts({ id: account.id!, page }),
+        placeholderData: keepPreviousData,
+
     });
 
     return { isLoading, contacts }

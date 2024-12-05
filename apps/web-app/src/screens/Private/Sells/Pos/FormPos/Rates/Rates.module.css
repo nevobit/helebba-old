@@ -101,7 +101,7 @@
     border-color: #007bff;
 }
 
-input[type="checkbox"]::before {
+/* input[type="checkbox"]::before {
     content: "\2713"; 
     position: absolute;
     font-size: 16px;
@@ -112,4 +112,4 @@ input[type="checkbox"]::before {
   
   input[type="checkbox"]:checked::before {
     visibility: visible;
-  }
+  } */

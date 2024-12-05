@@ -51,7 +51,7 @@ const CreateReferral = () => {
   const { document, isLoading: isLoadingDocumentToEdit } = useDocument();
 
   const { id: editId, ...editValues } = document || { id: '' };
-  const isEditSession = Boolean(editId.length > 1 ?? false);
+  const isEditSession = Boolean(editId.length > 1 ? true : false);
 
   const [referral, setReferral] = useState<Partial<Document>>(
     isEditSession

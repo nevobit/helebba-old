@@ -1,0 +1,38 @@
+.container{
+    margin-inline: auto;
+    align-items: center;
+    display: grid;
+    grid-template-columns: 40rem 1fr;
+    border: 1px solid rgba(0, 0, 0, .1);
+    border-radius: .5rem;
+    justify-content: center;
+    margin-inline: auto;
+    height: 80vh;
+    padding-left: 14rem;
+    gap: 4rem;
+}
+
+.container h2{
+    font-weight: 500;
+    font-size: 2.8rem;
+    margin-bottom: 1rem;
+}
+
+.container p{
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+    font-weight: 400;
+}
+
+.container ul{
+    margin-bottom: 4rem;
+    margin-top: 2rem;
+}
+
+.container ul li{
+    font-size: 1.4rem;
+    margin-bottom: .5rem;
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+}

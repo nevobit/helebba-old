@@ -1,16 +1,14 @@
-import styles from './TopBar.module.css';
 // import Plans from '@/containers/Plans';
 import { useUser } from '@/hooks';
 import { useNavigate } from 'react-router-dom';
 import { useEffect } from 'react';
 import { Modal } from '@/containers';
 import Plans from '@/screens/Private/TrialExpired/Plans';
-import { SubscriptionType } from '@helebba/entities';
 import { PrivateRoutes } from '@/router';
-import { useSubscription } from '@/hooks/subscriptions';
+// import { useSubscription } from '@/hooks/subscriptions';
 
 const TobBar = () => {
-  const { subscription } = useSubscription();
+  // const { subscription } = useSubscription();
   const { user } = useUser();
   const trialEndDate = new Date(user?.trialEndDate || "");
   const trialStartDate = new Date();
@@ -27,7 +25,7 @@ const TobBar = () => {
 
   return (
     <Modal>
-    {subscription?.type == SubscriptionType.FREE && (
+      {/* {subscription?.type == SubscriptionType.FREE && (
 
       <div className={styles.container}>
         <p>
@@ -41,7 +39,7 @@ const TobBar = () => {
 
         </p>
       </div>
-    )}
+    )} */}
 
 <Modal.Window  style={{
                 width: "100%",

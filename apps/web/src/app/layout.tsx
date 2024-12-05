@@ -1,14 +1,11 @@
 import type { Metadata } from 'next'
-import { Poppins } from 'next/font/google'
 import '@helebba/design-system/web/styles/index.css'
-import { Footer, Header, Top } from '@/components'
+import { Footer } from '@/components'
 import React from 'react';
+import TopBlack from '@/components/Layout/TopBlack';
+import NewHeader from '@/components/Layout/NewHeader';
 
-const poppins = Poppins({
-  subsets: ['latin'],
-  display: 'swap',
-  weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900'],
-});
+
 export const metadata: Metadata = {
   verification: {
     google: 'adzbIeQhnCvH-LtHow0c3Db_PSCcEU-BBcR90Aq5Doo'
@@ -71,9 +68,11 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className={poppins.className}>
-        <Top />
-        <Header />
+      <body>
+        <TopBlack />
+        {/* <Top /> */}
+        {/* <Header /> */}
+        <NewHeader />
         {children}
         <Footer />
       </body>

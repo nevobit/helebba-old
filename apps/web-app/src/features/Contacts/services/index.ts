@@ -18,8 +18,8 @@ export const createContact = async ({
   return data;
 };
 
-export const getContacts = async (id: string) => {
-  const { data } = await helebbaApi.get(`/contacts`, {
+export const getContacts = async ({ id, page }: { id: string, page: number }) => {
+  const { data } = await helebbaApi.get(`/contacts?page=${page}&limit=10`, {
     headers: {
       account: id,
     },

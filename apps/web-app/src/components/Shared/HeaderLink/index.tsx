@@ -1,6 +1,6 @@
 import styles from './HeaderLink.module.css'
 import { useRef, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 
 interface Path{
   name: string,
@@ -22,7 +22,7 @@ const HeaderLink = ({name, path, subPaths, setActive,  active}: Props) => {
  
  return (
    <div onClick={() => setActive(name)}  onMouseEnter={() => setIsMenuOpen(true)} onMouseLeave={() => setIsMenuOpen(false)}  className={styles.menu} ref={menuRef}>
-     <Link to={path} className={active == name ? styles.active : styles.span}>{name}</Link>
+     <NavLink to={path} className={active == name ? styles.active : styles.span}>{name}</NavLink>
      {isMenuOpen && subPaths && (
        <ul className={styles.menuOptions}  >
         {subPaths?.map(({name, path}) => (

@@ -26,7 +26,7 @@ export const useForm = <T>(initialState: T) => {
     } else {
       setFormState((prev) => ({
         ...prev,
-        [name]: type == 'date' ? new Date(value).toISOString() : value,
+        [name]: type == 'checkbox' ? is : type == 'date' ? new Date(value).toISOString() : value,
       }));
     }
   };

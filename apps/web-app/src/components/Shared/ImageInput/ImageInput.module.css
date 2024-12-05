@@ -85,7 +85,6 @@
     justify-content: center;
     flex-direction: column;
     /* height: 100px;  */
-    margin-bottom: 2rem;
    }
    
    .input_box  span{
@@ -164,9 +163,39 @@
    }
    
    .loader_container{
-    height: 1rem;
+    height: 100%;
     overflow: hidden;
     display: grid;
     justify-content: center;
     align-items: center;
    }
+
+.picture{
+    position: relative;
+}
+
+.picture > div{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: flex-end;
+    padding: .5rem;
+    transition: .3s all;
+}
+
+
+.picture > div svg{
+    display: none;
+    cursor: pointer;
+}
+
+.picture:hover > div{
+    background-color: rgba(0, 0, 0, .1);
+}
+
+.picture:hover > div svg{
+    display: block;
+}

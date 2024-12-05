@@ -10,6 +10,10 @@
     transition: all .5s;
 }
 
+.footer{
+    padding-block: 2rem 1rem;
+}
+
 .modal {
     position: fixed;
     top: 5rem;
@@ -18,7 +22,7 @@
     background-color: #fff;
     box-shadow: var(--shadow-lg);
     border-radius: 1rem;
-    padding: 1rem 2rem;
+    padding: 1rem 0rem;
     transition: all .5s;
     width: min(90%, 75rem);
     max-height: 90vh;
@@ -28,4 +32,52 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     display: grid;
     grid-template-rows: 5rem 1fr;
+}
+
+.confirmationModal {
+  max-width: 400px;
+  text-align: left;
+  z-index: 999999;
+  display: block;
+  padding: 2rem;
+}
+
+.confirmationOverlay {
+  z-index: 999999;
+}
+
+.confirmFooter {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 3rem;
+  gap: 1rem;
+}
+
+.confirmCopy{
+    font-size: 1.4rem;
+    margin-top: 1rem;
+    font-weight: 400;
+}
+
+.confirmTitle{
+    font-weight: 500;
+    font-size: 1.8rem;
+}
+
+.modal_header{
+  padding-inline: 2rem;
+}
+
+.footer{
+  padding-inline: 2rem;
+}
+
+
+.body{
+  padding-inline: 2rem;
+}
+
+.modal_header h2{
+    font-weight: 600;
+    font-size: 1.8rem;
 }

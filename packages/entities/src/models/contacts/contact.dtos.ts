@@ -1,4 +1,4 @@
 import { Contact } from './schemas';
   
-export interface CreateContactDto extends Omit<Contact,  '_id' | 'id' | 'createdAt' | 'updatedAt'> {}
-export interface UpdateContactDto extends Partial<CreateContactDto> {}
+export interface CreateContactDto extends Omit<Contact, 'id' | 'createdAt' | 'updatedAt' | 'status'> { }
+export interface UpdateContactDto extends Partial<Contact> { }

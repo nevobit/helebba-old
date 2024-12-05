@@ -36,6 +36,11 @@ import EmailMarketing from '@/screens/Private/Marketing/EmailMarketing/EmailMark
 import Email from '@/screens/Private/Marketing/EmailMarketing';
 import Warehouse from '@/screens/Private/Inventory/Warehouses/Warehouse';
 import CodeVerification from '@/features/Authentication/screens/Code';
+import { crmRoutes } from '@/features/CRM/routes';
+import { contactsRoutes } from '@/features/Contacts/routes';
+import { salesRoutes } from '@/features/Sales/routes';
+import { inventoryRoutes } from '@/features/Inventory/routes';
+import { myZoneRoutes } from '@/features/MyZone/routes';
 
 export const routes: RouteObject[] = [
   {
@@ -59,6 +64,11 @@ export const routes: RouteObject[] = [
       {
         element: <Layout />,
         children: [
+          ...myZoneRoutes,
+          ...contactsRoutes,
+          ...salesRoutes,
+          ...crmRoutes,
+          ...inventoryRoutes,
         {
             path: PrivateRoutes.INVOICES,
           element: <Invoices />
