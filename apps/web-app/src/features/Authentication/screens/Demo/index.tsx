@@ -2,9 +2,9 @@ import React, { useState, useCallback, useEffect, useRef } from 'react';
 import styles from './Login.module.css';
 import { Link, useLocation } from 'react-router-dom';
 import { Button, Field, Input } from "@helebba/design-system/web";
-import { useLogin, useLoginGoogle } from '../../hooks';
-import { useGoogleLogin } from '@react-oauth/google';
+import { useLogin } from '../../hooks';
 import { isEmail } from '../utils';
+import { Calendar, PlayCircle } from 'lucide-react';
 
 const Header = () => (
   <div className={styles.header}>
@@ -14,16 +14,17 @@ const Header = () => (
       title="Logo Helebba"
     />
     <p>
-      <span className={styles.new}>¿Nuevo en Helebba?</span>
-      <Link to="/signup"> Registrarse</Link>
+      <span className={styles.new}>¿¿Ya tienes una cuenta?</span>
+      <Link to="/signup"> Acceder</Link>
     </p>
   </div>
 );
 
 const LoginForm = () => {
   const { isLogging, login } = useLogin();
-  const { loginGoogle } = useLoginGoogle();
   const [email, setEmail] = useState<string>('');
+  const [option, setOption] = useState<string>('demo');
+
   const [error, setError] = useState<string | null>(null);
   const location = useLocation();
   const loginButtonRef = useRef<HTMLButtonElement | null>(null);
@@ -54,49 +55,11 @@ const LoginForm = () => {
     [email, login]
   );
 
-  const handleGoogleSuccess = useCallback(
-    async (tokenId: string) => {
-      try {
-        await loginGoogle(tokenId);
-      } catch (e) {
-        setError("Hubo un problema al iniciar sesión con Google.");
-      }
-    },
-    [loginGoogle]
-  );
-
-  const loginGoogleFn = useGoogleLogin({
-    flow: 'auth-code',
-    onSuccess: (token) => {
-      console.log('Google login successful with token:', token);
-      handleGoogleSuccess(token.code);
-    },
-    onError: (err) => {
-      console.log(err);
-    }
-  });
 
   return (
     <form className={styles.form} onSubmit={onSubmit}>
-      <h2 className={styles.title}>Inicia sesión en Helebba</h2>
-      <div className={styles.social}>
-        <Button
-          type="button"
-          size="large"
-          onClick={() => loginGoogleFn()}
-          aria-label="Iniciar sesión con Google"
-          fullWidth
-          ref={loginButtonRef} // Asignamos la referencia al botón
-        >
-          <img src="/images/logo.png" alt="Logo Google" />
-          Continuar con Google
-        </Button>
-      </div>
-      <div className={styles.separator_container}>
-        <div className={styles.separator}>
-          <span>O inicia sesión con</span>
-        </div>
-      </div>
+      <h2 className={styles.title}>A un paso de optimizar tu gestión</h2>
+      <p className={styles.copy} >Déjanos tu información y elige la opción que más se ajusta a tu disponibilidad.</p>
       <Field label="Correo electrónico">
         <Input
           type="text"
@@ -108,6 +71,29 @@ const LoginForm = () => {
           aria-label="Correo electrónico"
         />
       </Field>
+      <Field label="Número de empleados">
+        <select>
+          <option value="">Elige una opción</option>
+          <option value="">1</option>
+          <option value="">2-5</option>
+          <option value="">6-10</option>
+          <option value="">11-25</option>
+          <option value="">26-50</option>
+          <option value="">+50</option>
+        </select>
+      </Field>
+      <div className={styles.buttons} >
+        <button onClick={() => setOption('demo')} type='button' className={option == 'demo' ? styles.active : ''} >
+          <Calendar size={24} color='var(--main-color)' />
+          <h4>Agenda una demo</h4>
+          <p>Explora Helebba paso a paso con nuestro equipo</p>
+        </button>
+        <button onClick={() => setOption('video')} type='button' className={option == 'video' ? styles.activeVideo : ''}>
+          <PlayCircle size={24} color='var(--main-color)' />
+          <h4>Ver tutorial</h4>
+          <p>Descubre todo lo esencial de Helebba en este vídeo.</p>
+        </button>
+      </div>
       {error && <p className={styles.error}>{error}</p>}
       <Button
         loading={isLogging}
@@ -116,17 +102,20 @@ const LoginForm = () => {
         className={styles.submit}
         aria-label="Iniciar sesión"
       >
-        Iniciar sesión
+        Continuar
       </Button>
+      <p className={styles.copy_footer}>
+        Al continuar confirmas que aceptas nuestros <br /> <Link to='/'>Términos y condiciones, Política de Privacidad y Cookies.</Link>
+      </p>
     </form>
   );
 };
 
-const Login = () => (
+const Demo = () => (
   <>
     <Header />
     <LoginForm />
   </>
 );
 
-export default Login;
+export default Demo;

@@ -1,5 +1,5 @@
-import React from 'react'
-import { classNames } from '../../../utilities'
+import React from 'react';
+import { classNames } from '../../../utilities';
 import styles from './Button.module.css';
 
 export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
@@ -17,7 +17,7 @@ export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElemen
   loading?: boolean;
 }
 
-export const Button = ({
+export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(({
   disabled,
   loading,
   variant,
@@ -30,7 +30,7 @@ export const Button = ({
   fullWidth,
   className: externalClassName,
   ...rest
-}: ButtonProps) => {
+}, ref) => {
   const isDisabled = disabled || loading;
 
   const className = classNames(
@@ -45,15 +45,15 @@ export const Button = ({
 
   const commonProps = {
     className,
+    ref,
     ...rest,
   };
 
   return (
-    <button disabled={isDisabled} {...commonProps}>
+    <button {...commonProps} disabled={isDisabled}>
       {image && imagePosition === 'left' && (
         <img src={image} alt="" className={styles.image} />
       )}
-
       {icon && iconPosition === 'left' && (
         <span className={styles.icon}>{icon}</span>
       )}
@@ -66,4 +66,6 @@ export const Button = ({
       )}
     </button>
   );
-};
+});
+
+Button.displayName = 'Button';

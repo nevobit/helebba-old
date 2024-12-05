@@ -41,6 +41,7 @@ import { contactsRoutes } from '@/features/Contacts/routes';
 import { salesRoutes } from '@/features/Sales/routes';
 import { inventoryRoutes } from '@/features/Inventory/routes';
 import { myZoneRoutes } from '@/features/MyZone/routes';
+import Demo from '@/features/Authentication/screens/Demo';
 
 export const routes: RouteObject[] = [
   {
@@ -50,6 +51,10 @@ export const routes: RouteObject[] = [
   {
     path: '/signup',
     element: <Signup />
+  },
+  {
+    path: '/demo',
+    element: <Demo />
   },
   {
     path: '/',

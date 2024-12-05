@@ -2,4 +2,6 @@ packages:
   - "apps/web-app"
   - "apps/http-api"
   - "apps/web"
+  - "apps/barber-web"
+  - "apps/booking-web"
   - "packages/*"

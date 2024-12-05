@@ -22,16 +22,16 @@ const NewHeader = () => {
             <li><Link href='/' >Empresas</Link></li>
             <li><Link href='/' >Emprendedores</Link></li>
             <li><Link href='/' >Asesorías</Link></li>
-            <li><Link href='/precios' >Precios</Link></li>
+            <li><Link href='/precios?type=entrepeneurs' >Precios</Link></li>
             <li><Link href='/' >Recursos</Link></li>
           </ul>
         </div>
 
         <div className={styles.buttons}>
           <Link href="https://app.helebba.com.co" className={styles.loginBtn}>Inicia sesión</Link>
-          <Link href="https://app.helebba.com.co" className={styles.btnSec}>Pide tu demo</Link>
+          <Link href="https://app.helebba.com.co/demo" className={styles.btnSec}>Pide tu demo</Link>
 
-          <Link href="https://app.helebba.com.co" className={styles.btn}>Empieza gratis</Link>
+          <Link href="https://app.helebba.com.co/signup" className={styles.btn}>Empieza gratis</Link>
         </div>
 
         <button className={styles.menu} onClick={() => setIsOpen(!isOpen)}> {isOpen ? <X /> : <Menu />} </button>
@@ -41,19 +41,19 @@ const NewHeader = () => {
 
 
         <ul>
-          <li><Link href='/' >Funcionalidades</Link></li>
+          <li><Link href='/funcionalidades' >Funcionalidades</Link></li>
           <li><Link href='/' >Empresas</Link></li>
           <li><Link href='/' >Emprendedores</Link></li>
           <li><Link href='/' >Asesorías</Link></li>
-          <li><Link href='/' >Precios</Link></li>
+          <li><Link href='/precios?type=entrepeneurs' >Precios</Link></li>
           <li><Link href='/' >Recursos</Link></li>
         </ul>
 
         <div className={isOpen ? styles.activeButtons : styles.buttons} >
           <Link href="https://app.helebba.com.co" className={styles.btn}>Empieza gratis</Link>
-          <Link href="https://app.helebba.com.co" className={styles.btnSec}>Pide tu demo</Link>
+          <Link href="https://app.helebba.com.co/demo" className={styles.btnSec}>Pide tu demo</Link>
 
-          <Link href="https://app.helebba.com.co" className={styles.loginBtn}>Inicia sesión</Link>
+          <Link href="https://app.helebba.com.co/signup" className={styles.loginBtn}>Inicia sesión</Link>
 
         </div>
 
