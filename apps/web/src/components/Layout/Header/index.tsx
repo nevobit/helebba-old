@@ -29,7 +29,7 @@ const Header = () => {
         <ul>
           <li><Link href="/">Funcionalidades</Link></li>
           <li><Link href="/">Empresas</Link></li>
-          <li><Link href="/">Emprendedores</Link></li>
+          <li><Link href="/emprendedores">Emprendedores</Link></li>
           <li><Link href="/">Asesorías</Link></li>
           <li><Link href="/precios?type=freelancers">Precios</Link></li>
           <li><Link href="/">Recursos</Link></li>

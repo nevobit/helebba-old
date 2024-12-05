@@ -1,0 +1,38 @@
+.section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-block: 8rem;
+    gap: 2rem;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.content {
+    width: 50%;
+    margin-inline: auto;
+    max-width: 600px;
+}
+
+.image-container {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+}
+
+.title {
+    font-size: 3.5rem;
+    font-weight: 700;
+    line-height: 4rem;
+    letter-spacing: -.1rem;
+    color: rgb(17 24 39);
+    margin-bottom: 1rem;
+}
+
+.copy {
+    color: rgb(107 114 128);
+    font-size: 1.8rem;
+}
+
+

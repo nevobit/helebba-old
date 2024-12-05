@@ -1,0 +1,85 @@
+.section {
+  background-color: #0E224C;
+  height: 40rem; /* Puedes ajustarlo a lo que necesites */
+  position: relative;
+  margin-block: 8rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch; /* Asegura que ambos, imagen y texto, tengan la misma altura */
+}
+
+.content {
+  width: 100%;
+  display: flex;
+  gap: 4rem;
+  height: 100%;
+}
+
+.img,
+.text {
+  width: 50%; /* Cada uno ocupa el 50% del ancho */
+  height: 100%; /* Cada uno ocupa el 100% de la altura del contenedor .section */
+  position: relative; /* Esto es necesario para el control de la imagen con layout="fill" */
+}
+
+.img {
+  overflow: hidden; /* Esto evitará que la imagen se desborde si es más grande que el contenedor */
+}
+
+.text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Centra el texto verticalmente */
+  padding-left: 2rem; /* Puedes ajustar el padding según tus necesidades */
+}
+
+.title {
+  font-size: 3.5rem;
+  font-weight: 600;
+  line-height: 4rem;
+  letter-spacing: -.1rem;
+  color: #fff;
+  margin-bottom: 2rem;
+  padding-left: 2rem;
+}
+
+.btn {
+  display: flex;
+  align-items: center;
+  padding: 1rem 1.5rem;
+  background-color: #1971ea;
+  color: #fff;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 1rem;
+}
+
+.name {
+  color: #fff;
+  font-size: 1.6rem;
+  font-weight: 200;
+}
+
+@media screen and (max-width: 768px) {
+  .section {
+    height: auto;
+    flex-direction: column; /* En pantallas pequeñas, apilamos los elementos */
+    justify-content: center;
+  }
+
+  .content {
+    flex-direction: column; /* Cambiar a columna en pantallas pequeñas */
+  }
+
+  .img {
+    width: 100%; /* En pantallas pequeñas, la imagen ocupa el 100% del ancho */
+    height: auto; /* En pantallas pequeñas, ajustamos la altura automáticamente */
+    object-fit: cover;
+  }
+
+  .text {
+    max-width: 90%;
+    padding: 4rem;
+    margin-top: 0;
+  }
+}
