@@ -1,6 +1,12 @@
+import { LineScaleLoader } from '@helebba/design-system/web';
+import { useEmployeeMe } from '../../hooks';
 import styles from './Summary.module.css'
 
 const Summary = () => {
+    const { isLoading } = useEmployeeMe();
+
+    if (isLoading) return <LineScaleLoader />
+
     return (
         <div className={styles.container}>
             <div className={styles.box} >

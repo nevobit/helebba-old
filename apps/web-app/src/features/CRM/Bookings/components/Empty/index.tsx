@@ -2,8 +2,13 @@ import Image from "./image"
 import styles from './Empty.module.css';
 import { Button } from "@helebba/design-system/web";
 import { Check } from "lucide-react";
+import { useEditBookingLocation } from "../../hooks";
+import { useParams } from "react-router-dom";
 
 export const Empty = () => {
+    const { id } = useParams();
+    const { isEditing, editBookingLocation } = useEditBookingLocation();
+
     return (
         <div className={styles.container}>
             <Image />
@@ -15,7 +20,7 @@ export const Empty = () => {
                     <li><Check size={16} color="rgb(54, 178, 116)" /> Administra múltiples ubicaciones y espacios de trabajo.</li>
                     <li><Check size={16} color="rgb(54, 178, 116)" /> Página pública de reservas para tus clientes.</li>
                 </ul>
-                <Button variant="primary" >Configura tu página ahora</Button>
+                <Button loading={isEditing} onClick={() => editBookingLocation({ id, onboarding: { started: true, completedSettings: false, completedBackground: false, completedLogo: false, finished: false } })} variant="primary" >Configura tu página ahora</Button>
             </div>
 
         </div>

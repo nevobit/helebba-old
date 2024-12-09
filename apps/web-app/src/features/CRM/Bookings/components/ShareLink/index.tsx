@@ -1,8 +1,9 @@
 import { Link, Share2, X } from 'lucide-react';
 import { Button, LinkButton, Modal, useModal } from '@helebba/design-system/web';
 import styles from './Create.module.css';
+import { BookingLocation } from '@helebba/entities';
 
-export const ShareLink = () => {
+export const ShareLink = ({ bookingLocation }: { bookingLocation: BookingLocation }) => {
     const { openModal, requestCloseModal } = useModal();
 
     const open = () => {
@@ -31,7 +32,7 @@ export const ShareLink = () => {
                 <Modal.Body>
                     <div className={styles.body} >
                         <p>Copia y comparte este enlace con tus clientes para que puedan acceder a tu página y programar citas.</p>
-                        <LinkButton variant='plain' >https://revervas.helebba.com.co/sdcwecwe</LinkButton>
+                        <LinkButton variant='plain' >reservas.helebba.com.co/{bookingLocation.hash}</LinkButton>
                         <Button variant='primary' icon={<Link size={14} />} >Copiar enlace</Button>
                     </div>
                 </Modal.Body>

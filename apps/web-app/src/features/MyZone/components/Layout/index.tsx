@@ -1,8 +1,14 @@
 import { Link, Outlet } from 'react-router-dom';
 import styles from './Layout.module.css';
 import { Calendar, ChartPie, Clock10, Folder, IdCard } from 'lucide-react';
+import { LineScaleLoader } from '@helebba/design-system/web';
+import { useEmployeeMe } from '../../hooks';
 
 const Layout = () => {
+    const { isLoading, employee } = useEmployeeMe();
+
+    if (isLoading) return <LineScaleLoader />
+
     return (
         <div className={styles.container}>
             <aside className={styles.sidebar} >
@@ -10,9 +16,10 @@ const Layout = () => {
 
                 <Link to='/personalinfo' className={styles.avatar} >
                     <div>
-                        HI
+                        {employee.name?.charAt(0).toUpperCase()}
+                        {employee.lastname ? employee.lastname?.split(" ")[0]?.charAt(0).toUpperCase() : employee.name?.charAt(1).toUpperCase()}
                     </div>
-                    <h4>Hignition</h4>
+                    <h4>{employee.name} {employee.lastname}</h4>
                 </Link>
 
                 <ul className={styles.items}>

@@ -9,19 +9,17 @@ interface Props{
     urls: string[]
     removeImage?: (image: string) => void;
     multiImage?: boolean;
+    className?: string;
 }
 
-const ImageInput = ({isLoading, uploadImage, urls, removeImage, multiImage = true}: Props) => {
+const ImageInput = ({ isLoading, uploadImage, urls, removeImage, multiImage = true, className }: Props) => {
     const uploadHandler = async (e: ChangeEvent<HTMLInputElement>) => {
         if (e.target.files && e.target.files.length > 0) {
           uploadImage(e.target.files[0]);
         }
     };
-
-    console.log(urls)
-
     return (
-        <div className={styles.main}>
+        <div className={`${styles.main} ${className}`}>
             <div className={styles.file_input}>
                 <input
                     type="file"
@@ -76,8 +74,6 @@ const ImageInput = ({isLoading, uploadImage, urls, removeImage, multiImage = tru
                 )}
             </div>
             )}
-
-
         </div>
 
     )

@@ -1,14 +1,18 @@
 .header {
   display: flex;
-  justify-content: center;
-  align-items: center;
   background-color: #fff;
-  padding: 1rem;
+  padding-block: 2rem;
   border-bottom: 1px solid #e2e8f0;
   width: 100%;
   box-shadow: 0 4px 6px -4px rgba(0, 0, 0, 0.1);
 }
 
 .content {
-  width: 50rem;
+  width: min(90%, 120rem);
+  margin-inline: auto;
+}
+
+.title{
+  font-size: 1.3rem;
+  color: #6b7280;
 }

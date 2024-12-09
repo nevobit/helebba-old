@@ -22,6 +22,8 @@ import { emailsRoutes } from './emails';
 import { categoriesRoutes } from './categories';
 import { metricsRoutes } from './metrics';
 import { aiRoutes } from './ai';
+import { bookingsLocationRoutes } from './bookings-location';
+import { servicesRoutes } from './services';
 
 const routes: RouteOptions[] = [
     healthCheckRoute,
@@ -46,7 +48,9 @@ const routes: RouteOptions[] = [
     ...emailsRoutes,
     ...categoriesRoutes,
     ...metricsRoutes,
-    ...aiRoutes
+    ...aiRoutes,
+    ...bookingsLocationRoutes,
+    ...servicesRoutes
 ];
 
 export const registerRoutes = (fastify: FastifyInstance) => {

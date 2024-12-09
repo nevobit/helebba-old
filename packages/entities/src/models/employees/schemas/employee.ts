@@ -70,7 +70,7 @@ export interface Employee extends Base {
     workplace: string;
     iban: string;
     files: string[];
-    notes: string;
+  notes: string[];
     currentContract: Contract;
     reportingTo: string;
     timeOffSupervisors: string[];

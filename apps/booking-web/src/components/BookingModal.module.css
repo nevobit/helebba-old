@@ -1,0 +1,270 @@
+.overlay{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(2px);
+}
+.modal {
+    position: fixed;
+    top: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 600px;
+    background: #fff;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
+    font-family: Arial, sans-serif;
+    z-index: 99;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 2REM;
+}
+
+.closeButton {
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.serviceInfo p {
+    margin: 5px 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    padding-block: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 1.5rem;
+}
+
+.serviceInfo p strong{
+    font-weight: 400;
+    font-size: 1.3rem;
+}
+.calendar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 1rem 0;
+    width: 100%;
+    margin-bottom: 2rem;
+}
+
+.arrow {
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 50rem;
+    height: 3rem;
+    width: 3rem;
+}
+
+.dates {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    overflow: auto;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: .8rem;
+    padding: 1rem 2rem;
+}
+
+.date {
+    text-align: center;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background 0.3s ease;
+}
+
+.date p {
+    font-size: 2.5rem;
+    font-weight: 600;
+    margin: 0;
+}
+
+.date span {
+    font-size: 12px;
+    color: gray;
+}
+
+.date.active {
+    background: #007bff;
+    color: white;
+}
+
+.date.active span{
+    color: #fff;
+}
+
+.times {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.time {
+    padding: 10px 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #fff;
+    transition: background 0.3s ease;
+}
+
+.time.active {
+    background: #007bff;
+    color: white;
+    border-color: #007bff;
+}
+
+.continueButton {
+    width: 100%;
+    padding: 10px;
+    background: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    margin-top: 20px;
+}
+
+.continueButton:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+}
+
+
+.monthYear{
+    text-align: center;
+    font-weight: 600;
+    margin-top: 2rem;
+}
+
+.inputField{
+    margin-top: 2rem;
+    font-size: 1.3rem;
+    display: block;
+}
+
+.input{
+        position: relative;
+    display: inline-block;
+    height: 3.5rem;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(0, 0, 0, .1);
+    border-radius: .5rem;
+    overflow: hidden;
+    background-color: #fff;
+    height: 100%;
+    width: 100%;
+    padding: 0 .7rem;
+    background-color: var(--bg-second);
+    color: var(--white-color);
+    font-size: 1.2rem;
+}
+
+.input:focus-within {
+    border: 1px solid var(--main-color);
+}
+
+.inputs{
+    padding-block: 2rem;
+}
+
+.confirmFooter{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.backBtn{
+    border: 1px solid rgba(0, 0, 0, .1);
+    padding: 1rem 2rem;
+    border-radius: .5rem;
+    background-color: #fff;
+}
+
+.headerConfirmed{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.confirmedTitle{
+    text-align: center;
+    font-size: 2rem;
+}
+
+.confirmedInfo{
+    text-align: center;
+    font-size: 1.4rem;
+}
+
+.confirmedEmail{
+    text-align: center;
+    font-size: 1.4rem;
+    text-decoration: underline;
+}
+
+.confirmedFooter{
+    padding-top: 2rem;
+}
+
+.confirmedFooter p{
+    text-align: center;
+    font-size: 1.5rem;
+}
+
+.confirmedFooter button{
+    background-color: transparent;
+    text-decoration: underline;
+    font-size: 1.5rem;
+}
+
+
+.emptyContainer{
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    transform: translate(0%, 50%);
+}
+
+.emptyContainer img{
+    margin-inline: auto;
+    width: 200px;
+    filter: drop-shadow(0 -4px 100px gray);
+}
+
+.emptyContainer h2{
+    color: #2e394c;
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+}
+
+.emptyContainer p{
+    font-weight: 300;
+    color: #2e394c;
+    line-height: 20px;
+    letter-spacing: .2px;
+    font-size: 1.6rem;
+    margin-bottom: .5rem;
+}

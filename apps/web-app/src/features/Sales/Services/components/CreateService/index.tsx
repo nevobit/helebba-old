@@ -1,0 +1,40 @@
+import { X } from 'lucide-react';
+import { Button, Modal, useModal } from '@helebba/design-system/web';
+import ServiceForm from '../ServiceForm';
+import styles from './Create.module.css';
+
+export const CreateService = () => {
+    const { openModal, closeModal, requestCloseModal } = useModal();
+
+    const open = () => {
+        openModal(
+            <Modal.Window
+                isOpen={true}
+                className={styles.window}
+                onClose={() =>
+                    requestCloseModal({
+                        confirm: true,
+                        onConfirm: () => {
+                            console.log('Modal cerrado.');
+                        },
+                    })
+                }
+            >
+                <Modal.Header className={styles.header} >
+                    <h2>Nuevo servicio</h2>
+                    <button onClick={() => requestCloseModal({
+                        confirm: true,
+                        onConfirm: () => {
+                            console.log('Modal cerrado.');
+                        },
+                    })}><X width={20} /></button>
+                </Modal.Header>
+                <ServiceForm onCloseModal={closeModal} />
+            </Modal.Window>,
+        );
+    };
+
+    return (
+        <Button size="slim" variant="primary" onClick={open} > Nuevo servicio </Button>
+    )
+}

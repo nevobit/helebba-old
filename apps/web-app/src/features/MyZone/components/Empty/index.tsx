@@ -1,5 +1,5 @@
-import { Button } from '@helebba/design-system/web';
 import styles from './Empty.module.css';
+import { CreateEmployee } from '../CreateEmployee';
 
 const Empty = () => {
     return (
@@ -12,7 +12,7 @@ const Empty = () => {
                     <img src="/tables_teamzone.png" />
                     <img src="/tables_absences.png" />
                 </div>
-                <Button variant='primary'>Crea tu perfil de empleado</Button>
+                <CreateEmployee />
             </div>
         </div>
     )

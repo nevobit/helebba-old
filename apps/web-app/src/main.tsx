@@ -1,8 +1,7 @@
-import React from 'react'
 import ReactDOM from 'react-dom/client'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { buildProvidersTree } from '@helebba/design-system/common';
-import { Menus, Modal } from '@helebba/design-system/web';
+import { Menus } from '@helebba/design-system/web';
 import { AppRouter } from './router';
 import { GoogleOAuthProvider } from "@react-oauth/google";
 import '@helebba/design-system/web/styles/index.css';
@@ -28,15 +27,13 @@ const ProvidersTree = buildProvidersTree([
 // }
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
-  <React.StrictMode>
+  // <React.StrictMode>
     <ProvidersTree>
-      <>
-      <Modal>
+    <>
           <Menus>
             <AppRouter />
-          </Menus>
-        </Modal>
+      </Menus>
       </>
     </ProvidersTree>
-  </React.StrictMode>,
+  // </React.StrictMode>,
 );

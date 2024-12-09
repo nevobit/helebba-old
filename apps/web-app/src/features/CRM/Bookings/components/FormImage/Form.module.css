@@ -44,7 +44,7 @@
 }
 
 .images{
-       display: flex;
+    display: flex;
     flex-flow: wrap;
     gap: 8px;
     width: 100%;
@@ -115,4 +115,45 @@
     align-items: center;
     gap: .5rem;
     line-height: .5rem;
+}
+
+.inputImage{
+    margin-top: 0;
+}
+
+.inputImage label{
+    height: 85px;
+    border-radius: 8px;
+    flex: 0 1 23%;
+    padding: 0;
+    width: 11.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.inputImage img{
+      height: 85px;
+    flex: 0 1 23%;
+    width: 11.2rem;
+
+}
+
+.inputImage .picture{
+      height: 85px;
+    border-radius: 8px;
+    flex: 0 1 23%;
+    padding: 0;
+    width: 11.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.inputImage label span:last-child{
+    display: none;
+}
+
+.inputImage > div{
+    margin-top: 0;
 }

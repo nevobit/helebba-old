@@ -1,12 +1,23 @@
 .button {
-  background-color: #3b82f6;
-  color: white;
-  padding: 0.5rem 1rem;
-  border-radius: 0.25rem;
-  font-weight: 500;
-  border: none;
-  cursor: pointer;
-  transition: background-color 0.2s;
+    gap: .5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    vertical-align: middle;
+    line-height: 1;
+    white-space: nowrap;
+    border-radius: 0.5rem;
+    appearance: none;
+    font-size: 1.3rem;
+    font-weight: 500;
+    transition: 0.3s;
+    border: none;
+    cursor: pointer;
+    padding-inline: 1.5rem;
+    padding-block: 1rem;
+    width: max-content;
+    color: #fff;
+    background-color: var(--hlb-btn-primary-color);
 }
 
 .button:hover {

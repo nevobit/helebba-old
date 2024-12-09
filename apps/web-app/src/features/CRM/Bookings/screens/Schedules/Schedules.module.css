@@ -1,0 +1,115 @@
+.container{
+    padding: 24px 32px;
+    min-height: calc(100vh - 8rem);
+}
+
+.information{
+    display: flex;
+    padding: 20px 25px;
+    border: 1px solid rgb(229, 231, 235);
+    background-color: rgb(249, 250, 251);
+    border-radius: 4px;
+    flex-direction: row;
+    gap: 16px;
+    position: relative;
+    width: 100%;
+}
+
+.information svg{
+    color: rgb(65, 129, 242);
+}
+
+.information > div{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    max-width: 800px;
+}
+
+.information h5{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    max-width: 800px;
+}
+
+.information p{
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: 0.2px;
+    color: rgb(107, 114, 128);
+    margin-top: .5rem;
+}
+
+.content{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    margin-top: 2rem;
+}
+
+.box{
+    border: 1px solid rgba(0, 0, 0, .1);
+    border-radius: .5rem;
+}
+
+.boxHeader{
+    padding: 1rem 2rem;
+    border-bottom: 1px solid rgba(0, 0, 0, .1);
+}
+
+.boxHeader h2{
+    font-size: 1.5rem;
+    font-weight: 500;
+}
+
+.boxItem{
+    display: flex;
+    flex-direction: column;
+    padding-inline: 2rem;
+    padding-block: 1rem;
+    border-bottom: 1px solid rgba(0, 0, 0, .1);
+}
+
+.option{
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+}
+
+.option select{
+    width: 100%;
+}
+
+.mainInfo{
+    display: grid;
+    align-items: center;
+    justify-content: space-between;
+    grid-template-columns: 5rem 1fr 3rem;
+    gap: 1rem;
+}
+
+.mainInfo > span{
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+}
+
+.left span{
+    font-size: 1.4rem;
+    font-weight: 500;
+}
+
+.mainInfo button{
+    margin-left: 0 !important;
+}
+
+.mainInfo p{
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: 0.2px;
+    color: rgb(107, 114, 128);
+    padding-block: .9rem;
+}

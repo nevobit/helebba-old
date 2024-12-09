@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="200px" height="243px" viewBox="0 0 200 243" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Illustration</title>
+    <defs>
+        <linearGradient x1="74.9624805%" y1="9.9245872%" x2="74.9624805%" y2="128.321857%" id="linearGradient-1">
+            <stop stop-color="#4181F2" offset="0%"></stop>
+            <stop stop-color="#2263D6" offset="100%"></stop>
+        </linearGradient>
+        <path d="M22.6029114,-1.8113288e-15 L27.5882932,-5.31896496e-16 C33.8213136,4.20111239e-16 37.2936881,0.887434141 40.4096148,2.55384994 C43.5255414,4.22026574 45.9709388,6.6656632 47.6373546,9.78158983 C49.3037704,12.8975165 50.1912046,16.3698909 50.1912046,22.6029114 L50.1912046,27.8405925 C50.1912046,34.073613 49.3037704,37.5459874 47.6373546,40.6619141 C45.9709388,43.7778407 43.5255414,46.2232382 40.4096148,47.889654 C37.2936881,49.5560698 33.8213136,50.4435039 27.5882932,50.4435039 L22.6029114,50.4435039 C16.3698909,50.4435039 12.8975165,49.5560698 9.78158983,47.889654 C6.6656632,46.2232382 4.22026574,43.7778407 2.55384994,40.6619141 C0.887434141,37.5459874 3.36847423e-16,34.073613 -4.26477435e-16,27.8405925 L4.26477435e-16,22.6029114 C-3.36847423e-16,16.3698909 0.887434141,12.8975165 2.55384994,9.78158983 C4.22026574,6.6656632 6.6656632,4.22026574 9.78158983,2.55384994 C12.8975165,0.887434141 16.3698909,1.43065351e-15 22.6029114,-1.8113288e-15 Z" id="path-2"></path>
+        <filter x="-84.7%" y="-58.5%" width="269.4%" height="268.5%" filterUnits="objectBoundingBox" id="filter-3">
+            <feOffset dx="0" dy="13" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="12" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0.270588235   0 0 0 0 0.474509804   0 0 0 0 0.960784314  0 0 0 0.402289117 0" type="matrix" in="shadowBlurOuter1" result="shadowMatrixOuter1"></feColorMatrix>
+            <feOffset dx="-2" dy="2" in="SourceAlpha" result="shadowOffsetOuter2"></feOffset>
+            <feGaussianBlur stdDeviation="3.5" in="shadowOffsetOuter2" result="shadowBlurOuter2"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0.767797256   0 0 0 0 0.85175757   0 0 0 0 1  0 0 0 1 0" type="matrix" in="shadowBlurOuter2" result="shadowMatrixOuter2"></feColorMatrix>
+            <feMerge>
+                <feMergeNode in="shadowMatrixOuter1"></feMergeNode>
+                <feMergeNode in="shadowMatrixOuter2"></feMergeNode>
+            </feMerge>
+        </filter>
+    </defs>
+    <g id="Booking-events" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Book-a-meeting/no-longer-available" transform="translate(-620.000000, -232.000000)">
+            <g id="Illustration" transform="translate(620.000000, 232.000000)">
+                <g id="Payroll">
+                    <rect id="Rectangle" fill="#FFFFFF" fill-rule="nonzero" x="24" y="26" width="151" height="148" rx="10"></rect>
+                    <path d="M34,26 L165,26 C170.522847,26 175,30.4771525 175,36 L175,62 L175,62 L24,62 L24,36 C24,30.4771525 28.4771525,26 34,26 Z" id="Rectangle-Copy-3" fill="#E7EAF1"></path>
+                    <rect id="Rectangle-Copy-21" fill="#E7EAF1" x="91.9111111" y="83.9333333" width="16" height="16" rx="4"></rect>
+                    <rect id="Rectangle-Copy-22" fill="#E7EAF1" x="91.9111111" y="107.274074" width="16" height="16" rx="4"></rect>
+                    <rect id="Rectangle-Copy-25" fill="#E7EAF1" x="114.911111" y="107.274074" width="16" height="16" rx="4"></rect>
+                    <rect id="Rectangle-Copy-27" fill="#E7EAF1" x="68.9111111" y="107.274074" width="16" height="16" rx="4"></rect>
+                    <rect id="Rectangle-Copy-23" fill="#E7EAF1" x="91.9111111" y="130.77037" width="16" height="16" rx="4"></rect>
+                    <rect id="Rectangle-Copy-26" fill="#E7EAF1" x="114.911111" y="130.77037" width="16" height="16" rx="4"></rect>
+                    <rect id="Rectangle-Copy-33" fill="#E7EAF1" x="137.911111" y="83.9333333" width="16" height="16" rx="4"></rect>
+                    <rect id="Rectangle-Copy-32" fill="#E7EAF1" x="137.911111" y="107.274074" width="16" height="16" rx="4"></rect>
+                    <rect id="Rectangle-Copy-28" fill="#E7EAF1" x="68.9111111" y="130.77037" width="16" height="16" rx="4"></rect>
+                    <rect id="Rectangle-Copy-30" fill="#E7EAF1" x="45.9111111" y="107.274074" width="16" height="16" rx="4"></rect>
+                    <rect id="Rectangle-Copy-29" fill="#E7EAF1" x="45.9111111" y="130.77037" width="16" height="16" rx="4"></rect>
+                    <rect id="Rectangle-Copy-5" fill="#4181F2" transform="translate(123.214815, 91.722222) scale(-1, 1) translate(-123.214815, -91.722222) " x="112.714815" y="81.2222222" width="21" height="21" rx="6"></rect>
+                </g>
+                <g id="Group" transform="translate(75.000000, 155.000000)">
+                    <g id="Rectangle-Copy-43">
+                        <use fill="black" fill-opacity="1" filter="url(#filter-3)" xlink:href="#path-2"></use>
+                        <use fill="url(#linearGradient-1)" fill-rule="evenodd" xlink:href="#path-2"></use>
+                    </g>
+                    <path d="M34.754296,37.7531578 L35.7037649,36.8036888 C35.9012325,36.6062213 35.9012325,36.2869007 35.7037649,36.0894742 L30.6034156,30.9891249 C30.5067948,30.892504 30.3807569,30.8420807 30.2463083,30.8420807 L29.6917744,30.8420807 C31.0151722,29.3086198 31.817597,27.31302 31.817597,25.1283634 C31.817597,20.3010962 27.9062378,16.389737 23.0789706,16.389737 C18.2517033,16.389737 14.3403442,20.3010962 14.3403442,25.1283634 C14.3403442,29.9556307 18.2517033,33.8669898 23.0789706,33.8669898 C25.2636272,33.8669898 27.2592269,33.0645651 28.7926878,31.7411673 L28.7926878,32.2957012 C28.7926878,32.4301498 28.847296,32.5561877 28.939732,32.6528085 L34.0400813,37.7531578 C34.2375079,37.9506254 34.5568284,37.9506254 34.754296,37.7531578 Z M23.0789706,31.8503837 C19.3650379,31.8503837 16.3569503,28.8422961 16.3569503,25.1283634 C16.3569503,21.4144308 19.3650379,18.4063431 23.0789706,18.4063431 C26.7929032,18.4063431 29.8009909,21.4144308 29.8009909,25.1283634 C29.8009909,28.8422961 26.7929032,31.8503837 23.0789706,31.8503837 Z" id="search" fill="#FFFFFF" fill-rule="nonzero"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

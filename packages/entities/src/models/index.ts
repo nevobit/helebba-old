@@ -18,3 +18,4 @@ export * from './invitations';
 export * from './services';
 export * from './emails';
 export * from './categories';
+export * from './bookings-location';

@@ -21,3 +21,5 @@ export * from './stores';
 export * from './subscriptions';
 export * from './warehouses';
 export * from './users';
+export * from './bookings-location';
+export * from './services';

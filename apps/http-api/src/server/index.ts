@@ -19,7 +19,7 @@ import { setLogger } from "@helebba/constant-definitions";
 import { swaggerOptions, swaggerUiOptions } from "../docs";
 import { verify } from "@helebba/business-logic";
 
-const { PORT, HOST, REGION, ENVIRONMENT, MONGO_URL } = process.env;
+const { PORT, HOST, REGION, ENVIRONMENT, MONGO_URL, REDIS_URL } = process.env;
 
 const consoleOptions = {
   transport: LoggerTransportName.CONSOLE,
@@ -72,6 +72,10 @@ const main = async () => {
     mongoose: {
       mongoUrl: MONGO_URL
     },
+    redisdb: {
+      redisReadUrl: REDIS_URL,
+      redisWriteUrl: REDIS_URL
+    }
   });
 
   const server = fastify({

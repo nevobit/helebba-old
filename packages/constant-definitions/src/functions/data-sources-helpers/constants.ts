@@ -20,4 +20,6 @@ export enum Collection {
     DEVELOPERS = 'developers',
     INVITATIONS = 'invitations',
     EMAILS = 'emails',
+    BOOKING_LOCATION = 'booking_location',
+    SERVICES = 'services',
 }
