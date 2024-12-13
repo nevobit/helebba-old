@@ -11,7 +11,7 @@ function HelebbaTest() {
             <div className={styles.text}>
                       <h2>Prueba Helebba completamente gratis durante 14 días</h2>
                       <p>Con Helebba puedes hacer muchas cosas, pero para empezar no tienes por qué saberlo todo.</p>
-                <Link href="https://app.helebba.com">Empieza gratis</Link>
+                <Link href="https://app.helebba.com.co/login">Empieza gratis</Link>
             </div>
             <div className={styles.picture} >
                 <Image src="/PruebaGratis.svg" width={500} height={350} alt='Call to action' />
