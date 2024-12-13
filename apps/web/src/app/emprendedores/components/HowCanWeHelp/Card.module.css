@@ -1,0 +1,98 @@
+/* Título dentro de la tarjeta */
+.title {
+    font-size: 2rem;
+    margin-bottom: 10px;
+    color: #111827;
+}
+
+/* Texto descriptivo dentro de la tarjeta */
+.copy {
+    font-size: 1rem;
+    margin-bottom: 30px;
+    color: #6b7280;
+}
+
+/* Contenedor de tarjetas, usa grid para responsividad */
+.cardsContainer {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Ajusta el tamaño mínimo de las tarjetas */
+    gap: 20px; /* Espacio entre tarjetas */
+    justify-content: center;
+    padding: 10px; /* Espacio alrededor de las tarjetas */
+}
+
+/* Estilos de la tarjeta */
+.card {
+    position: relative;
+    width: 100%; /* Ocupa todo el ancho disponible en el contenedor */
+    max-width: 400px; /* Establece el ancho máximo de la tarjeta */
+    padding: 20px;
+    padding-bottom: 60px; /* Aumenta el espacio inferior para el footer */
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-top: 5rem;
+    margin-bottom: 2rem;
+    min-height: 300px;
+    box-sizing: border-box; /* Asegura que el padding no afecte el tamaño total */
+}
+
+/* Icono flotante dentro de la tarjeta */
+.icon {
+    position: absolute;
+    top: -20px; /* Coloca el icono fuera del borde superior de la tarjeta */
+    left: 20px;
+    background-color: #2563eb; /* Fondo azul */
+    padding: 10px;
+    border-radius: 8px;
+    color: #fff;
+    font-size: 1.5rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Título dentro de la tarjeta */
+.card h3 {
+    margin-top: 30px;
+    font-size: 2rem;
+    font-weight: bold;
+    color: #111827;
+}
+
+/* Párrafos dentro de la tarjeta */
+.card p {
+    color: #6b7280;
+    margin: 10px 0;
+}
+
+/* Enlace dentro de la tarjeta */
+.card a {
+    color: #2563eb;
+    text-decoration: none;
+    font-weight: bold;
+    display: inline-block;
+    margin-top: 10px;
+}
+
+/* Footer de la tarjeta */
+.footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #e6e7e9;
+    padding: 15px 20px;
+    text-align: left;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+/* Enlaces dentro del footer */
+.footer a {
+    color: #2563eb;
+    text-decoration: none;
+    font-weight: 500;
+}

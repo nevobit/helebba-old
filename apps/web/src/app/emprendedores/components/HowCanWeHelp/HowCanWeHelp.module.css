@@ -1,0 +1,66 @@
+/* Contenedor principal del componente */
+.howCanWeHelpContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+/* Contenedor del texto */
+.textContainer {
+    width: 80%;
+    text-align: left;
+    margin-bottom: 2rem;
+}
+
+/* Título general */
+.title {
+    font-size: 3.5rem;
+    font-weight: 700;
+    line-height: 4rem;
+    letter-spacing: -0.1rem;
+    color: rgb(17, 24, 39);
+    margin-bottom: 1rem;
+    text-align: left;
+}
+
+/* Texto de descripción */
+.copy {
+    color: rgb(107, 114, 128);
+    font-size: 1.8rem;
+    margin-bottom: 2rem;
+}
+
+/* Contenedor de las tarjetas */
+.cardsContainer {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Ajusta el tamaño mínimo de las tarjetas */
+    gap: 1.5rem; /* Espacio entre tarjetas */
+    width: 80%; /* Limita el ancho al 80% de la pantalla */
+    margin: 0 auto; /* Centra el contenedor */
+    padding: 10px;
+}
+
+/* Estilos de las tarjetas */
+.card {
+    max-width: 300px;
+    width: 100%; /* Hace que las tarjetas ocupen el 100% del espacio disponible */
+    padding: 1rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+/* Estilos para pantallas más pequeñas */
+@media (max-width: 600px) {
+    .cardsContainer {
+        grid-template-columns: 1fr; /* Una sola columna en pantallas pequeñas */
+        gap: 1rem; /* Reduce el espacio entre tarjetas */
+        width: 100%; /* Asegura que el contenedor ocupe el 100% en pantallas pequeñas */
+    }
+}
+
+/* Estilos de la imagen de contenido */
+.contentImage {
+    display: flex;
+    justify-content: center;
+}
