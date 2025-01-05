@@ -28,6 +28,7 @@ dotenv.config({ path: envFilePath });
 
 const { PORT, HOST, REGION, ENVIRONMENT, MONGO_URL, REDIS_URL } = process.env;
 
+
 const consoleOptions = {
   transport: LoggerTransportName.CONSOLE,
   options: {
