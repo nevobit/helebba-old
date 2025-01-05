@@ -1,0 +1,47 @@
+.list{
+    display: grid;
+    grid-template-columns:1fr;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.card {
+    display: flex;
+    align-items: center; /* Alinea verticalmente el icono y el texto */
+    padding: 0px;
+    border-radius: 8px;
+    gap: 20px; /* Espacio entre el icono y el texto */
+}
+
+.icon {
+    width: 40px; 
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    background-color: #1963ef;
+    border-radius: 5px;
+    padding: 1rem 1rem;
+}
+
+.textContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.textContainer h3 {
+        font-weight: 500;
+    font-size: 1.6rem;
+    margin-top: 1rem;
+     color: #1963ef;
+}
+
+.textContainer p {
+   color: rgb(107 114 128);
+    margin-top: .5rem;
+    font-size: 1.6rem;
+    line-height: 2.2rem;
+    font-weight: 300;
+}
