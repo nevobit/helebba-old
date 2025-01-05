@@ -35,8 +35,6 @@ const consoleOptions = {
     channelName: LoggerTransportName.CONSOLE,
   },
 };
-
-
 const logger = new Logger({
   optionsByLevel: {
     debug: [consoleOptions],
