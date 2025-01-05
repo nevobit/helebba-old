@@ -1,8 +1,39 @@
-FROM node:18-alpine
+FROM node:lts-alpine AS builder
+
 WORKDIR /app
-COPY package*.json ./
-COPY apps/http-api ./apps/http-api
+
+RUN npm install -g pnpm turbo
+
+COPY turbo.json ./
+COPY pnpm-workspace.yaml ./
+COPY package.json ./
+COPY pnpm-lock.yaml ./
 COPY packages ./packages
-RUN npm ci
-WORKDIR /app/apps/http-api
-CMD ["npm", "start"]
+COPY apps/http-api ./apps/http-api
+
+FROM node:lts AS installer
+WORKDIR /app
+
+RUN npm install -g pnpm
+
+COPY --from=builder /app .
+COPY --from=builder /app/pnpm-lock.yaml ./pnpm-lock.yaml
+
+RUN pnpm install --frozen-lockfile
+
+COPY --from=builder /app .
+
+RUN pnpm turbo run build --filter=http-api...
+
+FROM node:lts AS runner
+WORKDIR /app
+RUN npm install -g pnpm
+
+COPY --from=installer /app/node_modules ./node_modules
+COPY --from=installer /app/packages ./packages
+
+COPY --from=installer /app/apps/http-api ./apps/http-api
+
+EXPOSE 8000
+
+CMD ["node", "./apps/http-api/dist/server/index.js"]
