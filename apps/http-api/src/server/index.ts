@@ -104,6 +104,7 @@ const main = async () => {
   //   },
   // });
 
+
   server.register(fastifySwagger, swaggerOptions);
   server.register(fastifySwaggerUi, swaggerUiOptions);
 
