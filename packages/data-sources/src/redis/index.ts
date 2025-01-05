@@ -1,7 +1,6 @@
 import { Logger, MonoContext } from "@helebba/core-modules";
 import { createRedisConnection } from "./connection";
 
-const { REDIS_URL, REDIS_WRITE_URL } = process.env;
 
 export interface InitRedisOptions {
   redisReadUrl?: string;
@@ -12,6 +11,8 @@ export const initRedis = async ({
   redisReadUrl,
   redisWriteUrl,
 }: InitRedisOptions) => {
+  const { REDIS_URL, REDIS_WRITE_URL } = process.env;
+
   const logger = MonoContext.getStateValue("logger") as Logger;
 
   try {
