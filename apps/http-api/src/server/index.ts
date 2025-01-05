@@ -36,6 +36,7 @@ const consoleOptions = {
   },
 };
 
+
 const logger = new Logger({
   optionsByLevel: {
     debug: [consoleOptions],
