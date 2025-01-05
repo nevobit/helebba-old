@@ -1,4 +1,4 @@
-import "dotenv/config";
+import dotenv from "dotenv";
 import os from "os";
 import fastify from "fastify";
 import fastifyCors from "@fastify/cors";
@@ -18,6 +18,13 @@ import { initDataSources } from '@helebba/data-sources';
 import { setLogger } from "@helebba/constant-definitions";
 import { swaggerOptions, swaggerUiOptions } from "../docs";
 import { verify } from "@helebba/business-logic";
+
+const envFilePath =
+  process.env.NODE_ENV === 'production'
+    ? './apps/http-api/.env'
+    : './.env';
+
+dotenv.config({ path: envFilePath });
 
 const { PORT, HOST, REGION, ENVIRONMENT, MONGO_URL, REDIS_URL } = process.env;
 
@@ -102,6 +109,9 @@ const main = async () => {
   server.register(fastifySwaggerUi, swaggerUiOptions);
 
   server.addHook('preValidation', async (req, reply) => {
+    if (req.routeOptions.url?.includes('/health-check')) {
+      return;
+    }
     const data = await verify({ url: req.routeOptions.url, body: req.body, headers: req.headers, protocol: req.protocol });
 
     if (data?.type == "error") {

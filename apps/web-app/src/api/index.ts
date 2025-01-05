@@ -11,7 +11,7 @@ const generateSignature = (url: string, body: string, timestamp: number) => {
 
 export const helebbaApi: AxiosInstance = axios.create({
     baseURL: BASE_URL,
-    timeout: 10000,
+    timeout: 50000,
     headers: {
         'Content-Type': 'application/json',
     },

@@ -2,7 +2,7 @@
   "name": "http-api",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "./dist/server/index.js",
   "scripts": {
     "dev": "ts-node-dev -P tsconfig.json src/server/index.ts",
     "build": "./scripts/build",
@@ -47,6 +47,7 @@
   },
   "devDependencies": {
     "@helebba/typescript-config": "workspace:^",
+    "@types/node": "^22.10.5",
     "auto-changelog": "^2.4.0",
     "esbuild": "^0.23.0",
     "release-it": "^17.6.0",

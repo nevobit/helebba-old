@@ -31,6 +31,7 @@ interface Space extends Base {
 }
 
 export interface TimeSlot {
+    id: string;
     weekday: number;
     enabled: boolean;
     startTime: string;

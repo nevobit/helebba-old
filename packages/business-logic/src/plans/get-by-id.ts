@@ -10,16 +10,16 @@ export const getStoreById = async(id: string): Promise<Partial<Store> | null> =>
     const registers = await modelRegister.find({ storeId: id }) as Register[]
 
     const infoStore: Partial<Store> = {
-        name: store.name,
-        address: store.address,
-        location: store.location,
-        currency: store.currency,
-        warehouse: store.warehouse,
-        phone: store.phone,
-        account: store.account,
+        name: store?.name,
+        address: store?.address,
+        location: store?.location,
+        currency: store?.currency,
+        warehouse: store?.warehouse,
+        phone: store?.phone,
+        account: store?.account,
         registers: registers,
-        createdAt: store.createdAt,
-        updatedAt: store.updatedAt
+        createdAt: store?.createdAt,
+        updatedAt: store?.updatedAt
     }
     
     return infoStore;

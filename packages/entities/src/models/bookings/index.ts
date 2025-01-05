@@ -1,2 +1,2 @@
-export * from './contact.dtos';
+export * from './booking.dtos';
 export * from './schemas';

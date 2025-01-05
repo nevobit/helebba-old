@@ -22,23 +22,23 @@ export const getWarehouseById = async (id: string): Promise<Warehouse> => {
  const productsCount = await productModel.countDocuments({ warehouseId: id, status: StatusType.ACTIVE });
 
  const result = {
-    name: warehouse.name,
-    email: warehouse.email,
-    phone: warehouse.phone,
-    mobile: warehouse.mobile,
-    address: warehouse.address,
-    color: warehouse.color,
-    postalCode: warehouse.postalCode,
-    icon: warehouse.icon,
-    isPrincipal: warehouse.isPrincipal,
-    account: warehouse.account,
-    id: warehouse.id,
-    createdAt: warehouse.createdAt,
-    updatedAt: warehouse.updatedAt,
-    status: warehouse.status,
+   name: warehouse?.name,
+   email: warehouse?.email,
+   phone: warehouse?.phone,
+   mobile: warehouse?.mobile,
+   address: warehouse?.address,
+   color: warehouse?.color,
+   postalCode: warehouse?.postalCode,
+   icon: warehouse?.icon,
+   isPrincipal: warehouse?.isPrincipal,
+   account: warehouse?.account,
+   id: warehouse?.id,
+   createdAt: warehouse?.createdAt,
+   updatedAt: warehouse?.updatedAt,
+   status: warehouse?.status,
     productsCount,
     totalStock
- }
+ } as Warehouse
 
  return result;
 }

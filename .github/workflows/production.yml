@@ -1,0 +1,99 @@
+name: Deploy to AWS ECS Production
+
+on:
+  push:
+    branches:
+      - production
+    paths:
+      - 'apps/http-api/**'
+  pull_request:
+    branches:
+      - production
+    paths:
+      - 'apps/http-api/**'
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: us-east-2
+
+      - name: Log in to Amazon ECR
+        id: login-ecr
+        uses: aws-actions/amazon-ecr-login@v1
+
+      - name: Install Docker Compose
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y docker-compose
+
+      - name: Setup .env
+        working-directory: apps/http-api
+        run: |
+          touch .env
+          echo -e "${{ secrets.ENV }}" > .env
+
+      - name: Setup .env Main
+        run: |
+          touch .env
+          echo -e "${{ secrets.ENV }}" > .env
+
+      - name: Build, tag, and push image to Amazon ECR
+        env:
+          ECR_REGISTRY: ${{ secrets.ECR_REGISTRY }}
+          ECR_REPOSITORY: helebba-api
+          IMAGE_TAG: latest
+        run: |
+          docker-compose -f docker-compose.prod.yml build --parallel
+          docker tag corehub-api:latest $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
+          docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
+
+      - name: Generate ECS Task Definition
+        run: |
+          echo '{
+            "family": "helebba-task",
+            "containerDefinitions": [
+              {
+                "name": "helebba-api",
+                "image": "${{ secrets.ECR_REGISTRY }}/helebba-api:latest",
+                "memory": 512,
+                "cpu": 256,
+                "essential": true,
+                "portMappings": [
+                  {
+                    "containerPort": 8000,
+                    "hostPort": 8000
+                  }
+                ],
+                "logConfiguration": {
+                  "logDriver": "awslogs",
+                  "options": {
+                    "awslogs-group": "/ecs/helebba-task",
+                    "awslogs-region": "us-east-2",
+                    "awslogs-stream-prefix": "helebba-api"
+                  }
+                }
+              }
+            ],
+            "networkMode": "awsvpc",
+            "requiresCompatibilities": ["FARGATE"],
+            "executionRoleArn": "arn:aws:iam::${{ secrets.AWS_ACCOUNT_ID }}:role/${{ secrets.ECS_TASK_EXECUTION_ROLE }}",
+            "cpu": "256",
+            "memory": "512"
+          }' > ./ecs-task-definition.json      
+
+      - name: Deploy to ECS
+        uses: aws-actions/amazon-ecs-deploy-task-definition@v1
+        with:
+          task-definition: ./ecs-task-definition.json
+          service: helebba-api
+          cluster: helebba-api
+          wait-for-service-stability: true

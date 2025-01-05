@@ -1,14 +1,34 @@
 {
   "extends": "@helebba/typescript-config/base.json",
   "compilerOptions": {
-    "lib": ["ES2015"],
+    "lib": ["ES2019"],
     "outDir": "./dist",
     "rootDir": "./src",
     "esModuleInterop": true,
     "resolveJsonModule": true,
+    "moduleResolution": "node",
     "strict": true,
-    "typeRoots": ["@types", "./node_modules/@types"]
+    "typeRoots": ["@types", "./node_modules/@types"],
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "module": "commonjs",
+    "allowJs": true,
+    "checkJs": false,
+    "sourceMap": true,
+    "noEmit": false,
+    "importHelpers": false,
+    "isolatedModules": true,
+    "allowSyntheticDefaultImports": true,
+    "preserveSymlinks": true,
+    "forceConsistentCasingInFileNames": true,
+    "strictNullChecks": false,
+    "strictFunctionTypes": true,
+    "strictBindCallApply": true,
+    "strictPropertyInitialization": false,
+    "noImplicitThis": false,
+    "noFallthroughCasesInSwitch": true,
+    "noUncheckedIndexedAccess": true
   },
   "exclude": ["node_modules"],
-  "include": ["src", "**/*.ts", "build.js"]
+  "include": ["src", "**/*.ts"]
 }
