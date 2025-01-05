@@ -5,10 +5,11 @@ import { Resend } from "resend";
 import otpGenerator from 'otp-generator';
 import { getEmailHTML } from "./email";
 
-const { JWT_SECRET, RESEND_API_KEY } = process.env;
-const resend = new Resend(RESEND_API_KEY);
+
 
 export const register = async (email: string, lastname: string, phone: string, name: string) => {
+    const { JWT_SECRET, RESEND_API_KEY } = process.env;
+    const resend = new Resend(RESEND_API_KEY);
     const model = getModel<User>(Collection.USERS, UserSchemaMongo);
 
     const user = await model.findOne({ email });

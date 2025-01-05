@@ -9,8 +9,7 @@ interface Props {
     content: string;
 }
 
-const { RESEND_KEY } = process.env;
-const resend = new Resend(RESEND_KEY!);
+
 
 
 // AWS.config.update({
@@ -34,6 +33,9 @@ const adminMail = '{sender} <noreply@helebba.com>';
 // })
 
 export const sendEmailSES = async ({ sender, emails, subject, content }: Props) => {
+    const { RESEND_KEY } = process.env;
+    const resend = new Resend(RESEND_KEY!);
+
     try {
         for (let i = 0; i < emails.length; i++) {
             const messageData = {

@@ -1,9 +1,10 @@
 import { Resend } from 'resend';
 
-const { RESEND_KEY } = process.env;
-const resend = new Resend(RESEND_KEY!);
+
 
 export const sendWelcome = async ({ email, accountName, accountOwnerName }: { email: string, accountName: string, accountOwnerName: string }) => {
+    const { RESEND_KEY } = process.env;
+    const resend = new Resend(RESEND_KEY!);
 
     await resend.emails.send({
         from: `El Equipo de Helebba <no-reply@helebba.com>`,

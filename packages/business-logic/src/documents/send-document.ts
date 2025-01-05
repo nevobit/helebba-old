@@ -4,8 +4,7 @@ import { getDocumentPDF } from './get-document-pdf';
 import { getAccountById } from '../accounts';
 import { Collection, getModel } from '@helebba/constant-definitions';
 
-const { RESEND_KEY } = process.env;
-const resend = new Resend(RESEND_KEY!);
+
 
 interface emailProps {
   mailTemplateId?: string;
@@ -23,6 +22,9 @@ export const SendDocumentEmail = async ({
   documentId,
   account,
 }: emailProps) => {
+  const { RESEND_KEY } = process.env;
+  const resend = new Resend(RESEND_KEY!);
+
   const model = getModel<Document>(Collection.DOCUMENTS, DocumentSchemaMongo);
   const query = { status: StatusType.ACTIVE };
   const document = await model.findOne({ ...query, _id: documentId });
