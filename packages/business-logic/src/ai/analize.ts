@@ -2,11 +2,10 @@ import { Collection, getModel } from "@helebba/constant-definitions";
 import { Product, ProductSchemaMongo, StatusType } from "@helebba/entities";
 import OpenAI from 'openai';
 
-const openai = new OpenAI({
-  apiKey: process.env['OPENAI_API_KEY'],
-});
-
 export const analizeInfo = async (account: string) => {
+  const openai = new OpenAI({
+    apiKey: process.env['OPENAI_API_KEY'],
+  });
   const model = getModel<Product>(Collection.PRODUCTS, ProductSchemaMongo);
 
   const products = await model
