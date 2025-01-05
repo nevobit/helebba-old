@@ -21,11 +21,7 @@ import { verify } from "@helebba/business-logic";
 import fs from 'fs';
 import path from 'path';
 
-const envFilePath =
-  process.env.NODE_ENV === 'production'
-    ? './apps/http-api/.env'
-    : './.env';
-
+const envFilePath = './apps/http-api/.env'
 
 
 const envFilePathDat = path.join(__dirname, '.env');
