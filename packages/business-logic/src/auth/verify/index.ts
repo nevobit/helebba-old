@@ -2,9 +2,10 @@ import { NormalizedRequest } from "@helebba/constant-definitions";
 import crypto from 'crypto';
 import jwt from "jsonwebtoken";
 
-const { API_SECRET, JWT_SECRET } = process.env;
 
 export const verify = async ({ protocol, headers, body }: NormalizedRequest) => {
+    const { API_SECRET } = process.env;
+
     const typedHeaders = headers as {
         "x-timestamp": string,
         "x-signature": string,
@@ -49,6 +50,8 @@ export const verify = async ({ protocol, headers, body }: NormalizedRequest) => 
 }
 
 export const verifyToken = async ({ headers }: NormalizedRequest) => {
+    const { JWT_SECRET } = process.env;
+
     const typedHeaders = headers as {
         authorization: string,
     };
