@@ -2,7 +2,7 @@ import { NormalizedRequest } from "@helebba/constant-definitions";
 import crypto from 'crypto';
 import jwt from "jsonwebtoken";
 
-const { NODE_ENV, API_SECRET, JWT_SECRET } = process.env;
+const { API_SECRET, JWT_SECRET } = process.env;
 
 export const verify = async ({ protocol, headers, body }: NormalizedRequest) => {
     const typedHeaders = headers as {
@@ -14,7 +14,10 @@ export const verify = async ({ protocol, headers, body }: NormalizedRequest) => 
     const signature = typedHeaders["x-signature"];
     const path = typedHeaders["x-path"];
 
-    const isHttps = protocol === 'https' || NODE_ENV == 'production' || NODE_ENV! == 'development';
+    console.log({ protocol })
+    // const isHttps = protocol === 'https' || NODE_ENV == 'production' || NODE_ENV! == 'development';
+    const isHttps = true;
+
     if (!isHttps) {
         return { type: "error", message: 'Bad Request: The request must be made over HTTPS' }
     }

@@ -30,7 +30,6 @@ if (fs.existsSync(envFilePathDat)) {
 } else {
   console.log("El archivo .env no existe en el directorio actual.");
 }
-console.log({ envFilePath })
 dotenv.config({ path: envFilePath });
 
 const { PORT, HOST, REGION, ENVIRONMENT, MONGO_URL, REDIS_URL } = process.env;
