@@ -14,7 +14,7 @@ export const verify = async ({ protocol, headers, body }: NormalizedRequest) => 
     const signature = typedHeaders["x-signature"];
     const path = typedHeaders["x-path"];
 
-    const isHttps = protocol === 'https' || NODE_ENV! == 'development';
+    const isHttps = protocol === 'https' || NODE_ENV == 'production' || NODE_ENV! == 'development';
     if (!isHttps) {
         return { type: "error", message: 'Bad Request: The request must be made over HTTPS' }
     }
