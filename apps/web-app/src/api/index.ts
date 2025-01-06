@@ -1,6 +1,5 @@
 import axios, { AxiosInstance } from 'axios';
 import crypto from 'crypto-js';
-import https from 'https';
 
 const API_SECRET = import.meta.env.VITE_API_SECRET;
 const BASE_URL = import.meta.env.VITE_API_BASE_URL;
@@ -15,10 +14,7 @@ export const helebbaApi: AxiosInstance = axios.create({
     timeout: 50000,
     headers: {
         'Content-Type': 'application/json',
-    },
-    httpsAgent: new https.Agent({
-        rejectUnauthorized: false,
-    }),
+    }
 });
 
 helebbaApi.interceptors.request.use((config) => {
