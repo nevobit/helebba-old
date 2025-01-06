@@ -2,8 +2,8 @@ import { Table, type ColumnDef } from "@helebba/design-system/web";
 import { useContacts } from "../../hooks"
 import { Contact } from "@helebba/entities";
 import { useState } from "react";
-import { useContactStore } from "../../store";
-import { getType } from "../../screens/Contact";
+import { getType } from "@/features/Contacts/screens/Contact";
+import { useContactStore } from "@/state-manager";
 
 export const columns: ColumnDef<Contact>[] = [
     { header: 'Nombre', accessor: 'name', width: '100%' },

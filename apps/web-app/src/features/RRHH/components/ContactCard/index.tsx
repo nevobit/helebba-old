@@ -1,20 +1,18 @@
-import { Button, Menus, Modal, useModal } from '@helebba/design-system/web';
-import { useContact } from '../../hooks';
+import { Menus, Modal, useModal } from '@helebba/design-system/web';
 import styles from './Card.module.css';
 import { useOutsideClick } from '@helebba/design-system/utilities';
-import { useContactStore } from '../../store';
 import { useEffect, useState } from 'react';
 import ContactInfo from './ContactInfo';
 import DeleteModal from './DeleteModal';
-import { useEditModal } from '../../hooks/useEditModal';
 import { HeaderName } from '../HeaderName';
+import { useContact } from '@/features/Contacts/hooks';
+import { useContactStore } from '@/state-manager';
 
 const ContactCard = () => {
     const [open, setOpen] = useState(false)
     const { contact, isLoading } = useContact();
     const { openModal, requestCloseModal } = useModal();
 
-    const { openEditModal } = useEditModal({ contact });
     const selectContactId = useContactStore((state) => state.selectContact);
 
     const ref = useOutsideClick<HTMLDivElement>({
@@ -65,9 +63,9 @@ const ContactCard = () => {
                         <Menus.Menu>
                             <Menus.Toggle id='contact-menu' />
                             <Menus.List id='contact-menu'>
-                                <Menus.Button onClick={openEditModal}>
+                                    {/* <Menus.Button onClick={openEditModal}>
                                     <span>Editar</span>
-                                </Menus.Button>
+                                </Menus.Button> */}
                                 <Menus.Button onClick={deleteModal}>
                                     <span>Eliminar</span>
                                 </Menus.Button>
@@ -82,7 +80,7 @@ const ContactCard = () => {
                     <div className={styles.information}>
                         <div className={styles.informationHeader}>
                             <h4>Información del contacto</h4>
-                            <Button variant='plain' onClick={openEditModal} >Editar</Button>
+                                {/* <Button variant='plain' onClick={openEditModal} >Editar</Button> */}
                         </div>
                         <ul className={styles.informationContent} >
                             {contact.email && <li><p>Correo electronico</p> <h5>{contact.email}</h5></li>}

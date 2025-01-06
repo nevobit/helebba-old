@@ -1,9 +1,9 @@
 import { Table, type ColumnDef } from "@helebba/design-system/web";
-import { Service } from "@helebba/entities";
+import { Document } from "@helebba/entities";
 import { useState } from "react";
 import { useServices } from "../../hooks";
 
-export const columns: ColumnDef<Service>[] = [
+export const columns: ColumnDef<Document>[] = [
     { header: 'Nombre', accessor: 'name', width: '100%' },
     { header: 'Descripción', accessor: 'description', width: '100%' },
     { header: 'Tags', accessor: 'tags', width: '100%' },
@@ -23,7 +23,7 @@ export const ServicesTable = ({ setSelectedRows, search }: { search: string, set
     }
 
     return (
-        <Table<Service> searchKey='name' search={search} columns={columns} data={services?.items} page={services?.pageInfo.page} onSelectionChange={setSelectedRows} setCurrentPage={setCurrentPage} >
+        <Table<Document> searchKey='name' search={search} columns={columns} data={services?.items} page={services?.pageInfo.page} onSelectionChange={setSelectedRows} setCurrentPage={setCurrentPage} >
             <Table.Header />
             <Table.Body />
             <Table.Footer />

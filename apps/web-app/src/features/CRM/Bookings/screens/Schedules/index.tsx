@@ -11,6 +11,7 @@ interface TimeSlot {
 }
 
 interface DaySchedule {
+    id: string;
     weekday: number;
     enabled: boolean;
     startTime: string;
@@ -43,6 +44,7 @@ const Schedules = () => {
 
     const [schedule, setSchedule] = useState<DaySchedule[]>(
         Array.from({ length: 7 }, (_, i) => ({
+            id: String(Math.random() * 100 + i),
             weekday: i,
             enabled: i < 5,
             startTime: '09:00',
@@ -103,6 +105,7 @@ const Schedules = () => {
             const updatedSchedule = Array.from({ length: 7 }, (_, i) => {
                 const dayData = bookingLocation.timeSlots.find((slot) => slot.weekday === i);
                 return {
+                    id: dayData?.id || "",
                     weekday: i,
                     enabled: dayData?.enabled || false,
                     startTime: dayData?.startTime || '09:00',
