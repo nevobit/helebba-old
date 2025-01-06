@@ -20,6 +20,7 @@ import { swaggerOptions, swaggerUiOptions } from "../docs";
 import { verify } from "@helebba/business-logic";
 import fs from 'fs';
 import path from 'path';
+
 const envFilePath = './apps/http-api/.env'
 
 const envFilePathDat = path.join(__dirname, '.env');
