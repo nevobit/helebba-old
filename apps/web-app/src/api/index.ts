@@ -9,6 +9,7 @@ const generateSignature = (url: string, body: string, timestamp: number) => {
     return crypto.HmacSHA256(dataToSign, API_SECRET).toString();
 };
 
+
 export const helebbaApi: AxiosInstance = axios.create({
     baseURL: BASE_URL,
     timeout: 50000,
