@@ -1,4 +1,4 @@
-# Applications Monorepo
+# Helebba
 
 This monorepo houses a comprehensive ecosystem of Node.js applications, services, and shared packages.
 

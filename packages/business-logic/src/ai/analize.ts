@@ -3,6 +3,7 @@ import { Product, ProductSchemaMongo, StatusType } from "@helebba/entities";
 import OpenAI from 'openai';
 
 export const analizeInfo = async (account: string) => {
+  console.log(process.env.OPENAI_API_KEY)
   const openai = new OpenAI({
     apiKey: process.env.OPENAI_API_KEY,
   });

@@ -18,22 +18,18 @@ import { initDataSources } from '@helebba/data-sources';
 import { setLogger } from "@helebba/constant-definitions";
 import { swaggerOptions, swaggerUiOptions } from "../docs";
 import { verify } from "@helebba/business-logic";
-import fs from 'fs';
-import path from 'path';
 
-const envFilePath = './apps/http-api/.env'
+const envFilePath =
+  process.env.NODE_ENV === 'production'
+    ? './apps/http-api/.env'
+    : '.env';
 
-const envFilePathDat = path.join(__dirname, '.env');
-
-if (fs.existsSync(envFilePathDat)) {
-  console.log("El archivo .env existe en el directorio actual.");
-} else {
-  console.log("El archivo .env no existe en el directorio actual.");
-}
+console.log({ envFilePath })
 dotenv.config({ path: envFilePath });
 
 const { PORT, HOST, REGION, ENVIRONMENT, MONGO_URL, REDIS_URL } = process.env;
 
+console.log(PORT)
 const consoleOptions = {
   transport: LoggerTransportName.CONSOLE,
   options: {
