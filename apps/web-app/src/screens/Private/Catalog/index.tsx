@@ -1,8 +1,8 @@
 import { useProducts } from "@/hooks"
 import styles from "./Catalog.module.css";
+import { Product } from "@helebba/entities";
 import { Link } from "react-router-dom";
 import { Image } from "lucide-react";
-import { Product } from "@helebba/entities";
 
 const Catalog = () => {
     const { products } = useProducts();

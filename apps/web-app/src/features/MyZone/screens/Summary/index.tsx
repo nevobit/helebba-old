@@ -1,6 +1,7 @@
 import { LineScaleLoader } from '@helebba/design-system/web';
 import { useEmployeeMe } from '../../hooks';
 import styles from './Summary.module.css'
+import CircleCounter from '../../components/CircleCounter';
 
 const Summary = () => {
     const { isLoading } = useEmployeeMe();
@@ -35,12 +36,19 @@ const Summary = () => {
                             </div>
                         </div>
                     </div>
-                    <div className={styles.card} ></div>
-                    <div className={styles.card} ></div>
+                    <div className={styles.card} >
+                        <h3 className={styles.centerTitle} >Días disponibles</h3>
+                        <CircleCounter count={0} />
+
+                    </div>
+                    <div className={styles.card} >
+                        <h3 className={styles.centerTitle} >Días usados</h3>
+                        <CircleCounter count={0} />
+                    </div>
                 </div>
             </div>
 
-            <div>
+            <div className={styles.column} >
                 <div className={styles.box} >
                     <div className={styles.header}>
                         <h2>Nóminas</h2>
@@ -49,6 +57,24 @@ const Summary = () => {
                 <div className={styles.box} >
                     <div className={styles.header}>
                         <h2>Control horario</h2>
+                    </div>
+
+                    <div className={styles.summary} >
+                        <div>
+                            <img src="/trackers.svg" />
+                            <div>
+                                <h3>¡Tu primera nómina aún no está lista!</h3>
+                                <p>Aquí podrás ver tus últimas nóminas.</p>
+                            </div>
+                        </div>
+                        <div className={styles.card} >
+                            <h3 className={styles.centerTitle} >Total trabajado</h3>
+                            <CircleCounter count={0} />
+                        </div>
+                        <div className={styles.card} >
+                            <h3 className={styles.centerTitle} >Promedio/dia</h3>
+                            <CircleCounter count={0} />
+                        </div>
                     </div>
                 </div>
             </div>

@@ -5,3 +5,5 @@ packages:
   - "apps/barber-web"
   - "apps/booking-web"
   - "packages/*"
+catalog:
+  'typescript': 5.2.2

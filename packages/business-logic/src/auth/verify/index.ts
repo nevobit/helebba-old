@@ -2,9 +2,10 @@ import { NormalizedRequest } from "@helebba/constant-definitions";
 import crypto from 'crypto';
 import jwt from "jsonwebtoken";
 
-const { NODE_ENV, API_SECRET, JWT_SECRET } = process.env;
 
 export const verify = async ({ protocol, headers, body }: NormalizedRequest) => {
+    const { API_SECRET } = process.env;
+
     const typedHeaders = headers as {
         "x-timestamp": string,
         "x-signature": string,
@@ -14,7 +15,10 @@ export const verify = async ({ protocol, headers, body }: NormalizedRequest) => 
     const signature = typedHeaders["x-signature"];
     const path = typedHeaders["x-path"];
 
-    const isHttps = protocol === 'https' || NODE_ENV! == 'development';
+    console.log({ protocol })
+    // const isHttps = protocol === 'https' || NODE_ENV == 'production' || NODE_ENV! == 'development';
+    const isHttps = true;
+
     if (!isHttps) {
         return { type: "error", message: 'Bad Request: The request must be made over HTTPS' }
     }
@@ -46,6 +50,8 @@ export const verify = async ({ protocol, headers, body }: NormalizedRequest) => 
 }
 
 export const verifyToken = async ({ headers }: NormalizedRequest) => {
+    const { JWT_SECRET } = process.env;
+
     const typedHeaders = headers as {
         authorization: string,
     };
