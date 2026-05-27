@@ -127,6 +127,23 @@
 .invoice_payment select{
  border: 1px solid rgba(0, 0, 0, .1);
 }
+
+.installment_fields{
+ display: grid;
+ grid-template-columns: repeat(3, minmax(0, 1fr));
+ gap: 1.2rem;
+ margin-top: 1.5rem;
+}
+
+.installment_fields input[readonly]{
+ color: rgba(0, 0, 0, .7);
+}
+
+@media (max-width: 900px){
+ .installment_fields{
+  grid-template-columns: 1fr;
+ }
+}
 .body_option:first-child{
  border-right: 1px solid rgba(0,0,0,0.1);
 }

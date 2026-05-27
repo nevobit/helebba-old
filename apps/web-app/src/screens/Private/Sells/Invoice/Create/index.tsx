@@ -29,6 +29,8 @@ import { Modal } from '@/containers';
 import PreviewDocument from '@/containers/PreviewDocument';
 import { useQueryClient } from '@tanstack/react-query';
 
+const INSTALLMENT_PAYMENT_METHODS = ['addi', 'sistecredito'];
+
 const CreateInvoice = () => {
   const account = useAccountStore((state) => state.account);
   const { contacts } = useContacts();
@@ -97,6 +99,13 @@ const CreateInvoice = () => {
           paymentsTotal: 0,
           paymentsPending: 0,
           paymentsRefunds: 0,
+          paymentInstallments: 1,
+          paymentInstallmentValue: 0,
+          paymentReference: '',
+          paymentFee: 0,
+          paymentNetAmount: 0,
+          paymentDisbursementDate: '',
+          paymentCollectionStatus: 'pending',
           salesChannelId: '',
         },
   );
@@ -110,9 +119,31 @@ const CreateInvoice = () => {
       HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement
     >,
   ) => {
+    const { name, value } = event.target;
+    const numberFields = ['paymentInstallments', 'paymentFee'];
+    const nextValue = numberFields.includes(name) ? Number(value) : value;
+
     setInvoice((prev) => ({
       ...prev,
-      [event.target.name]: event.target.value,
+      [name]: nextValue,
+      ...(name === 'paymentMethod' &&
+      !INSTALLMENT_PAYMENT_METHODS.includes(value)
+        ? {
+            paymentInstallments: 1,
+            paymentInstallmentValue: 0,
+            paymentReference: '',
+            paymentFee: 0,
+            paymentNetAmount: 0,
+            paymentDisbursementDate: '',
+            paymentCollectionStatus: 'received',
+          }
+        : {}),
+      ...(name === 'paymentMethod' && INSTALLMENT_PAYMENT_METHODS.includes(value)
+        ? {
+            paymentInstallments: prev.paymentInstallments || 1,
+            paymentCollectionStatus: prev.paymentCollectionStatus || 'pending',
+          }
+        : {}),
     }));
   };
 
@@ -150,6 +181,33 @@ const CreateInvoice = () => {
     editElement(productId, concept, 'concept');
   };
   const navigate = useNavigate();
+  const isInstallmentPayment = INSTALLMENT_PAYMENT_METHODS.includes(
+    invoice.paymentMethod || '',
+  );
+
+  useEffect(() => {
+    if (!isInstallmentPayment) {
+      return;
+    }
+
+    const installments = Number(invoice.paymentInstallments) || 1;
+    const paymentInstallmentValue = Number((total / installments).toFixed(2));
+    const paymentFee = Number(invoice.paymentFee) || 0;
+    const paymentNetAmount = Math.max(total - paymentFee, 0);
+
+    setInvoice((prev) => ({
+      ...prev,
+      paymentInstallmentValue,
+      paymentNetAmount,
+      paymentsPending: total,
+    }));
+  }, [
+    invoice.paymentFee,
+    invoice.paymentInstallments,
+    invoice.paymentMethod,
+    isInstallmentPayment,
+    total,
+  ]);
 
   const onSubmit = (
     e: MouseEvent<HTMLButtonElement, globalThis.MouseEvent>,
@@ -384,7 +442,7 @@ const CreateInvoice = () => {
 
       <div className={styles.last_card}>
         <div className={styles.invoice_payment}>
-          <Field label="Informaciónde pago">
+          <Field label="Información de pago">
             <select
               name="paymentMethod"
               value={invoice.paymentMethod}
@@ -393,8 +451,75 @@ const CreateInvoice = () => {
               <option value="">No seleccionada</option>
               <option value="bank">Transferencia Bancaria</option>
               <option value="cash">Efectivo</option>
+              <option value="addi">Addi</option>
+              <option value="sistecredito">Sistecrédito</option>
             </select>
           </Field>
+          {isInstallmentPayment && (
+            <div className={styles.installment_fields}>
+              <Field label="Número de cuotas">
+                <Input
+                  min={1}
+                  name="paymentInstallments"
+                  type="number"
+                  value={invoice.paymentInstallments || 1}
+                  onChange={handleChange}
+                />
+              </Field>
+              <Field label="Valor por cuota">
+                <Input
+                  readOnly
+                  value={DivisaFormater({
+                    value: invoice.paymentInstallmentValue || 0,
+                    country: account?.country,
+                  })}
+                />
+              </Field>
+              <Field label="Referencia/aprobación">
+                <Input
+                  name="paymentReference"
+                  value={invoice.paymentReference || ''}
+                  onChange={handleChange}
+                />
+              </Field>
+              <Field label="Comisión financiera">
+                <Input
+                  min={0}
+                  name="paymentFee"
+                  type="number"
+                  value={invoice.paymentFee || 0}
+                  onChange={handleChange}
+                />
+              </Field>
+              <Field label="Neto a recibir">
+                <Input
+                  readOnly
+                  value={DivisaFormater({
+                    value: invoice.paymentNetAmount || 0,
+                    country: account?.country,
+                  })}
+                />
+              </Field>
+              <Field label="Fecha de desembolso">
+                <Input
+                  name="paymentDisbursementDate"
+                  type="date"
+                  value={invoice.paymentDisbursementDate || ''}
+                  onChange={handleChange}
+                />
+              </Field>
+              <Field label="Estado del cobro">
+                <select
+                  name="paymentCollectionStatus"
+                  value={invoice.paymentCollectionStatus || 'pending'}
+                  onChange={handleChange}>
+                  <option value="pending">Pendiente</option>
+                  <option value="scheduled">Programado</option>
+                  <option value="received">Recibido</option>
+                </select>
+              </Field>
+            </div>
+          )}
         </div>
       </div>
 

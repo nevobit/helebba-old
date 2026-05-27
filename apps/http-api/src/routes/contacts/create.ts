@@ -1,6 +1,7 @@
 import { verifyToken, createContact } from "@helebba/business-logic";
 import { RouteMethod, makeFastifyRoute } from "@helebba/constant-definitions";
 import { UpdateContactDto } from '@helebba/entities';
+import { invalidateCache } from "../../cache";
 
 export const createContactRoute = makeFastifyRoute(
     RouteMethod.POST,

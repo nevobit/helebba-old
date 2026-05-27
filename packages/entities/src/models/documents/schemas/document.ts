@@ -47,6 +47,13 @@ export interface Document extends Base {
   paymentsTotal: number;
   paymentsPending: number;
   paymentsRefunds: number;
+  paymentInstallments?: number;
+  paymentInstallmentValue?: number;
+  paymentReference?: string;
+  paymentFee?: number;
+  paymentNetAmount?: number;
+  paymentDisbursementDate?: string;
+  paymentCollectionStatus?: string;
   salesChannelId: string;
 }
 

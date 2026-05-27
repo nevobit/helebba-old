@@ -13,12 +13,12 @@ export const getAllContactsRoute = makeFastifyRoute(
         const cacheKey = `${request.url}:${account}`;
 
         const responseFromCache = await getFromCache(cacheKey);
-        if (responseFromCache) {
-            return reply.header('x-data-source', 'CACHE').send(responseFromCache);
-        } else {
+        // if (responseFromCache) {
+        //     return reply.header('x-data-source', 'CACHE').send(responseFromCache);
+        // } else {
             const contacts = await getAllContacts({ page: Number(page), limit: Number(limit), search, account });
             await setCache(cacheKey, contacts);
             return reply.header('x-data-sources', 'HIT').status(200).send(contacts);
-        }
+        // }
     }
 )

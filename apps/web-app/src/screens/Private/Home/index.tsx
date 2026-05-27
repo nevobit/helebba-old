@@ -7,7 +7,7 @@ import Button from '@/components/Shared/Button'
 import CheckPoint from '@/components/Shared/CheckPoint'
 import { Link } from 'react-router-dom'
 import { PrivateRoutes } from '@/constant-definitions'
-import { useAccount, useEditAccount, useExpenses, useForm, useIncome, useUser } from '@/hooks'
+import { useAccount, useEditAccount, useFinancial, useForm, useUser } from '@/hooks'
 import { useEffect, useState } from 'react'
 import { useAccountStore } from '@/state-manager'
 import Success from '@/components/Shared/Success'
@@ -18,8 +18,7 @@ const Home = () => {
   const { user } = useUser();
   const { account }= useAccount();
   const { isEditing, editAccount } = useEditAccount();
-  const { income } = useIncome();
-  const { expenses } = useExpenses();
+  const { financial } = useFinancial();
 
 
   const step = 0;
@@ -36,6 +35,9 @@ const Home = () => {
   const selectAccount = useAccountStore((state) => state.selectAccount);
 
   const [confirm, setConfirm] = useState(false);
+  const formatMoney = (value?: number) =>
+    DivisaFormater({ value: value || 0, country: account?.country });
+
   const handleShowToast = () => {
     setConfirm(true);
     setTimeout(() => {
@@ -78,17 +80,45 @@ const Home = () => {
         </div>
 
         <div className={styles.metrics} >
-          <div>
-            <h4>Ingresos</h4>
-            <h2>{DivisaFormater({ value: income, country: account?.country })}</h2>
+          <div className={styles.metricPrimary}>
+            <h4>Ventas netas</h4>
+            <h2>{formatMoney(financial?.salesNet)}</h2>
+            <p>Facturado sin descontar la forma de cobro.</p>
           </div>
           <div>
-            <h4>Gastos</h4>
-            <h2>{DivisaFormater({ value: expenses, country: account?.country })}</h2>
+            <h4>Caja recibida</h4>
+            <h2>{formatMoney(financial?.cashReceived)}</h2>
+            <p>Dinero ya cobrado o desembolsado.</p>
           </div>
           <div>
-            <h4>Ganancia</h4>
-            <h2>{DivisaFormater({ value: income - expenses, country: account?.country })}</h2>
+            <h4>Cartera por cobrar</h4>
+            <h2>{formatMoney(financial?.accountsReceivable)}</h2>
+            <p>Ventas hechas que todavía no son caja.</p>
+          </div>
+          <div>
+            <h4>Utilidad bruta</h4>
+            <h2>{formatMoney(financial?.grossProfit)}</h2>
+            <p>Ventas netas menos costo de productos.</p>
+          </div>
+          <div>
+            <h4>Gastos operativos</h4>
+            <h2>{formatMoney(financial?.operatingExpenses)}</h2>
+            <p>Compras y gastos registrados.</p>
+          </div>
+          <div>
+            <h4>Comisiones financieras</h4>
+            <h2>{formatMoney(financial?.financialFees)}</h2>
+            <p>Addi, Sistecrédito y otros costos de recaudo.</p>
+          </div>
+          <div className={styles.metricPrimary}>
+            <h4>Utilidad neta</h4>
+            <h2>{formatMoney(financial?.netProfit)}</h2>
+            <p>Utilidad bruta menos gastos y comisiones.</p>
+          </div>
+          <div>
+            <h4>Costo de venta</h4>
+            <h2>{formatMoney(financial?.costOfSales)}</h2>
+            <p>Costo de los productos vendidos.</p>
           </div>
         </div>
         {step == 0 ? (

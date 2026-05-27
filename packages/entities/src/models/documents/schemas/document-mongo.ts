@@ -29,6 +29,13 @@ export const DocumentSchemaMongo = new Schema<Document>(
     paymentsTotal: { type: Number },
     paymentsPending: { type: Number },
     paymentsRefunds: { type: Number },
+    paymentInstallments: { type: Number },
+    paymentInstallmentValue: { type: Number },
+    paymentReference: { type: String },
+    paymentFee: { type: Number },
+    paymentNetAmount: { type: Number },
+    paymentDisbursementDate: { type: String },
+    paymentCollectionStatus: { type: String },
     status: {
       type: String,
       enum: Object.values(StatusType),

@@ -259,6 +259,14 @@ background-color: #fff;
     border-radius: .5rem;
     border: 1px solid rgba(255, 255, 255, .1);
     padding: 1.5rem;
+    min-height: 12rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.metrics > div.metricPrimary{
+    background-color: #1F4E3D;
 }
 
 .metrics > div h4{
@@ -270,4 +278,11 @@ background-color: #fff;
     color: #fff;
     font-size: 2.8rem;
     font-weight: 500;
+}
+
+.metrics > div p{
+    color: rgba(255,255,255,.65);
+    font-size: 1.25rem;
+    line-height: 1.4;
+    margin-top: .8rem;
 }
