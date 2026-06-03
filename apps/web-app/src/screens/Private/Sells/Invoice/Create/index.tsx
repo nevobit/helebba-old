@@ -24,7 +24,7 @@ import {
   Product,
   ProductDocument,
 } from '@helebba/entities';
-import { Search, Trash, X } from 'lucide-react';
+import { Search, Trash } from 'lucide-react';
 import { Modal } from '@/containers';
 import PreviewDocument from '@/containers/PreviewDocument';
 import { useQueryClient } from '@tanstack/react-query';
