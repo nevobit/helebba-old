@@ -80,6 +80,7 @@ const ReferralRow = ({ doc, index, selected, onSelect }: Props) => {
           <Menus.Menu>
             <Menus.Toggle id={doc.id || ''} />
             <Menus.List id={doc.id || ''}>
+
               <Modal.Open opens="send-document">
                 <Menus.Button>Enviar</Menus.Button>
               </Modal.Open>
