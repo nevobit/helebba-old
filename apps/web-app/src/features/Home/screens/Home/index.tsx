@@ -116,6 +116,10 @@ const Home = () => {
             <h2>{formatMoney(financial?.costOfSales)}</h2>
             <p>Costo de los productos vendidos.</p>
           </div>
+          <div>
+            <h4>Tablero General</h4>
+            <Link to="/boards" style={{ color: '#fff' }}>Ver mas</Link>
+          </div>
         </div>
         {step == 0 ? (
         <div className={styles.panel_home}>
