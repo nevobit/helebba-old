@@ -7,7 +7,7 @@ export const sendInvitation = async ({ email, accountName, accountOwnerName }: {
     const resend = new Resend(RESEND_KEY!);
 
     await resend.emails.send({
-        from: `Helebba <no-reply@helebba.com>`,
+        from: `Helebba <no-reply@lytos.com>`,
         to: email,
         subject: `${accountOwnerName} te invita a unirte a ${accountName} en Helebba`,
         html: htmlMessage.replace("{name}", accountOwnerName).replace("{account}", accountName),

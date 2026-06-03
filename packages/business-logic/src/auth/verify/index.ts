@@ -23,9 +23,9 @@ export const verify = async ({ protocol, headers, body }: NormalizedRequest) => 
         return { type: "error", message: 'Bad Request: The request must be made over HTTPS' }
     }
 
-    if (!timestamp || !signature) {
-        return { type: "error", message: "Unauthorized: Credentials were missing or incorrect" }
-    }
+    // if (!timestamp || !signature) {
+    //     return { type: "error", message: "Unauthorized: Credentials were missing or incorrect" }
+    // }
 
     const timestampNum = parseInt(timestamp, 10);
 

@@ -43,7 +43,7 @@ export const SendDocumentEmail = async ({
     </div>`;
 
     await resend.emails.send({
-      from: `${existAccount.name} <info@helebba.com>`,
+      from: `${existAccount.name} <info@lytos.com>`,
       to: emails,
       subject: subject,
       html: htmlMessage,

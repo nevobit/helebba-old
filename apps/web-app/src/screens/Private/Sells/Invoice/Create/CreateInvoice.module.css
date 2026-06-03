@@ -24,11 +24,10 @@
 }
 
 .items_table{
- background-color: #fff;
- width: 95%;
+background-color: #fff;
  margin: 0 auto;
  border-radius: 1rem;
- padding-top: 2rem;
+/* padding-top: 2rem; */
  padding-bottom: 1rem;
 }
 
@@ -44,13 +43,14 @@
  justify-content: flex-start;
  padding: 1rem 0;
  border-bottom: 1px solid rgba(0, 0, 0, .1);
+background-color: #f3f4f6;
 }
 
 
 .head h4{
  width: 100%;
- font-size: 1.35rem;
- font-weight: 600;
+font-size: 1.3rem;
+    font-weight: 400;
  color: rgba(0, 0, 0, .6);
 }
 
@@ -104,14 +104,15 @@
     border-left: 1px solid rgba(0, 0, 0, .1);
 }
 
-.last_card{
- width: 95%;
+.last_card {
  border-radius: .5rem;
  display: grid;
  grid-template-columns: 2fr 1fr 1fr;
  align-items: flex-start;
- gap: 2rem;
- margin: 2rem auto;
+    gap: 2rem;
+border-top: 1px solid rgba(0, 0, 0, .1);
+    border-radius: 0;
+    margin-top: 1rem;
 }
 
 .last_card > div{
@@ -154,21 +155,29 @@
  padding: 2rem;
 }
 
-.client_info{
- width: 94%;
+.invoice_info {
+    border: 1px solid rgba(0, 0, 0, .1);
+    margin-inline: 4rem;
+    border-radius: .5rem;
+}
+
+.client_info {
  margin: 0 auto;
- background-color: #fff;
- padding-inline: 1.5rem;
+background-color: #fff;
  padding-bottom: 1.5rem;
  padding-top: 0;
  border-radius: .5rem;
- margin-bottom: 2rem;
+margin-bottom: 1rem;
  display: flex;
  align-items: center;
  justify-content: flex-start;
  gap: 2rem;
+padding: 2rem;
 }
 
+.client_info>div {
+    margin-top: 0;
+}
 .list{
     position: relative;
 }
@@ -192,4 +201,8 @@
 
 .products_list > div{
     cursor: pointer;
+}
+
+.payment_method {
+    margin-top: 2rem;
 }

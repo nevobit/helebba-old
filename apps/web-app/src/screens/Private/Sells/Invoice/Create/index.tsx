@@ -24,7 +24,7 @@ import {
   Product,
   ProductDocument,
 } from '@helebba/entities';
-import { Search, X } from 'lucide-react';
+import { Search, Trash, X } from 'lucide-react';
 import { Modal } from '@/containers';
 import PreviewDocument from '@/containers/PreviewDocument';
 import { useQueryClient } from '@tanstack/react-query';
@@ -283,6 +283,8 @@ const CreateInvoice = () => {
         </Button>
       </ScreenHeader>
 
+      <div className={styles.invoice_info}> 
+
       <div className={styles.client_info}>
         <Field label="Cliente">
           <SelectWithSearch
@@ -428,7 +430,8 @@ const CreateInvoice = () => {
             <div
               className={styles.body_option}
               onClick={() => removeElement(element.id)}>
-              <X size={16} color="var(--main-color)" />
+              <Trash size={14} strokeWidth={"1.5px"} />
+              {/* <X size={16} color="var(--main-color)" /> */}
             </div>
           </div>
         ))}
@@ -440,9 +443,12 @@ const CreateInvoice = () => {
         </div>
       </div>
 
-      <div className={styles.last_card}>
+        <div className={styles.last_card}>
+          <div className={styles.payment_method}>
+
+            <h3 className={styles.title} >Método de pago</h3>
         <div className={styles.invoice_payment}>
-          <Field label="Información de pago">
+              <Field label="Seleccione un método de pago">
             <select
               name="paymentMethod"
               value={invoice.paymentMethod}
@@ -520,7 +526,9 @@ const CreateInvoice = () => {
               </Field>
             </div>
           )}
-        </div>
+            </div>
+          </div>
+
       </div>
 
       <div className={styles.footer}>
@@ -537,6 +545,7 @@ const CreateInvoice = () => {
           <h3>{DivisaFormater({ value: total, country: account?.country })}</h3>
           <p>Total</p>
         </div>
+      </div>
       </div>
 
       <div></div>

@@ -2,6 +2,7 @@ import { Table, type ColumnDef } from "@helebba/design-system/web";
 import { Document, DocumentType } from "@helebba/entities";
 import { useState } from "react";
 import { useDocuments } from "@/hooks";
+import Actions from "./Actions";
 
 export const columns: ColumnDef<Document>[] = [
     { header: 'Fecha', accessor: 'date', width: '100%' },
@@ -19,6 +20,9 @@ export const columns: ColumnDef<Document>[] = [
             borderRadius: 5
         }}>{JSON.stringify(value)}</span>
     },
+    {
+        header: '', accessor: 'id', width: '150px', isNumeric: true, Cell: ({ value, row }) => <Actions id={String(value)} row={row} />
+    }
 ]
 
 export const InvoicesTable = ({ setSelectedRows, search }: { search: string, setSelectedRows: React.Dispatch<React.SetStateAction<string[]>> }) => {

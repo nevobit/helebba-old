@@ -83,7 +83,7 @@ const ProductForm = ({ contactToEdit = {}, onCloseModal }: Props) => {
 
                             <div className={styles.inputs}>
                                 <Field label='Nombre del producto *' >
-                                    <Input placeholder='Añade un nombre a tu producto' />
+                                    <Input name='name' placeholder='Añade un nombre a tu producto' onChange={handleChange} />
                                 </Field>
                                 <Field label='Descripción del producto *' >
                                     <Textarea placeholder='Especifica las características del artículo' />

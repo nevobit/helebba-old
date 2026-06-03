@@ -1,6 +1,7 @@
 import { RouteObject } from 'react-router-dom';
 import Configuration from '@/screens/Private/Options/Configuration';
 import { Documents } from '@/screens/Private/Settings';
+import Developers from '@/screens/HashScreens/Developers';
 
 export const hashRoutes: RouteObject[] = [
    {
@@ -16,6 +17,11 @@ export const hashRoutes: RouteObject[] = [
   {
     path: '/settings/documents',
     element: <Documents />,
+    errorElement: <></>
+  },
+  {
+    path: '/settings/api',
+    element: <Developers />,
     errorElement: <></>
   },
 ];

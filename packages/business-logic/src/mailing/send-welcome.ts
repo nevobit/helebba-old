@@ -7,7 +7,7 @@ export const sendWelcome = async ({ email, accountName, accountOwnerName }: { em
     const resend = new Resend(RESEND_KEY!);
 
     await resend.emails.send({
-        from: `El Equipo de Helebba <no-reply@helebba.com>`,
+        from: `El Equipo de Helebba <no-reply@lytos.com>`,
         to: email,
         subject: `Ya tienes activa tu cuenta Helebba`,
         html: htmlMessage.replace("{name}", accountOwnerName).replace("{account}", accountName),

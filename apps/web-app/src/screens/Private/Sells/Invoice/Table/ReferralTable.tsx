@@ -11,7 +11,7 @@ const ReferralsTable = () => {
 
   return (
     <Menus>
-      <Table columns="3rem 1fr 1fr 1fr 1fr 1fr 1fr 5rem">
+      <Table columns="3rem 1fr 1fr 1fr 1fr 1fr 1fr 5rem 1rem">
         <Table.Header>
           <div>
             {' '}

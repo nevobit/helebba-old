@@ -26,7 +26,7 @@ interface Props {
 
 // const ses = new AWS.SES({ apiVersion: "2010-12-01" });
 
-const adminMail = '{sender} <noreply@helebba.com>';
+const adminMail = '{sender} <noreply@lytos.com>';
 
 // const transporter = nodemailer.createTransport({
 //     SES: ses
