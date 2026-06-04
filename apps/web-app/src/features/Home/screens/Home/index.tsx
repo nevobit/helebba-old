@@ -18,7 +18,6 @@ const Home = () => {
   const { isEditing, editAccount } = useEditAccount();
   const { financial } = useFinancial();
 
-
   const step = 0;
   const { formState: accountUpdated, handleChange, setFormState} = useForm({
     id: account?.id,
