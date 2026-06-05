@@ -3,22 +3,43 @@ import { Document, DocumentType } from "@helebba/entities";
 import { useState } from "react";
 import { useDocuments } from "@/hooks";
 import Actions from "./Actions";
+import { DivisaFormater } from "@/utilities";
+
+export enum StatusDocument {
+    Pending = 0,
+    Paid = 1,
+    PartiallyPaid = 2,
+    Cancelled = 3
+}
+
+export const getStatusDocument = (status: number) => {
+    switch (status) {
+        case StatusDocument.Pending:
+            return "Pendiente de pago";
+        case StatusDocument.Paid:
+            return "Pagada";
+        case StatusDocument.PartiallyPaid:
+            return "Pago parcial";
+        case StatusDocument.Cancelled:
+            return "Cancelada";
+        default:
+            throw new Error("Invalid invoice status");
+    }
+}
 
 export const columns: ColumnDef<Document>[] = [
     { header: 'Fecha', accessor: 'date', width: '100%' },
     { header: 'Num', accessor: 'docNumber', width: '100%' },
     { header: 'Cliente', accessor: 'contactName', width: '100%' },
-    { header: 'Descripción', accessor: 'desc', width: '100%' },
-    { header: 'Subtotal', accessor: 'billAddress.address', width: '100%', trunc: true },
-    { header: 'Total', accessor: 'billAddress.city', width: '100%' },
+    { header: 'Subtotal', accessor: 'subtotal', width: '100%', isNumeric: true, Cell: ({ value }) => <span>{DivisaFormater({ value: Number(value) })}</span> },
+    { header: 'Total', accessor: 'total', width: '100%', isNumeric: true, Cell: ({ value }) => <span>{DivisaFormater({ value: Number(value) })}</span> },
     {
         header: 'Estado', accessor: 'statusDocument', width: '50%', Cell: ({ value }) => <span style={{
-            color: "#fff",
             fontSize: 12,
             paddingBlock: 2,
             paddingInline: 10,
             borderRadius: 5
-        }}>{JSON.stringify(value)}</span>
+        }}>{getStatusDocument(Number(value))}</span>
     },
     {
         header: '', accessor: 'id', width: '150px', isNumeric: true, Cell: ({ value, row }) => <Actions id={String(value)} row={row} />
