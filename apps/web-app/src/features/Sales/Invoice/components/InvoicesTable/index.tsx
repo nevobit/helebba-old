@@ -12,16 +12,19 @@ export enum StatusDocument {
     Cancelled = 3
 }
 
-export const getStatusDocument = (status: number) => {
+export const getStatusDocument = (status: string) => {
     switch (status) {
-        case StatusDocument.Pending:
+        case 'pending':
             return "Pendiente de pago";
-        case StatusDocument.Paid:
+        case 'received':
             return "Pagada";
-        case StatusDocument.PartiallyPaid:
+        case 'paid':
+            return "Pagada";
+        case 'partially_paid':
             return "Pago parcial";
-        case StatusDocument.Cancelled:
+        case 'cancelled':
             return "Cancelada";
+
         default:
             throw new Error("Invalid invoice status");
     }
@@ -34,12 +37,12 @@ export const columns: ColumnDef<Document>[] = [
     { header: 'Subtotal', accessor: 'subtotal', width: '100%', isNumeric: true, Cell: ({ value }) => <span>{DivisaFormater({ value: Number(value) })}</span> },
     { header: 'Total', accessor: 'total', width: '100%', isNumeric: true, Cell: ({ value }) => <span>{DivisaFormater({ value: Number(value) })}</span> },
     {
-        header: 'Estado', accessor: 'statusDocument', width: '50%', Cell: ({ value }) => <span style={{
+        header: 'Estado', accessor: 'paymentCollectionStatus', width: '50%', Cell: ({ value }) => <span style={{
             fontSize: 12,
             paddingBlock: 2,
             paddingInline: 10,
             borderRadius: 5
-        }}>{getStatusDocument(Number(value))}</span>
+        }}>{getStatusDocument(String(value))}</span>
     },
     {
         header: '', accessor: 'id', width: '150px', isNumeric: true, Cell: ({ value, row }) => <Actions id={String(value)} row={row} />
