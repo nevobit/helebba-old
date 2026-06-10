@@ -24,7 +24,7 @@ const Form = ({ bookingLocation }: { bookingLocation: BookingLocation }) => {
                     <Input value={business.name} placeholder='Nombre del negocio' name='name' onChange={handleChange} />
                 </Field>
                 <Field label='URL de la página de reserva *' >
-                    <Input placeholder='' value={`reservas.helebba.com.co/${bookingLocation.hash}`} disabled />
+                    <Input placeholder='' value={`reservas.helebba.com/${bookingLocation.hash}`} disabled />
                 </Field>
                 <Field label='Tipo'>
                     <select name="type" onChange={handleChange}>

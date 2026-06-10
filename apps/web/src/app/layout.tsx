@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   verification: {
     google: 'adzbIeQhnCvH-LtHow0c3Db_PSCcEU-BBcR90Aq5Doo'
   },
-  metadataBase: new URL('https://helebba.com.co'),
+  metadataBase: new URL('https://helebba.com'),
   title: {
     default: 'Helebba - El software de gestión para emprendedores',
     template: '%s | Helebba - El software de gestión para emprendedores'
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Helebba - El software de gestión para emprendedores',
     description:'Helebba es el software de gestión de negocios que te permite gestionar desde un mismo sitio tu facturación, contabilidad, inventario, CRM, proyectos y RRHH.',
-    url: 'https://helebba.com.co',
+    url: 'https://helebba.com',
     siteName: 'Helebba Software',
     type: 'website',
     locale: 'es-ES',

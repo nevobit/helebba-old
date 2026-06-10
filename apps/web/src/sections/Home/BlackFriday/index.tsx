@@ -16,8 +16,8 @@ const BlackFriday = ({ image = true }: { image?: boolean }) => {
                 {image && (
 
                 <div className={styles.buttons} >
-                        <Link href='https://app.helebba.com.co/login'>Empieza gratis</Link>
-                        <Link href='https://app.helebba.com.co/login?provider=google'><Image src='/google-logo.png' alt='Logo de Google' width={25} height={25} /> Empieza gratis con Google</Link>
+                        <Link href='https://app.helebba.com/login'>Empieza gratis</Link>
+                        <Link href='https://app.helebba.com/login?provider=google'><Image src='/google-logo.png' alt='Logo de Google' width={25} height={25} /> Empieza gratis con Google</Link>
                     </div>
                 )}
             </div>

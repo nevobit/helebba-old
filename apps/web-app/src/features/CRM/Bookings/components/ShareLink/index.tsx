@@ -32,7 +32,7 @@ export const ShareLink = ({ bookingLocation }: { bookingLocation: BookingLocatio
                 <Modal.Body>
                     <div className={styles.body} >
                         <p>Copia y comparte este enlace con tus clientes para que puedan acceder a tu página y programar citas.</p>
-                        <LinkButton variant='plain' >reservas.helebba.com.co/{bookingLocation.hash}</LinkButton>
+                        <LinkButton variant='plain' >reservas.helebba.com/{bookingLocation.hash}</LinkButton>
                         <Button variant='primary' icon={<Link size={14} />} >Copiar enlace</Button>
                     </div>
                 </Modal.Body>

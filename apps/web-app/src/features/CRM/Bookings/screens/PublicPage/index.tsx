@@ -134,7 +134,7 @@ const PublicPage = () => {
                             <p>Es el enlace que tus clientes usarán para acceder a tu página de reservas.</p>
                         </div>
                         <div>
-                            <Input value={`https://reservas.helebba.com.co/${formState.hash}`} name='url' onChange={handleChange} disabled />
+                            <Input value={`https://reservas.helebba.com/${formState.hash}`} name='url' onChange={handleChange} disabled />
                         </div>
                     </div>
 
