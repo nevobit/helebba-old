@@ -57,8 +57,13 @@ const Board = () => {
         console.log(document.paymentMethod)
         const method = document.paymentMethod ?? 'DESCONOCIDO';
 
-        acc[method] = (acc[method] ?? 0) + Number(document.total ?? 0);
-
+        acc[method] =
+            (acc[method] ?? 0) +
+            Number(
+                document.paymentMethod !== 'bank'
+                    ? document.paymentNetAmount
+                    : document.total ?? 0
+            );
         return acc;
     }, {} as Record<string, number>);
     console.log(salesByPaymentMethod)
