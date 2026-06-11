@@ -135,7 +135,6 @@ export const Financial = async (account: string): Promise<FinancialSummary> => {
       return toNumber(document.paymentNetAmount);
     }
   );
-
   const netProfit = cashReceived - operatingExpenses;
 
   return {
