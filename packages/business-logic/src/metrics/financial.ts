@@ -35,14 +35,46 @@ const toNumber = (value: unknown): number => {
   return Number.isFinite(number) ? number : 0;
 };
 
+const CREDIT_PAYMENT_METHODS = ["addi", "sistecredito"];
+
+const getTodayDateInput = () =>
+  new Intl.DateTimeFormat("en-CA", {
+    timeZone: "America/Bogota",
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit",
+  }).format(new Date());
+
+const getEffectivePaymentCollectionStatus = (document: Document): string => {
+  if (
+    CREDIT_PAYMENT_METHODS.includes(document.paymentMethod || "") &&
+    document.paymentDisbursementDate &&
+    document.paymentDisbursementDate < getTodayDateInput()
+  ) {
+    return "pending";
+  }
+
+  return (document as any).paymentCollectionStatus || "pending";
+};
+
+const sum = <T>(items: T[], getValue: (item: T) => number): number => {
+  return items.reduce((total, item) => total + getValue(item), 0);
+};
+
+const getCostOfSales = (document: Document): number => {
+  const products = Array.isArray(document.products) ? document.products : [];
+
+  return products.reduce((total, product: any) => {
+    const costPrice = toNumber(product.costPrice);
+    const amount = toNumber(product.amount);
+
+    return total + costPrice * amount;
+  }, 0);
+};
+
 export const Financial = async (account: string): Promise<FinancialSummary> => {
   const model = getModel<Document>(Collection.DOCUMENTS, DocumentSchemaMongo);
 
-  /**
-   * OJO:
-   * Esto modifica estados antes de leer el dashboard.
-   * Idealmente debería ir en un cron/job, no aquí.
-   */
   await settleDueCreditDocuments(account);
 
   const salesQuery: SalesQuery = {
@@ -57,127 +89,54 @@ export const Financial = async (account: string): Promise<FinancialSummary> => {
     docType: "expenses",
   };
 
-  const [salesSummary] = await model.aggregate([
-    {
-      $match: salesQuery,
-    },
-    {
-      $project: {
-        total: { $ifNull: ["$total", 0] },
-        refunds: { $ifNull: ["$paymentsRefunds", 0] },
-        financialFee: { $ifNull: ["$paymentFee", 0] },
-
-        /**
-         * Dinero realmente recibido.
-         * No asumimos que statusDocument === 1 significa cobrado.
-         */
-        collected: {
-          $ifNull: ["$paymentsTotal", 0],
-        },
-
-        costOfSales: {
-          $sum: {
-            $map: {
-              input: { $ifNull: ["$products", []] },
-              as: "product",
-              in: {
-                $multiply: [
-                  { $ifNull: ["$$product.costPrice", 0] },
-                  { $ifNull: ["$$product.amount", 0] },
-                ],
-              },
-            },
-          },
-        },
-      },
-    },
-    {
-      $project: {
-        total: 1,
-        refunds: 1,
-        financialFee: 1,
-        collected: 1,
-        costOfSales: 1,
-
-        netDocumentAmount: {
-          $max: [
-            {
-              $subtract: [
-                {
-                  $subtract: ["$total", "$refunds"],
-                },
-                "$financialFee",
-              ],
-            },
-            0,
-          ],
-        },
-      },
-    },
-    {
-      $project: {
-        total: 1,
-        refunds: 1,
-        financialFee: 1,
-        collected: 1,
-        costOfSales: 1,
-        netDocumentAmount: 1,
-
-        receivable: {
-          $max: [
-            {
-              $subtract: ["$netDocumentAmount", "$collected"],
-            },
-            0,
-          ],
-        },
-      },
-    },
-    {
-      $group: {
-        _id: null,
-        salesGross: { $sum: "$total" },
-        refunds: { $sum: "$refunds" },
-        financialFees: { $sum: "$financialFee" },
-        cashReceived: { $sum: "$collected" },
-        accountsReceivable: { $sum: "$receivable" },
-        costOfSales: { $sum: "$costOfSales" },
-      },
-    },
+  const [salesDocuments, expenseDocuments] = await Promise.all([
+    model.find(salesQuery).lean<Document[]>(),
+    model.find(expenseQuery).lean<Document[]>(),
   ]);
 
-  const [expenseSummary] = await model.aggregate([
-    {
-      $match: expenseQuery,
-    },
-    {
-      $group: {
-        _id: null,
-        operatingExpenses: {
-          $sum: {
-            $ifNull: ["$total", 0],
-          },
-        },
-      },
-    },
-  ]);
+  const salesGross = sum(salesDocuments, (document) => {
+    return toNumber(document.total);
+  });
 
-  const salesGross = toNumber(salesSummary?.salesGross);
-  const refunds = toNumber(salesSummary?.refunds);
+  const refunds = sum(salesDocuments, (document) => {
+    return toNumber((document as any).paymentsRefunds);
+  });
+
   const salesNet = Math.max(salesGross - refunds, 0);
 
-  const costOfSales = toNumber(salesSummary?.costOfSales);
+  const costOfSales = sum(salesDocuments, (document) => {
+    return getCostOfSales(document);
+  });
+
   const grossProfit = salesNet - costOfSales;
 
-  const operatingExpenses = toNumber(expenseSummary?.operatingExpenses);
-  const financialFees = toNumber(salesSummary?.financialFees);
+  const operatingExpenses = sum(expenseDocuments, (document) => {
+    return toNumber(document.total);
+  });
 
-  const netProfit = grossProfit - operatingExpenses - financialFees;
+  const financialFees = sum(salesDocuments, (document) => {
+    return toNumber((document as any).paymentFee);
+  });
 
-  const cashReceived = toNumber(salesSummary?.cashReceived);
-  const accountsReceivable = toNumber(salesSummary?.accountsReceivable);
+  const cashReceived = sum(
+    salesDocuments.filter((document) => {
+      return getEffectivePaymentCollectionStatus(document) === "received";
+    }),
+    (document) => {
+      return toNumber(document.total);
+    }
+  );
 
-  console.log({ accountsReceivable })
+  const accountsReceivable = sum(
+    salesDocuments.filter((document) => {
+      return getEffectivePaymentCollectionStatus(document) === "pending";
+    }),
+    (document) => {
+      return toNumber(document.paymentNetAmount);
+    }
+  );
+
+  const netProfit = cashReceived - operatingExpenses;
 
   return {
     salesGross,

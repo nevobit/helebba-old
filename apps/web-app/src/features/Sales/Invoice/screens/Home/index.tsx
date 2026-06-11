@@ -10,9 +10,12 @@ const Home = () => {
     const [selectedRows, setSelectedRows] = useState<string[]>([]);
     const [tab, setTab] = useState('invoices');
     const [search, setSearch] = useState('');
+    const [paymentMethod, setPaymentMethod] = useState('');
+    const [paymentStatus, setPaymentStatus] = useState('');
 
     console.log(selectedRows)
     const { isLoading } = useDocuments(DocumentType.INVOICE);
+
 
     if (isLoading) return <LineScaleLoader />
 
@@ -41,8 +44,19 @@ const Home = () => {
                 <button onClick={() => setTab('recurring-invoices')} className={`${styles.tab} ${tab == 'recurring-invoices' ? styles.active : ''}`} >Facturas recurrentes</button>
             </div>
 
-            <Toolbar setSearch={setSearch} />
-            <InvoicesTable search={search} setSelectedRows={setSelectedRows} />
+            <Toolbar
+                paymentMethod={paymentMethod}
+                paymentStatus={paymentStatus}
+                setPaymentMethod={setPaymentMethod}
+                setPaymentStatus={setPaymentStatus}
+                setSearch={setSearch}
+            />
+            <InvoicesTable
+                paymentMethod={paymentMethod}
+                paymentStatus={paymentStatus}
+                search={search}
+                setSelectedRows={setSelectedRows}
+            />
         </div>
     )
 }

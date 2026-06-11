@@ -29,7 +29,7 @@ export const settleDueCreditDocuments = async (account?: string) => {
     paymentMethod: { $in: CREDIT_PAYMENT_METHODS },
     statusDocument: { $ne: StatusDocument.Paid },
     paymentCollectionStatus: { $in: ['pending', 'scheduled', null] },
-    paymentDisbursementDate: { $exists: true, $ne: '', $lte: today },
+    paymentDisbursementDate: today,
   });
 
   await Promise.all(

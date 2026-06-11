@@ -41,7 +41,7 @@ const SelectWithSearch: React.FC<SelectWithSearchProps> = ({
       setSelectedOptionText(element?.name || "");
     }
 
-  }, [options])
+  }, [options, value])
   return (
     <div className={styles.select_container}>
       <div className={styles.select_element}>

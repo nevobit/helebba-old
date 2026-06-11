@@ -59,7 +59,7 @@ const CreateInvoice = () => {
   const { isEditing, editDocument } = useEditDocument();
 
 
-  const { document, isLoading: isLoadingDocumentToEdit } = useDocument();
+  const { document } = useDocument();
 
   const { id: editId, ...editValues } = document || { id: '' };
   const isEditSession = Boolean(editId.length > 1 ?? false);
@@ -266,21 +266,33 @@ const CreateInvoice = () => {
 
   useEffect(() => {
     if (document) {
-      setInvoice((previnvoice) => ({
-        ...previnvoice,
-        payment: document.paymentMethod,
-      }));
+      setInvoice({
+        ...document,
+        paymentDisbursementDate:
+          INSTALLMENT_PAYMENT_METHODS.includes(document.paymentMethod || '') &&
+          !document.paymentDisbursementDate
+            ? getTodayDateInput()
+            : document.paymentDisbursementDate,
+        paymentCollectionStatus:
+          document.paymentCollectionStatus ||
+          (INSTALLMENT_PAYMENT_METHODS.includes(document.paymentMethod || '')
+            ? 'pending'
+            : 'received'),
+        paymentInstallments: document.paymentInstallments || 1,
+        paymentFee: document.paymentFee || 0,
+        paymentNetAmount: document.paymentNetAmount || 0,
+      });
     }
-  }, [isLoadingDocumentToEdit, document]);
+  }, [document]);
 
   useEffect(() => {
-    if (isEditSession) {
+    if (isEditSession && document?.products?.length) {
       const newElements = document.products.map((product: ProductDocument) => ({
         ...product,
       }));
       initialElements(newElements);
     }
-  }, [isEditSession]);
+  }, [document?.id, isEditSession]);
 
   return (
     <Modal>
