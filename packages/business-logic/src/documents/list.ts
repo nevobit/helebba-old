@@ -6,6 +6,7 @@ import {
   StatusType,
   DocumentType,
 } from '@helebba/entities';
+import { settleDueCreditDocuments } from './settle-credit-payments';
 
 interface Query {
   status: StatusType;
@@ -30,6 +31,10 @@ export const getAllDocuments = async ({
   docType,
 }: Params): Promise<Result<Document>> => {
   const model = getModel<Document>(Collection.DOCUMENTS, DocumentSchemaMongo);
+  if (docType === DocumentType.INVOICE) {
+    await settleDueCreditDocuments(account);
+  }
+
   const query: Query = { status: StatusType.ACTIVE, account };
 
   if (search) {

@@ -17,7 +17,7 @@ import { registerRoutes } from "../routes";
 import { initDataSources } from '@helebba/data-sources';
 import { setLogger } from "@helebba/constant-definitions";
 import { swaggerOptions, swaggerUiOptions } from "../docs";
-import { verify } from "@helebba/business-logic";
+import { settleDueCreditDocuments, verify } from "@helebba/business-logic";
 
 const envFilePath =
   process.env.NODE_ENV === 'production'
@@ -85,6 +85,15 @@ const main = async () => {
       redisWriteUrl: REDIS_URL
     }
   });
+
+  const settleCreditDocuments = () => {
+    settleDueCreditDocuments().catch((error) => {
+      logger.error('Credit document settlement error', { error });
+    });
+  };
+
+  settleCreditDocuments();
+  setInterval(settleCreditDocuments, 60 * 60 * 1000);
 
   const server = fastify({
     logger: false,

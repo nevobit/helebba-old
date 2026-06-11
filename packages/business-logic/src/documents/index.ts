@@ -5,4 +5,5 @@ export * from './get-one';
 export * from './list';
 export * from './pay-document';
 export * from './send-document';
+export * from './settle-credit-payments';
 export * from './update';

@@ -1,5 +1,6 @@
 import { Collection, getModel } from "@helebba/constant-definitions";
 import { Document, DocumentSchemaMongo, StatusType } from "@helebba/entities";
+import { settleDueCreditDocuments } from "../documents/settle-credit-payments";
 
 type SalesDocumentType = "invoice" | "sale-order";
 
@@ -31,6 +32,8 @@ const toNumber = (value: unknown) => Number(value || 0);
 
 export const Financial = async (account: string): Promise<FinancialSummary> => {
   const model = getModel<Document>(Collection.DOCUMENTS, DocumentSchemaMongo);
+  await settleDueCreditDocuments(account);
+
   const salesQuery: SalesQuery = {
     docType: { $in: ["invoice", "sale-order"] },
     status: StatusType.ACTIVE,
