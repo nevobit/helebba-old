@@ -42,6 +42,7 @@ import { salesRoutes } from '@/features/Sales/routes';
 import { inventoryRoutes } from '@/features/Inventory/routes';
 import { myZoneRoutes } from '@/features/MyZone/routes';
 import Demo from '@/features/Authentication/screens/Demo';
+import EditInvoice from '@/features/Sales/Invoice/screens/Edit';
 
 export const routes: RouteObject[] = [
   {
@@ -84,7 +85,7 @@ export const routes: RouteObject[] = [
           },
           {
             path: PrivateRoutes.EDIT_INVOICE,
-            element: <CreateInvoice />,
+            element: <EditInvoice />,
           },
           {
             path: PrivateRoutes.EDIT_QUOTE,

@@ -31,6 +31,14 @@ import { useQueryClient } from '@tanstack/react-query';
 
 const INSTALLMENT_PAYMENT_METHODS = ['addi', 'sistecredito'];
 
+const getTodayDateInput = () =>
+  new Intl.DateTimeFormat('en-CA', {
+    timeZone: 'America/Bogota',
+    year: 'numeric',
+    month: '2-digit',
+    day: '2-digit',
+  }).format(new Date());
+
 const CreateInvoice = () => {
   const account = useAccountStore((state) => state.account);
   const { contacts } = useContacts();
@@ -104,7 +112,7 @@ const CreateInvoice = () => {
           paymentReference: '',
           paymentFee: 0,
           paymentNetAmount: 0,
-          paymentDisbursementDate: '',
+          paymentDisbursementDate: getTodayDateInput(),
           paymentCollectionStatus: 'pending',
           salesChannelId: '',
         },
@@ -141,6 +149,8 @@ const CreateInvoice = () => {
       ...(name === 'paymentMethod' && INSTALLMENT_PAYMENT_METHODS.includes(value)
         ? {
             paymentInstallments: prev.paymentInstallments || 1,
+            paymentDisbursementDate:
+              prev.paymentDisbursementDate || getTodayDateInput(),
             paymentCollectionStatus: prev.paymentCollectionStatus || 'pending',
           }
         : {}),
@@ -199,6 +209,8 @@ const CreateInvoice = () => {
       ...prev,
       paymentInstallmentValue,
       paymentNetAmount,
+      paymentDisbursementDate:
+        prev.paymentDisbursementDate || getTodayDateInput(),
       paymentsPending: total,
     }));
   }, [
