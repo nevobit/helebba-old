@@ -126,6 +126,7 @@ export const InvoicesTable = ({ paymentMethod, paymentStatus, setSelectedRows, s
             <Table.Header />
             <Table.Body />
             <Table.Footer />
+            <span>{documents.items.lenght}</span>
         </Table>
     )
 }
