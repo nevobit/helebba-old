@@ -44,6 +44,8 @@ export const getStatusDocument = (status: string) => {
             return "Pagada";
         case 'paid':
             return "Pagada";
+        case 'scheduled':
+            return "Programado";
         case 'partially_paid':
             return "Pago parcial";
         case 'cancelled':
@@ -65,7 +67,7 @@ export const getMethodDocument = (method: string) => {
         case 'sistecredito':
             return "Sistecredito";
         default:
-            throw new Error("Invalid invoice status");
+            return "Sin método";
     }
 }
 

@@ -18,6 +18,6 @@ export enum DocumentType {
     PURCHASE_REFUND = 'purchase-refund',
     PURCHASE_ORDER = 'purchase-order',
     REFERRALS = 'referrals',
-    QUOTES = 'quotes',
+    ESTIMATES = 'estimates',
     EXPENSES = 'expenses',
 }

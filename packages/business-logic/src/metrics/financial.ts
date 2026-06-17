@@ -129,7 +129,7 @@ export const Financial = async (account: string): Promise<FinancialSummary> => {
 
   const accountsReceivable = sum(
     salesDocuments.filter((document) => {
-      return getEffectivePaymentCollectionStatus(document) === "pending";
+      return ["pending", "scheduled"].includes(getEffectivePaymentCollectionStatus(document));
     }),
     (document) => {
       return toNumber(document.paymentNetAmount);
