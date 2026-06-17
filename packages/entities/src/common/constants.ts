@@ -20,4 +20,5 @@ export enum DocumentType {
     REFERRALS = 'referrals',
     ESTIMATES = 'estimates',
     EXPENSES = 'expenses',
+    QUOTES = 'quotes'
 }
